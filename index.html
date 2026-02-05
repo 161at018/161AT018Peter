@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>161AT018 Peter – Home</title>
+    
+    <style>
+        :root {
+            --bg-color: #121212;
+            --panel-bg: #1e1e1e;
+            --text-color: #e0e0e0;
+            --accent-color: #cc0000;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            font-size: 14px; /* Zmniejszenie ogólnej wielkości */
+        }
+
+        /* NAGŁÓWEK Z TWOIM ORYGINALNYM OBRAZEM */
+        .header {
+            width: 100%;
+            height: 250px;
+            background-image: url('https://img.webme.com/pic/2/29at118/header.jpg');
+            background-size: contain; /* Obrazek zachowa proporcje */
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-color: #000;
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        .wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1100px;
+            margin: 15px auto;
+            gap: 15px;
+            padding: 0 10px;
+        }
+
+        .panel, .content {
+            background-color: var(--panel-bg);
+            border: 1px solid #333;
+            padding: 15px;
+        }
+
+        .panel {
+            flex: 1 1 200px;
+        }
+
+        .content {
+            flex: 3 1 500px;
+        }
+
+        h1 {
+            font-size: 1.4em;
+            color: var(--accent-color);
+            margin-top: 0;
+        }
+
+        .menu-title {
+            font-weight: bold;
+            color: var(--accent-color);
+            border-bottom: 1px solid #444;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .menu a {
+            display: block;
+            color: #bbb;
+            text-decoration: none;
+            padding: 6px 0;
+            border-bottom: 1px solid #2a2a2a;
+            font-size: 13px;
+        }
+
+        .menu a:hover {
+            color: #fff;
+            background: #2a2a2a;
+        }
+
+        /* ZEGAR */
+        .time-box {
+            text-align: center;
+        }
+
+        .time {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: var(--accent-color);
+            font-family: monospace;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 800px) {
+            .header { height: 120px; background-size: cover; }
+            .wrapper { flex-direction: column; }
+            .content { order: -1; }
+        }
+    </style>
+
+    <script>
+        function updateTime() {
+            const clockDiv = document.getElementById('clock');
+            const options = {
+                timeZone: 'Europe/Warsaw',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false
+            };
+            const formatter = new Intl.DateTimeFormat('pl-PL', options);
+            
+            setInterval(() => {
+                clockDiv.textContent = formatter.format(new Date());
+            }, 1000);
+        }
+    </script>
+</head>
+<body onload="updateTime()">
+
+    <div class="header"></div>
+
+    <div class="wrapper">
+        <div class="panel">
+            <div class="menu-title">Menu</div>
+            <nav class="menu">
+                <a href="index.html">HOME</a>
+                <a href="qth.html">MY QTH</a>
+                <a href="equipment.html">MY EQUIPMENT</a>
+                <a href="qsl.html">QSL INFO</a>
+                <a href="gallery.html">QSL GALLERY</a>
+                <a href="prefix.html">11M PREFIX LIST</a>
+                <a href="video.html">VIDEO & STREAM</a>
+                <a href="links.html">LINKS</a>
+                <a href="guestbook.html">GUESTBOOK</a>
+                <a href="contact.html">CONTACT</a>
+            </nav>
+            <p style="font-size: 10px; color: #555; margin-top: 20px;">© 161AT018 Peter 2026</p>
+        </div>
+
+        <main class="content">
+            <h1>Welcome to my Personal page.</h1>
+            <p>I am Peter <b>161AT018</b> from <b>Bystrzyca Kłodzka</b>.</p>
+            <p>I started my adventure with radio in 1992.<br>
+            From November 2021 I use 161AT018.</p>
+            <p>Hope to meet you soon on freq.<br><b>73's & Good DX!</b></p>
+        </main>
+
+        <div class="panel">
+            <div class="menu-title" style="text-align: center;">Local Time</div>
+            <div class="time-box">
+                <p style="margin: 0; font-size: 12px;">Bystrzyca Kłodzka</p>
+                <div id="clock" class="time">00:00:00</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
