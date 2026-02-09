@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +7,7 @@
     <style>
         body { background-color: #121212; color: #e0e0e0; font-family: Arial, sans-serif; margin: 0; padding: 0; }
         
+        /* HEADER - Path adjusted to your GitHub structure */
         .header { 
             width: 100%; 
             height: 250px; 
@@ -23,15 +24,30 @@
         .panel { flex: 1 1 200px; }
         .content { flex: 3 1 500px; }
 
+        /* NAVIGATION MENU */
         .menu a { display: block; color: #bbb; text-decoration: none; padding: 8px 0; border-bottom: 1px solid #2a2a2a; }
         .menu a:hover { color: #fff; background: #2a2a2a; }
         
+        /* CLOCK & HEADERS */
         .time { font-size: 1.5em; font-weight: bold; color: #cc0000; font-family: monospace; }
+        h1 { color: #cc0000; margin-top: 0; }
+        h2 { color: #cc0000; font-size: 1.2em; margin-top: 20px; }
         
-        h1, h2 { color: #cc0000; margin-top: 0; }
-        .qth-info { line-height: 1.8; }
-        .qth-image { width: 100%; max-width: 600px; border: 1px solid #444; margin-top: 15px; }
+        /* IMAGE CENTERING */
+        .qth-container {
+            text-align: center;
+            margin: 20px 0;
+        }
 
+        .qth-image { 
+            width: 100%; 
+            max-width: 550px; 
+            height: auto;
+            border: 1px solid #444;
+            display: inline-block;
+        }
+
+        /* RESPONSIVENESS */
         @media (max-width: 800px) { 
             .wrapper { flex-direction: column; } 
             .content { order: -1; } 
@@ -62,37 +78,35 @@
     </div>
 
     <main class="content">
-        <h1>My QTH</h1>
-        <div class="qth-info">
-            <p><b>Lokalizacja:</b> Bystrzyca Kłodzka, Polska</p>
-            <p><b>Województwo:</b> Dolnośląskie</p>
-            <p><b>Grid Locator:</b> JO80IH (przykładowy, sprawdź swój dokładnie)</p>
-            <hr style="border: 0; border-top: 1px solid #333;">
-            <p>Bystrzyca Kłodzka to piękne, historyczne miasto położone w Sudetach, u zbiegu rzek Nysy Kłodzkiej i Bystrzycy. Okolica jest górzysta, co stwarza ciekawe warunki do propagacji fal radiowych.</p>
-        </div>
+        <h1>My QTH - Bystrzyca Kłodzka</h1>
+        <p>Greetings to all my radio friends around the world! Here is some information about my location:</p>
         
-        <h2>Okolica i Anteny</h2>
-        <p>Tutaj możesz wstawić zdjęcie swojego QTH lub systemu antenowego.</p>
-        <img src="images/qth_photo.jpg" alt="Widok na QTH" class="qth-image" onerror="this.style.display='none'">
-        <p style="font-size: 0.9em; color: #888;">(Aby zdjęcie się pojawiło, wgraj plik qth_photo.jpg do folderu images)</p>
+        <div style="background: #252525; padding: 15px; border-left: 3px solid #cc0000;">
+            <p><b>City:</b> Bystrzyca Kłodzka</p>
+            <p><b>Country:</b> Poland (SP)</p>
+            <p><b>Province:</b> Lower Silesia (Dolnośląskie)</p>
+            <p><b>Grid Locator:</b> JO80IH</p>
+        </div>
+
+        <div class="qth-container">
+            <img src="images/qth_map.jpg" alt="Map of My QTH in Poland" class="qth-image" onerror="this.style.display='none'">
+            <p style="font-size: 0.85em; color: #888; margin-top: 8px;">My location on the map of Poland</p>
+        </div>
+
+        <h2>About the area</h2>
+        <p>
+            Bystrzyca Kłodzka is a beautiful, historic town located in the Kłodzko Valley, 
+            at the confluence of the Nysa Kłodzka and Bystrzyca rivers. 
+            The town is surrounded by the Sudetes mountain range, which provides a 
+            unique and challenging environment for radio propagation.
+        </p>
+        <p>
+            The historic architecture and the mountainous landscape make it one of 
+            the most picturesque spots in South-Western Poland. 
+            I look forward to catching you on the air from this location!
+        </p>
     </main>
 
     <div class="panel" style="text-align:center;">
         <div style="color:#cc0000; font-weight:bold; margin-bottom:10px;">LOCAL TIME</div>
-        <p style="margin:0; font-size:12px;">Bystrzyca Kłodzka</p>
-        <div id="clock" class="time">00:00:00</div>
-    </div>
-</div>
-
-<script>
-    function updateTime() {
-        const options = { timeZone: 'Europe/Warsaw', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
-        const formatter = new Intl.DateTimeFormat('pl-PL', options);
-        setInterval(() => {
-            const clock = document.getElementById('clock');
-            if (clock) clock.textContent = formatter.format(new Date());
-        }, 1000);
-    }
-</script>
-</body>
-</html>
+        <p style="margin:0; font-size:12px;">Bystrzyca Kłodzka, Poland</p
