@@ -2,28 +2,79 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>161AT018 Peter - 11m Prefix List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>161AT018 Peter – 11m Prefix List</title>
     <style>
-        body { background-color: #121212; color: #e0e0e0; font-family: "Courier New", Courier, monospace; margin: 20px; line-height: 1.2; }
-        .menu { margin-bottom: 20px; border-bottom: 2px solid #cc0000; padding-bottom: 10px; font-family: Arial; }
-        .menu a { color: #ccc; text-decoration: none; margin-right: 15px; font-weight: bold; }
-        .menu a:hover { color: #fff; }
-        h1 { color: #cc0000; font-family: Arial; margin-bottom: 20px; }
-        .prefix-list { white-space: pre; font-size: 14px; }
+        body { background-color: #121212; color: #e0e0e0; font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        
+        /* Nagłówek / Logo */
+        .header { 
+            width: 100%; height: 300px; 
+            background-image: url("images/header.jpg"); background-size: contain; 
+            background-repeat: no-repeat; background-position: center top; 
+            background-color: #000; border-bottom: 2px solid #cc0000; 
+        }
+
+        /* Układ strony */
+        .wrapper { display: flex; flex-wrap: wrap; max-width: 1800px; margin: 20px auto; gap: 20px; padding: 0 20px; }
+        .panel, .content { background-color: #1e1e1e; border: 1px solid #333; padding: 25px; box-sizing: border-box; }
+        
+        /* Panele boczne */
+        .panel { flex: 0 1 250px; }
+        
+        /* Środkowa treść */
+        .content { flex: 1 1 800px; min-width: 350px; }
+
+        /* Styl menu */
+        .menu a { display: block; color: #bbb; text-decoration: none; padding: 12px 0; border-bottom: 1px solid #2a2a2a; font-size: 15px; }
+        .menu a:hover { color: #fff; background: #2a2a2a; padding-left: 5px; transition: 0.2s; }
+        
+        h1 { color: #cc0000; margin-top: 0; font-size: 2.2em; border-bottom: 2px solid #cc0000; padding-bottom: 10px; }
+        
+        /* Zegary */
+        .time-box { text-align: center; margin-bottom: 30px; }
+        .time-label { color: #cc0000; font-weight: bold; font-size: 14px; margin-bottom: 5px; }
+        .time-display { font-size: 1.8em; font-weight: bold; color: #e0e0e0; font-family: 'Courier New', monospace; }
+
+        /* Lista prefiksów - czysty tekst */
+        .prefix-container {
+            white-space: pre-wrap;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 15px;
+            line-height: 1.5;
+            color: #ffffff;
+            background-color: #151515;
+            padding: 20px;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 850px) { .wrapper { flex-direction: column; } .content { order: -1; } .header { height: 150px; } }
     </style>
 </head>
-<body>
+<body onload="updateTime()">
 
-<nav class="menu">
-    <a href="index.html">Home</a>
-    <a href="prefix.html">Prefix List</a>
-    <a href="qsl.html">QSL Info</a>
-    <a href="contact.html">Contact</a>
-</nav>
+<div class="header"></div>
 
-<h1>11m Prefix List</h1>
+<div class="wrapper">
+    <div class="panel">
+        <div style="color:#cc0000; font-weight:bold; border-bottom:1px solid #444; margin-bottom:10px;">MENU</div>
+        <nav class="menu">
+            <a href="index.html">Home</a>
+            <a href="qth.html">My QTH</a>
+            <a href="equipment.html">My Equipment</a>
+            <a href="qsl.html">QSL info</a>
+            <a href="gallery.html">QSL Gallery</a>
+            <a href="prefix.html">11m Prefix List</a>
+            <a href="video.html">Video & Stream</a>
+            <a href="links.html">Links</a>
+            <a href="guestbook.html">Guestbook</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </div>
 
-<div class="prefix-list">
+    <main class="content">
+        <h1>11m Prefix List</h1>
+        <div class="prefix-container">
   1. Italy
   2. United States of America
   3. Brazil
@@ -230,4 +281,177 @@
 204. Mozambique
 205. Cape Verde Republic
 206. Ethiopia
-207. St.
+207. St. Martin Island
+208. Glorioso Island
+209. Juan de Nova Island
+210. Wallis & Futuna Islands
+211. Jan Mayen Island
+212. Aland Islands
+213. Marked Reef
+214. Congo Republic
+215. Gabon
+216. Mali
+217. Christmas Island
+218. Belize
+219. Anguilla Island
+220. St. Vincent Island
+221. South Orkney Islands
+222. South Sandwich Islands
+223. Western Samoa Islands
+224. Western Kiribati Islands
+225. Brunei
+226. Malawi
+227. Rwanda
+228. Chagos Island
+229. Heard Island
+230. Federated States of Micronesia
+231. St. Peter & St. Paul Rocks
+232. Aruba
+233. Romania
+234. Afghanistan
+235. I.T.U Geneva
+236. Bangladesh
+237. Union of Myanmar
+238. Cambodia
+239. Laos
+240. Macao
+241. Spratly Islands
+242. Vietnam
+243. Agalega & St. Brandon Islands
+244. Pagalu Islands
+245. Niger
+246. Sao Tome & Principe Islands
+247. Navassa Island
+248. Turks & Caicos Islands
+249. Northern Cook Islands
+250. South Cook Islands
+251. Albania
+252. Revilla Gigedo Island
+253. Andaman & Nicobar Islands
+254. Mount Athos
+255. Kerguelen Islands
+256. Prince Edward & Marion Islands
+257. Rodriguez Island
+258. Tristan da Cunha & Gough Islands
+259. Tromelin Island
+260. Baker & Howland Islands
+261. Chatham Island
+262. Johnston Island
+263. Kermadec Islands
+264. Kingman Reef
+265. Central Kiribati
+266. Eastern Kiribati
+267. Kure Island
+268. Lord Howe Island
+269. Mellish Reef
+270. Minami Torishima Island
+271. Republic of Nauru
+272. Niue Island
+273. Jarwis & Palmyra Islands
+274. Pitcairn Island
+275. Tokelau Islands
+276. Tuvalu Islands
+277. Sable Island
+278. Wake Island
+279. Willis Island
+280. Aves Island
+281. Ogasawara Island
+282. Auckland & Campbell Islands
+283. St. Kitts & Nevis Islands
+284. St. Paul Island
+285. Fernando de Noronha Island
+286. Juan Fernandez Island
+287. Malpelo Island
+288. San Felix Island
+289. South Georgia Islands
+290. Trinidade & Martim Vaz Islands
+291. Dhekelia & Akrotiri
+292. Abu Ail Island (DELETED)
+293. Guinea Bissau
+294. Peter 1st Island
+295. Southern Sudan (DELETED)
+296. Clipperton Island
+297. Bouvet Island
+298. Crozet Island
+299. Desecheo Island
+300. Western Sahara
+301. Armenia
+302. Asiatic Russia
+303. Azerbaijan
+304. Estonia
+305. Franz Josef Land
+306. Georgia
+307. Kaliningrad
+308. Kazakhstan
+309. Kyrgyzstan
+310. Latvia
+311. Lithuania
+312. Moldavia
+313. Tajikistan
+314. Turkmenistan
+315. Ukraine
+316. Uzbekistan
+317. Belarus
+318. Survey Military of Malta
+319. United Nations - New York
+320. Banaba Island
+321. Conway Reef
+322. Walvis Bay (DELETED)
+323. Yemen
+324. Penguin Island (DELETED)
+325. Rotuma Island
+326. Malyj Vysotskij (DELETED)
+327. Slovenia
+328. Croatia
+329. Czech Republic
+330. Slovakia
+331. Bosnia & Hercegovina
+332. Macedonia
+333. Eritrea
+334. North Korea
+335. Scarborough Reef
+336. Pratas Island
+337. Austral Islands
+338. Marquesas Islands
+339. Temotu Islands
+340. Palestine
+341. East Timor
+342. Chesterfield Islands
+343. Ducie Island
+344. Montenegro
+345. Swains Island
+346. St. Barthelemy Island
+347. Curacao (ex 7 div)
+348. St. Maarten (ex 166 div)
+349. Saba & St. Eustatius Islands
+350. Bonaire Island
+351. South Sudan
+352. Kosovo
+        </div>
+    </main>
+
+    <div class="panel">
+        <div class="time-box">
+            <div class="time-label">LOCAL TIME</div>
+            <div id="local-clock" class="time-display">00:00:00</div>
+        </div>
+        <div class="time-box">
+            <div class="time-label">UTC TIME</div>
+            <div id="utc-clock" class="time-display" style="color: #0080ff;">00:00:00</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function updateTime() {
+        const options = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+        setInterval(() => {
+            const now = new Date();
+            document.getElementById('local-clock').textContent = now.toLocaleTimeString('pl-PL', options);
+            document.getElementById('utc-clock').textContent = now.toLocaleTimeString('pl-PL', { ...options, timeZone: 'UTC' });
+        }, 1000);
+    }
+</script>
+
+</body>
+</html>
