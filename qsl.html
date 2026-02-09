@@ -80,3 +80,53 @@
         </nav>
         <p style="font-size: 11px; color: #555; margin-top: 30px;">© 161AT018 Peter 2026</p>
     </div>
+
+    <main class="content">
+        <h1>QSL Information</h1>
+        <p>I confirm all my radio contacts. If we had a QSO, I would be happy to exchange paper QSL cards with you.</p>
+
+        <div class="qsl-card-box">
+            <div style="font-size: 40px; margin-bottom: 10px;">✉️</div>
+            <h2 style="margin-top: 0;">How to get my QSL card?</h2>
+            <p>For my postal address and QSL exchange details, please contact me directly via email:</p>
+            <a href="mailto:161at018@gmail.com" class="email-link">161at018@gmail.com</a>
+        </div>
+
+        <h2>Exchange Policy</h2>
+        <div class="info-box">
+            <b style="color: #0080ff;">Paper QSL (Direct)</b><br>
+            Exchanging paper cards is a great tradition. I send my cards globally. Please send an email first to confirm the address and contribution details. 
+            I always respond to all received cards!
+        </div>
+
+        <p style="color: #cc0000; font-weight: bold; margin-top: 30px; font-size: 1.2em;">73! Thank you for the contact and see you on the air!</p>
+    </main>
+
+    <div class="panel" style="text-align:center;">
+        <div style="color:#cc0000; font-weight:bold; margin-bottom:5px;">LOCAL TIME</div>
+        <p style="margin:0; font-size:12px; color: #888;">Bystrzyca Kłodzka, PL</p>
+        <div id="clock" class="time">00:00:00</div>
+        
+        <div style="margin-top: 40px; border-top: 1px solid #333; padding-top: 20px;">
+            <div style="color:#cc0000; font-weight:bold; margin-bottom:5px;">UTC TIME</div>
+            <p style="margin:0; font-size:12px; color: #888;">Universal Time</p>
+            <div id="utc_clock" class="time" style="color: #0080ff;">00:00:00</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function updateTime() {
+        const localOpt = { timeZone: 'Europe/Warsaw', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+        const utcOpt = { timeZone: 'UTC', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+        const localFm = new Intl.DateTimeFormat('en-GB', localOpt);
+        const utcFm = new Intl.DateTimeFormat('en-GB', utcOpt);
+        setInterval(() => {
+            const now = new Date();
+            document.getElementById('clock').textContent = localFm.format(now);
+            document.getElementById('utc_clock').textContent = utcFm.format(now);
+        }, 1000);
+    }
+</script>
+</body>
+</html>
