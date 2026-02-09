@@ -38,9 +38,11 @@
         /* QSL Styles */
         .qsl-box { background: #151515; border: 1px solid #333; padding: 20px; margin-top: 20px; }
         .qsl-status { display: inline-block; padding: 5px 15px; background: #ff9900; color: #000; font-weight: bold; border-radius: 3px; margin-bottom: 15px; }
-        .qsl-methods { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
-        .method-card { background: #252525; padding: 15px; border-top: 2px solid #ff9900; }
-        .method-card b { color: #ff9900; display: block; margin-bottom: 5px; }
+        
+        .method-card { background: #252525; padding: 20px; border-top: 2px solid #ff9900; margin-top: 20px; }
+        .method-card b { color: #ff9900; display: block; margin-bottom: 10px; font-size: 1.1em; }
+        .email-link { color: #ff9900; text-decoration: none; font-weight: bold; border-bottom: 1px dashed #ff9900; }
+        .email-link:hover { color: #fff; border-bottom: 1px solid #fff; }
 
         @media (max-width: 850px) { .wrapper { flex-direction: column; } .content { order: -1; } .header { height: 120px; } }
     </style>
@@ -71,26 +73,27 @@
             
             <div class="qsl-box">
                 <div class="qsl-status">QSL STATUS: 100% RETURN</div>
-                <p>Receiving and sending QSL cards is a very important part of my radio hobby. I value every contact and I am always happy to exchange traditional paper cards.</p>
+                <p>Exchanging QSL cards is a vital part of the radio hobby. I value every single contact and I am committed to returning every paper card I receive.</p>
             </div>
 
-            <h2>How to exchange cards</h2>
-            <div class="qsl-methods">
-                <div class="method-card">
-                    <b>Direct QSL</b>
-                    Please send your card to my postal address. I do not require contributions (standard AT rules), but a self-addressed envelope (SAE) is always appreciated to speed up the process.
-                </div>
-                <div class="method-card">
-                    <b>Via Manager / Bureau</b>
-                    If a manager is active for a specific activation, please follow the specific instructions provided during the contact.
-                </div>
+            <div class="method-card">
+                <b>Direct QSL Exchange</b>
+                <p>For a direct exchange, please contact me via email to receive my current postal address. I follow standard Alfa Tango rules – contributions are not required, but a Self-Addressed Envelope (SAE) is always helpful.</p>
+                <p style="margin-top: 15px;">
+                    Contact Email: <a href="mailto:161at018@gmail.com" class="email-link">161at018@gmail.com</a>
+                </p>
             </div>
 
-            <h2>Important Note</h2>
-            <p>Please make sure the QSO data (Time in UTC, Date, Frequency, Mode, and Signal Report) is clearly written on your card. This helps me verify our contact in my logbook quickly.</p>
+            <h2>Important Requirements</h2>
+            <p>To ensure a smooth confirmation process, please make sure your card includes:</p>
+            <ul style="list-style-type: none; padding: 0;">
+                <li style="border-left: 2px solid #ff9900; padding-left: 10px; margin-bottom: 5px;">Correct QSO Date and Time (UTC)</li>
+                <li style="border-left: 2px solid #ff9900; padding-left: 10px; margin-bottom: 5px;">Frequency and Mode (USB/LSB)</li>
+                <li style="border-left: 2px solid #ff9900; padding-left: 10px; margin-bottom: 5px;">Signal Report (RST)</li>
+            </ul>
             
-            <div style="margin-top: 30px; text-align: center; border: 1px dashed #ff9900; padding: 20px;">
-                <p style="color: #ff9900; font-weight: bold; margin: 0;">Address info is available upon request via Email or Facebook.</p>
+            <div style="margin-top: 30px; text-align: center; border: 1px dashed #ff9900; padding: 20px; background: #1a1a1a;">
+                <p style="color: #ff9900; font-weight: bold; margin: 0;">Address information and logs verification via email: 161at018@gmail.com</p>
             </div>
         </main>
 
