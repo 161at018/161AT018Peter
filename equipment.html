@@ -3,172 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>161AT018 Peter – My Equipment</title>
+    <title>161AT018 Peter - My Equipment</title>
     <style>
-        body { background-color: #121212; color: #e0e0e0; font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        body { background-color: #121212; color: #e0e0e0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; line-height: 1.6; }
         
-        /* HEADER */
+        /* NAGŁÓWEK 200px - BEZ PRZERWY */
         .header { 
             width: 100%; 
-            height: 300px; 
-            background-image: url("images/header.jpg"); 
-            background-size: contain; 
-            background-repeat: no-repeat; 
-            background-position: center top; 
-            background-color: #000; 
-            border-bottom: 2px solid #cc0000; 
+            height: 200px; 
+            background: url("images/header.jpg") no-repeat center center; 
+            background-size: 100% 100%; 
+            border-bottom: 2px solid #ff9900; 
+            margin: 0;
+            display: block;
         }
 
-        /* MAIN LAYOUT - Optimized for 1920px */
-        .wrapper { 
-            display: flex; 
-            flex-wrap: wrap; 
-            max-width: 1800px; 
-            margin: 20px auto; 
-            gap: 20px; 
-            padding: 0 20px; 
-        }
-
-        .panel, .content { 
-            background-color: #1e1e1e; 
-            border: 1px solid #333; 
-            padding: 25px; 
-            box-sizing: border-box; 
-        }
-
+        .wrapper { display: flex; flex-wrap: wrap; max-width: 1400px; margin: 20px auto; gap: 20px; padding: 0 20px; }
+        .panel, .content { background-color: #1e1e1e; border: 1px solid #333; padding: 25px; box-sizing: border-box; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
         .panel { flex: 0 1 250px; }
         .content { flex: 1 1 800px; min-width: 350px; }
-
-        /* MENU STYLE */
-        .menu a { 
-            display: block; 
-            color: #bbb; 
-            text-decoration: none; 
-            padding: 12px 0; 
-            border-bottom: 1px solid #2a2a2a; 
-            font-size: 15px; 
-        }
-        .menu a:hover { color: #fff; background: #2a2a2a; padding-left: 5px; transition: 0.2s; }
-
-        /* TYPOGRAPHY & TABLE */
-        h1 { color: #cc0000; margin-top: 0; font-size: 2.2em; border-bottom: 2px solid #cc0000; padding-bottom: 10px; }
-        .time { font-size: 2em; font-weight: bold; color: #cc0000; font-family: monospace; }
         
-        .eq-table { width: 100%; border-collapse: collapse; margin-top: 20px; background-color: #151515; }
-        .eq-table th, .eq-table td { border: 1px solid #333; padding: 15px; text-align: left; vertical-align: top; }
-        .eq-table th { background-color: #252525; color: #cc0000; text-transform: uppercase; letter-spacing: 1px; }
-        .eq-table tr:hover { background-color: #1c1c1c; }
+        .menu a { display: block; color: #bbb; text-decoration: none; padding: 12px 10px; border-bottom: 1px solid #2a2a2a; font-size: 15px; transition: 0.3s; }
+        .menu a:hover { color: #fff; background: #2a2a2a; padding-left: 15px; border-left: 4px solid #ff9900; }
         
-        .cat-title { font-weight: bold; color: #0080ff; font-size: 1.1em; }
-        .sold-item { color: #555; text-decoration: line-through; font-style: italic; }
-        .highlight { color: #ffcc00; font-weight: bold; }
+        h1 { color: #ff9900; border-bottom: 2px solid #ff9900; padding-bottom: 10px; margin-top: 0; font-variant: small-caps; }
+        
+        /* Zegary */
+        .clock-container { text-align: center; }
+        .clock-label { color: #ff9900; font-weight: bold; font-size: 14px; text-transform: uppercase; }
+        .time-local { font-size: 1.8em; font-weight: bold; color: #ff9900; font-family: "Courier New", Courier, monospace; text-shadow: 0 0 10px rgba(255,153,0,0.3); }
+        .time-utc { font-size: 1.8em; font-weight: bold; color: #0080ff; font-family: "Courier New", Courier, monospace; text-shadow: 0 0 10px rgba(0,128,255,0.3); }
+        .divider { border-top: 1px solid #333; margin: 20px 0; }
 
-        /* RESPONSIVENESS */
-        @media (max-width: 850px) { 
-            .wrapper { flex-direction: column; } 
-            .content { order: -1; width: 100%; } 
-            .panel { width: 100%; flex: 1 1 auto; }
-            .header { height: 150px; } 
-        }
+        /* Tabela Sprzętu */
+        .eq-table { width: 100%; border-collapse: collapse; margin-top: 20px; background: #151515; }
+        .eq-table tr { border-bottom: 1px solid #333; transition: 0.3s; }
+        .eq-table tr:hover { background: #1c1c1c; }
+        .eq-table td { padding: 15px; vertical-align: middle; }
+        .eq-category { color: #ff9900; font-weight: bold; width: 30%; text-transform: uppercase; font-size: 0.9em; }
+        .eq-name { font-size: 1.1em; color: #fff; }
+
+        @media (max-width: 850px) { .wrapper { flex-direction: column; } .content { order: -1; } .header { height: 120px; } }
     </style>
 </head>
 <body onload="updateTime()">
 
-<div class="header"></div>
+    <div class="header"></div>
 
-<div class="wrapper">
-    <div class="panel">
-        <div style="color:#cc0000; font-weight:bold; border-bottom:1px solid #444; margin-bottom:10px;">MENU</div>
-        <nav class="menu">
-            <a href="index.html">Home</a>
-            <a href="qth.html">My QTH</a>
-            <a href="equipment.html">My Equipment</a>
-            <a href="qsl.html">QSL info</a>
-            <a href="gallery.html">QSL Gallery</a>
-            <a href="prefix.html">11m Prefix List</a>
-            <a href="video.html">Video & Stream</a>
-            <a href="links.html">Links</a>
-            <a href="guestbook.html">Guestbook</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-        <p style="font-size: 11px; color: #555; margin-top: 30px;">© 161AT018 Peter 2026</p>
+    <div class="wrapper">
+        <aside class="panel">
+            <div style="color:#ff9900; font-weight:bold; border-bottom:1px solid #444; margin-bottom:10px; letter-spacing: 2px;">NAVIGATION</div>
+            <nav class="menu">
+                <a href="index.html">Home</a>
+                <a href="qth.html">My QTH</a>
+                <a href="equipment.html">My Equipment</a>
+                <a href="qsl.html">QSL info</a>
+                <a href="gallery.html">QSL Gallery</a>
+                <a href="prefix.html">11m Prefix List</a>
+                <a href="video.html">Video & Stream</a>
+                <a href="links.html">Links</a>
+                <a href="guestbook.html">Guestbook</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <h1>My Radio Station Equipment</h1>
+            
+            <p>Below is a list of the equipment currently used at <b>161AT018</b> for both local and DX operations:</p>
+
+            <table class="eq-table">
+                <tr>
+                    <td class="eq-category">Transceivers</td>
+                    <td class="eq-name">ICOM IC-7300<br>President Lincoln II Plus</td>
+                </tr>
+                <tr>
+                    <td class="eq-category">Antennas</td>
+                    <td class="eq-name">3 Element Skypper (Portable/Base)<br>Sirio Gain Master 5/8 Wave</td>
+                </tr>
+                <tr>
+                    <td class="eq-category">Microphones</td>
+                    <td class="eq-name">Turner +3 Blue Edition<br>Sadelta Echo Master Plus Classic</td>
+                </tr>
+                <tr>
+                    <td class="eq-category">Power Supply</td>
+                    <td class="eq-name">Alinco DM-330MVE (32A)</td>
+                </tr>
+                <tr>
+                    <td class="eq-category">Accessories</td>
+                    <td class="eq-name">Zetagi SWR/Watt Meter<br>Low Pass Filter</td>
+                </tr>
+            </table>
+
+            <div style="margin-top: 30px; border-left: 4px solid #ff9900; padding: 15px; background: #222;">
+                <p style="margin: 0; font-style: italic; color: #bbb;">
+                    "I believe that the antenna is the most important part of any radio station. A good beam always makes the difference during DX openings!"
+                </p>
+            </div>
+        </main>
+
+        <aside class="panel">
+            <div class="clock-container">
+                <div class="clock-label">Local Time</div>
+                <div id="clock" class="time-local">00:00:00</div>
+                <div class="divider"></div>
+                <div class="clock-label">UTC Time</div>
+                <div id="utc_clock" class="time-utc">00:00:00</div>
+            </div>
+        </aside>
     </div>
 
-    <main class="content">
-        <h1>My Radio Station Equipment</h1>
-        <p>A detailed look at the gear I use for my DX adventures and local contacts.</p>
-
-        <table class="eq-table">
-            <thead>
-                <tr>
-                    <th style="width: 30%;">Category</th>
-                    <th>Model & Technical Details</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="cat-title">Transceivers</td>
-                    <td>
-                        • <b>Icom IC-7300</b> + original mic HM-219<br>
-                        • <span class="highlight">President Jackson 1</span> (Classic version, made in Philippines - legendary modulation & receiver!)<br>
-                        <span class="sold-item">• Icom IC-7000 + original mic HM-151 + modification (SOLD)</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="cat-title">Base Antenna</td>
-                    <td><b>YAGI 3 el. (Spitfire 27)</b> - My primary directional antenna for DX-ing.</td>
-                </tr>
-                <tr>
-                    <td class="cat-title">Portable Antenna</td>
-                    <td><b>SKYPPER</b> - Lightweight beam antenna for portable operations.</td>
-                </tr>
-                <tr>
-                    <td class="cat-title">Mobile Antenna</td>
-                    <td><b>SIRIO Megawatt 4000</b> - Reliable mobile setup.</td>
-                </tr>
-                <tr>
-                    <td class="cat-title">Measurement & Tuning</td>
-                    <td><b>Antenna Analyser MAX6</b> (0-180Mhz) - Essential tool for precise antenna analysis and tuning.</td>
-                </tr>
-            </tbody>
-        </table>
-
-        
-
-        <div style="margin-top: 40px; padding: 20px; background: #252525; border-left: 4px solid #cc0000;">
-            <p style="margin: 0; line-height: 1.6;">
-                <b>Technical Note:</b> I focus heavily on antenna efficiency. Having a proper analyzer like the <b>MAX6</b> 
-                allows me to keep my Yagi and Skypper antennas perfectly tuned for the best possible DX results on the 11m band.
-            </p>
-        </div>
-    </main>
-
-    <div class="panel" style="text-align:center;">
-        <div style="color:#cc0000; font-weight:bold; margin-bottom:5px;">LOCAL TIME</div>
-        <p style="margin:0; font-size:12px; color: #888;">Bystrzyca Kłodzka, PL</p>
-        <div id="clock" class="time">00:00:00</div>
-        
-        <div style="margin-top: 40px; border-top: 1px solid #333; padding-top: 20px;">
-            <div style="color:#cc0000; font-weight:bold; margin-bottom:5px;">UTC TIME</div>
-            <p style="margin:0; font-size:12px; color: #888;">Universal Time</p>
-            <div id="utc_clock" class="time" style="color: #0080ff;">00:00:00</div>
-        </div>
-    </div>
-</div>
-
-<script>
-    function updateTime() {
-        const localOpt = { timeZone: 'Europe/Warsaw', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
-        const utcOpt = { timeZone: 'UTC', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
-        const localFm = new Intl.DateTimeFormat('en-GB', localOpt);
-        const utcFm = new Intl.DateTimeFormat('en-GB', utcOpt);
-        
-        setInterval(() => {
-            const now = new Date();
-            document.getElementById('clock').textContent = localFm.format(now);
-            document.getElementById('utc_clock').textContent = utcFm.format(now);
-        }, 1000);
-    }
-</script>
+    <script>
+        function updateTime() {
+            const opts = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+            setInterval(() => {
+                const now = new Date();
+                document.getElementById('clock').textContent = now.toLocaleTimeString('en-GB', opts);
+                document.getElementById('utc_clock').textContent = now.toLocaleTimeString('en-GB', { ...opts, timeZone: 'UTC' });
+            }, 1000);
+        }
+    </script>
 </body>
 </html>
