@@ -54,6 +54,8 @@
 
         .contact-info { margin-bottom: 30px; line-height: 1.6; }
         .contact-info strong { color: #cc0000; }
+        .contact-info a { color: #e0e0e0; text-decoration: none; border-bottom: 1px dotted #cc0000; }
+        .contact-info a:hover { color: #cc0000; }
 
         @media (max-width: 850px) { .wrapper { flex-direction: column; } .content { order: -1; } .header { height: 150px; } }
     </style>
@@ -83,19 +85,21 @@
             <h1>Contact Me</h1>
             
             <div class="contact-info">
-                <p>If you would like to arrange a <strong>sked</strong>, have questions about my station, or simply want to say hello, feel free to use the form below or contact me via my direct details.</p>
-                <p><strong>Callsign:</strong> 161AT018 Peter<br>
-                <strong>Email:</strong> your-email@example.com<br>
-                <strong>Cluster:</strong> 161AT018 on DX-Cluster</p>
+                <p>Jeśli chcesz umówić się na <strong>sked</strong> lub masz pytania, napisz do mnie bezpośrednio:</p>
+                <p>
+                    <strong>Callsign:</strong> 161AT018 Peter<br>
+                    <strong>Email:</strong> <a href="mailto:161at018@gmail.com">161at018@gmail.com</a><br>
+                    <strong>Lokalizacja:</strong> Poland
+                </p>
             </div>
 
             <div class="contact-form">
-                <form action="#" method="post">
-                    <input type="text" name="name" placeholder="Your Name / Callsign" required>
-                    <input type="email" name="email" placeholder="Your Email Address" required>
-                    <input type="text" name="subject" placeholder="Subject">
-                    <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
-                    <button type="submit">Send Message</button>
+                <form action="mailto:161at018@gmail.com" method="post" enctype="text/plain">
+                    <input type="text" name="name" placeholder="Twoje Imię / Znak" required>
+                    <input type="email" name="email" placeholder="Twój adres Email" required>
+                    <input type="text" name="subject" placeholder="Temat wiadomości">
+                    <textarea name="message" rows="6" placeholder="Twoja wiadomość" required></textarea>
+                    <button type="submit">Wyślij wiadomość</button>
                 </form>
             </div>
         </main>
