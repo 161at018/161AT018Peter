@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,11 +14,9 @@
         .menu a { display: block; color: #bbb; text-decoration: none; padding: 12px 10px; border-bottom: 1px solid #2a2a2a; font-size: 15px; transition: 0.3s; }
         .menu a:hover { color: #fff; background: #2a2a2a; padding-left: 15px; border-left: 4px solid #ff9900; }
         
-        /* Styl nagłówków i akcentów */
         h1 { color: #ff9900; border-bottom: 2px solid #ff9900; padding-bottom: 10px; margin-top: 0; font-variant: small-caps; }
         h2 { color: #ff9900; font-size: 1.2em; margin-top: 20px; }
         
-        /* Zegary */
         .clock-container { text-align: center; }
         .clock-label { color: #ff9900; font-weight: bold; font-size: 14px; margin-bottom: 2px; text-transform: uppercase; }
         .clock-sub { color: #888; font-size: 10px; margin-bottom: 5px; }
@@ -26,7 +24,6 @@
         .time-utc { font-size: 1.8em; font-weight: bold; color: #0080ff; font-family: "Courier New", Courier, monospace; text-shadow: 0 0 10px rgba(0,128,255,0.3); }
         .divider { border-top: 1px solid #333; margin: 20px 0; }
 
-        /* Styl Mapy */
         .map-wrapper { 
             position: relative; 
             border: 2px solid #ff9900; 
@@ -36,7 +33,7 @@
         }
         .map-wrapper iframe {
             width: 100%;
-            filter: grayscale(80%) invert(90%) hue-rotate(180deg); /* Opcjonalny efekt "dark mode" dla mapy */
+            filter: grayscale(80%) invert(90%) hue-rotate(180deg);
             transition: 0.5s;
         }
         .map-wrapper iframe:hover {
@@ -54,7 +51,8 @@
             padding: 15px;
             border-left: 3px solid #ff9900;
         }
-        .qth-card b { color: #ff9900; display: block; font-size: 0.9em; }
+        .qth-card b { color: #ff9900; display: block; font-size: 0.9em; text-transform: uppercase; }
+        .qth-card span { font-size: 1.1em; font-weight: bold; }
 
         @media (max-width: 850px) { .wrapper { flex-direction: column; } .content { order: -1; } .header { height: 150px; } }
     </style>
@@ -84,21 +82,21 @@
             <h1>My QTH - Station Location</h1>
             
             <div class="qth-info">
-                <div class="qth-card"><b>Division:</b> 161 (Poland)</div>
-                <div class="qth-card"><b>City:</b> Bystrzyca Kłodzka</div>
-                <div class="qth-card"><b>Locator:</b> JO80RG</div>
-                <div class="qth-card"><b>Province:</b> Lower Silesia</div>
+                <div class="qth-card"><b>Division</b><span>161 (Poland)</span></div>
+                <div class="qth-card"><b>City</b><span>Bystrzyca Kłodzka</span></div>
+                <div class="qth-card"><b>Locator</b><span>JO80HH</span></div>
+                <div class="qth-card"><b>Region</b><span>Lower Silesia</span></div>
             </div>
 
-            <p>Moja stacja bazowa znajduje się w malowniczej miejscowości <b>Bystrzyca Kłodzka</b>. Jest to region otoczony górskimi pasmami, co stwarza unikalne warunki do propagacji fal radiowych na paśmie 11 metrów.</p>
+            <p>My base station is located in the historic town of <b>Bystrzyca Kłodzka</b>, nestled in the southern part of Poland. The area is surrounded by various mountain ranges, which provides a unique and challenging environment for 11-meter band propagation and DX-ing.</p>
             
-            <h2>Google Maps Location</h2>
+            <h2>Google Maps View</h2>
             <div class="map-wrapper">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20390.53382190368!2d16.629344697869982!3d50.29534888001012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470e053f0d0be2e9%3A0x8bbf5fb049b4ef9a!2sBystrzyca%20K%C5%82odzka%2C%20Polska!5e0!3m2!1spl!2sie!4v1770678978815!5m2!1spl!2sie" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
             
             <p style="margin-top: 20px; font-size: 0.9em; color: #888;">
-                <i>* Mapa pokazuje przybliżoną lokalizację mojej stacji. Do usłyszenia na "piątkach"!</i>
+                <i>* The map shows the approximate location of my radio station. Hope to catch you on the air!</i>
             </p>
         </main>
 
