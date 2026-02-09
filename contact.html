@@ -5,68 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>161AT018 Peter - Contact</title>
     <style>
-        /* MAIN STYLES */
         body { background-color: #121212; color: #e0e0e0; font-family: Arial, sans-serif; margin: 0; padding: 0; }
-        
-        /* HEADER / LOGO */
-        .header { 
-            width: 100%; height: 300px; 
-            background-image: url("images/header.jpg"); background-size: contain; 
-            background-repeat: no-repeat; background-position: center top; 
-            background-color: #000; border-bottom: 2px solid #cc0000; 
-        }
-
-        /* PAGE LAYOUT */
+        .header { width: 100%; height: 300px; background: url("images/header.jpg") no-repeat center top / contain #000; border-bottom: 2px solid #cc0000; }
         .wrapper { display: flex; flex-wrap: wrap; max-width: 1800px; margin: 20px auto; gap: 20px; padding: 0 20px; }
         .panel, .content { background-color: #1e1e1e; border: 1px solid #333; padding: 25px; box-sizing: border-box; }
         .panel { flex: 0 1 250px; }
         .content { flex: 1 1 800px; min-width: 350px; }
-
-        /* MENU STYLING */
         .menu a { display: block; color: #bbb; text-decoration: none; padding: 12px 0; border-bottom: 1px solid #2a2a2a; font-size: 15px; }
         .menu a:hover { color: #fff; background: #2a2a2a; padding-left: 5px; transition: 0.2s; }
+        h1 { color: #cc0000; border-bottom: 2px solid #cc0000; padding-bottom: 10px; }
         
-        /* HEADINGS */
-        h1 { color: #cc0000; margin-top: 0; font-size: 2.2em; border-bottom: 2px solid #cc0000; padding-bottom: 10px; }
+        .clock-container { text-align: center; }
+        .clock-label { color: #cc0000; font-weight: bold; font-size: 14px; margin-bottom: 2px; }
+        .clock-sub { color: #888; font-size: 10px; margin-bottom: 5px; }
+        .time-local { font-size: 1.6em; font-weight: bold; color: #ff0000; font-family: "Courier New", Courier, monospace; }
+        .time-utc { font-size: 1.6em; font-weight: bold; color: #0080ff; font-family: "Courier New", Courier, monospace; }
+        .divider { border-top: 1px solid #333; margin: 20px 0; }
 
-        /* CLOCKS */
-        .time-box { text-align: center; margin-bottom: 40px; }
-        .time-label { color: #cc0000; font-weight: bold; font-size: 14px; margin-bottom: 5px; text-transform: uppercase; }
-        .time-display { font-size: 1.8em; font-weight: bold; color: #e0e0e0; font-family: 'Courier New', monospace; letter-spacing: 2px; }
-
-        /* CONTACT FORM */
-        .contact-form { margin-top: 20px; }
-        .contact-form input, .contact-form textarea {
-            width: 100%; padding: 12px; margin-bottom: 15px;
-            background-color: #151515; border: 1px solid #333;
-            color: #fff; border-radius: 4px; box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-        .contact-form input:focus, .contact-form textarea:focus {
-            outline: none; border-color: #cc0000;
-        }
-        .contact-form button {
-            background-color: #cc0000; color: #fff; border: none;
-            padding: 12px 25px; cursor: pointer; font-weight: bold;
-            text-transform: uppercase; border-radius: 4px; transition: 0.3s;
-        }
-        .contact-form button:hover { background-color: #ff0000; }
-
-        .contact-info { margin-bottom: 30px; line-height: 1.6; }
-        .contact-info strong { color: #cc0000; }
-        .contact-info a { color: #e0e0e0; text-decoration: none; border-bottom: 1px dotted #cc0000; }
-        .contact-info a:hover { color: #cc0000; }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 12px; margin-bottom: 10px; background: #151515; border: 1px solid #444; color: white; border-radius: 4px; }
+        .contact-form button { background: #cc0000; color: white; border: none; padding: 12px 25px; cursor: pointer; font-weight: bold; text-transform: uppercase; }
 
         @media (max-width: 850px) { .wrapper { flex-direction: column; } .content { order: -1; } .header { height: 150px; } }
     </style>
 </head>
 <body onload="updateTime()">
-
     <div class="header"></div>
-
     <div class="wrapper">
         <aside class="panel">
-            <div style="color:#cc0000; font-weight:bold; border-bottom:1px solid #444; margin-bottom:10px; font-size: 16px;">MENU</div>
+            <div style="color:#cc0000; font-weight:bold; border-bottom:1px solid #444; margin-bottom:10px;">MENU</div>
             <nav class="menu">
                 <a href="index.html">Home</a>
                 <a href="qth.html">My QTH</a>
@@ -83,53 +49,37 @@
 
         <main class="content">
             <h1>Contact Me</h1>
-            
-            <div class="contact-info">
-                <p>If you would like to arrange a <strong>sked</strong> or have any questions, feel free to contact me directly:</p>
-                <p>
-                    <strong>Callsign:</strong> 161AT018 Peter<br>
-                    <strong>Email:</strong> <a href="mailto:161at018@gmail.com">161at018@gmail.com</a><br>
-                    <strong>Location:</strong> Poland
-                </p>
-            </div>
-
-            <div class="contact-form">
-                <form action="mailto:161at018@gmail.com" method="post" enctype="text/plain">
-                    <input type="text" name="name" placeholder="Your Name / Callsign" required>
-                    <input type="email" name="email" placeholder="Your Email Address" required>
-                    <input type="text" name="subject" placeholder="Subject">
-                    <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
-                    <button type="submit">Send Message</button>
-                </form>
-            </div>
+            <p>Email: <a href="mailto:161at018@gmail.com" style="color:#cc0000; text-decoration: none; font-weight: bold;">161at018@gmail.com</a></p>
+            <form class="contact-form" action="mailto:161at018@gmail.com" method="post" enctype="text/plain">
+                <input type="text" placeholder="Your Name / Callsign" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea rows="6" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
         </main>
 
         <aside class="panel">
-            <div class="time-box">
-                <div class="time-label">Local Time</div>
-                <div id="local-clock" class="time-display">00:00:00</div>
-            </div>
-
-            <div class="time-box">
-                <div class="time-label">UTC Time</div>
-                <div id="utc-clock" class="time-display" style="color: #0080ff;">00:00:00</div>
+            <div class="clock-container">
+                <div class="clock-label">LOCAL TIME</div>
+                <div class="clock-sub">Bystrzyca Kłodzka, PL</div>
+                <div id="clock" class="time-local">00:00:00</div>
+                <div class="divider"></div>
+                <div class="clock-label">UTC TIME</div>
+                <div class="clock-sub">Universal Time</div>
+                <div id="utc_clock" class="time-utc">00:00:00</div>
             </div>
         </aside>
     </div>
 
     <script>
         function updateTime() {
-            const options = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
-            function refresh() {
+            const opts = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+            setInterval(() => {
                 const now = new Date();
-                // We use 'en-GB' for 24h format in English
-                document.getElementById('local-clock').textContent = now.toLocaleTimeString('en-GB', options);
-                document.getElementById('utc-clock').textContent = now.toLocaleTimeString('en-GB', { ...options, timeZone: 'UTC' });
-            }
-            refresh();
-            setInterval(refresh, 1000);
+                document.getElementById('clock').textContent = now.toLocaleTimeString('en-GB', opts);
+                document.getElementById('utc_clock').textContent = now.toLocaleTimeString('en-GB', { ...opts, timeZone: 'UTC' });
+            }, 1000);
         }
     </script>
-
 </body>
 </html>
