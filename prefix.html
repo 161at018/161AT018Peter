@@ -1,153 +1,178 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>161AT018 Peter – 11m Prefix List</title>
+    <title>161AT018 Peter - 11m Prefix List</title>
     <style>
-        body { background-color: #121212; color: #e0e0e0; font-family: "Courier New", Courier, monospace; margin: 0; padding: 0; }
-        .header { 
-            width: 100%; height: 300px; 
-            background-image: url("images/header.jpg"); background-size: contain; 
-            background-repeat: no-repeat; background-position: center top; 
-            background-color: #000; border-bottom: 2px solid #cc0000; 
-        }
-        .wrapper { display: flex; flex-wrap: wrap; max-width: 1800px; margin: 20px auto; gap: 20px; padding: 0 20px; }
-        .panel, .content { background-color: #1e1e1e; border: 1px solid #333; padding: 25px; box-sizing: border-box; }
-        .panel { flex: 0 1 250px; }
-        .content { flex: 1 1 800px; min-width: 350px; }
-
-        .menu a { display: block; color: #bbb; text-decoration: none; padding: 12px 0; border-bottom: 1px solid #2a2a2a; font-size: 15px; font-family: Arial; }
-        .menu a:hover { color: #fff; background: #2a2a2a; padding-left: 5px; transition: 0.2s; }
+        body { background-color: #121212; color: #e0e0e0; font-family: "Courier New", Courier, monospace; margin: 20px; line-height: 1.2; }
+        .menu { margin-bottom: 20px; border-bottom: 2px solid #cc0000; padding-bottom: 10px; font-family: Arial; }
+        .menu a { color: #ccc; text-decoration: none; margin-right: 15px; font-weight: bold; }
+        .menu a:hover { color: #fff; }
         
-        h1 { color: #cc0000; margin-top: 0; font-size: 2.2em; border-bottom: 2px solid #cc0000; padding-bottom: 10px; font-family: Arial; }
-
-        /* LEGEND */
-        .legend { margin-bottom: 20px; padding: 10px; border: 1px solid #444; font-size: 12px; font-family: Arial; }
+        h1 { color: #cc0000; font-family: Arial; margin-bottom: 10px; }
         
-        /* TWO COLUMN LIST STYLE */
-        .dx-container {
-            column-count: 2;
-            column-gap: 40px;
-            column-rule: 1px solid #333;
-        }
+        .legend { margin-bottom: 25px; padding: 10px; border: 1px solid #333; background-color: #1a1a1a; font-family: Arial; font-size: 14px; }
+        
+        /* Kolory statusów */
+        .red { color: #ff0000; text-decoration: line-through; } /* DELETED */
+        .yellow { color: #ffff00; }                             /* WORKED */
+        .green { color: #00ff00; font-weight: bold; }          /* CONFIRMED */
+        .blue { color: #0080ff; }                              /* WAITING QSL */
+        .me { background-color: #cc0000; color: #fff; padding: 0 5px; font-weight: bold; } /* TWOJA DYWIZJA */
 
-        .prefix-item {
-            white-space: pre;
-            margin-bottom: 2px;
-            font-size: 13px;
-        }
-
-        /* STATUS COLORS */
-        .deleted { color: #ff0000; text-decoration: line-through; } /* RED */
-        .worked { color: #ffff00; }                                /* YELLOW */
-        .confirmed { color: #00ff00; font-weight: bold; }          /* GREEN */
-        .waiting { color: #0080ff; }                               /* BLUE */
-        .me { background-color: #cc0000; color: #fff; font-weight: bold; padding: 0 4px; }
-
-        @media (max-width: 1000px) { .dx-container { column-count: 1; } }
-        @media (max-width: 850px) { .wrapper { flex-direction: column; } .content { order: -1; } .header { height: 150px; } }
+        .prefix-list { white-space: pre; font-size: 14px; }
     </style>
 </head>
 <body>
 
-<div class="header"></div>
+<nav class="menu">
+    <a href="index.html">Home</a>
+    <a href="prefix.html">Prefix List</a>
+    <a href="qsl.html">QSL Info</a>
+    <a href="contact.html">Contact</a>
+</nav>
 
-<div class="wrapper">
-    <div class="panel">
-        <div style="color:#cc0000; font-weight:bold; border-bottom:1px solid #444; margin-bottom:10px; font-family: Arial;">MENU</div>
-        <nav class="menu">
-            <a href="index.html">Home</a>
-            <a href="qth.html">My QTH</a>
-            <a href="equipment.html">My Equipment</a>
-            <a href="qsl.html">QSL info</a>
-            <a href="gallery.html">QSL Gallery</a>
-            <a href="prefix.html">11m Prefix List</a>
-            <a href="video.html">Video & Stream</a>
-            <a href="links.html">Links</a>
-            <a href="guestbook.html">Guestbook</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </div>
+<h1>11m Prefix List</h1>
 
-    <main class="content">
-        <h1>11m Prefix List</h1>
-        
-        <div class="legend">
-            <span style="color:#00ff00;">GREEN: Confirmed</span> | 
-            <span style="color:#ffff00;">YELLOW: Worked</span> | 
-            <span style="color:#0080ff;">BLUE: Waiting QSL</span> | 
-            <span style="color:#ff0000;">RED: Deleted</span>
-        </div>
+<div class="legend">
+    <span class="red">RED color - DELETED</span><br>
+    <span class="yellow">YELLOW color - WORKED</span><br>
+    <span class="green">GREEN color - CONFIRMED</span><br>
+    <span class="blue">BLUE color - WAITING QSL</span>
+</div>
 
-        <div class="dx-container">
-<div class="prefix-item confirmed">  1. Italy</div>
-<div class="prefix-item confirmed">  2. United States of America</div>
-<div class="prefix-item confirmed">  3. Brazil</div>
-<div class="prefix-item">  4. Argentina</div>
-<div class="prefix-item">  5. Venezuela</div>
-<div class="prefix-item">  6. Colombia</div>
-<div class="prefix-item deleted">  7. Netherlands Antilles (DELETED)</div>
-<div class="prefix-item">  8. Peru</div>
-<div class="prefix-item worked">  9. Canada</div>
-<div class="prefix-item"> 10. Mexico</div>
-<div class="prefix-item waiting"> 11. Puerto Rico</div>
-<div class="prefix-item"> 12. Uruguay</div>
-<div class="prefix-item confirmed"> 13. Germany</div>
-<div class="prefix-item confirmed"> 14. France</div>
-<div class="prefix-item confirmed"> 15. Switzerland</div>
-<div class="prefix-item confirmed"> 16. Belgium</div>
-<div class="prefix-item"> 17. Hawai</div>
-<div class="prefix-item worked"> 18. Greece</div>
-<div class="prefix-item confirmed"> 19. Netherlands</div>
-<div class="prefix-item confirmed"> 20. Norway</div>
-<div class="prefix-item confirmed"> 21. Sweden</div>
-<div class="prefix-item"> 22. French Guyana</div>
-<div class="prefix-item"> 23. Jamaica</div>
-<div class="prefix-item"> 24. Panama</div>
-<div class="prefix-item confirmed"> 25. Japan</div>
-<div class="prefix-item confirmed"> 26. England</div>
-<div class="prefix-item"> 27. Iceland</div>
-<div class="prefix-item"> 28. Honduras</div>
-<div class="prefix-item confirmed"> 29. Ireland</div>
-<div class="prefix-item confirmed"> 30. Spain</div>
-<div class="prefix-item confirmed"> 31. Portugal</div>
-<div class="prefix-item"> 32. Chile</div>
-<div class="prefix-item"> 33. Alaska</div>
-<div class="prefix-item worked"> 34. Canary Islands</div>
-<div class="prefix-item confirmed"> 35. Austria</div>
-<div class="prefix-item"> 36. San Marino</div>
-<div class="prefix-item"> 37. Dominican Republic</div>
-<div class="prefix-item"> 38. Greenland</div>
-<div class="prefix-item"> 39. Angola</div>
-<div class="prefix-item"> 40. Liechtenstein</div>
-<div class="prefix-item"> 41. New Zealand</div>
-<div class="prefix-item"> 42. Liberia</div>
-<div class="prefix-item confirmed"> 43. Australia</div>
-<div class="prefix-item"> 44. South Africa</div>
-<div class="prefix-item worked"> 45. Serbia</div>
-<div class="prefix-item deleted"> 46. East Germany (DELETED)</div>
-<div class="prefix-item confirmed"> 47. Denmark</div>
-<div class="prefix-item"> 48. Saudi Arabia</div>
-<div class="prefix-item"> 49. Balearic Islands</div>
-<div class="prefix-item confirmed"> 50. European Russia</div>
-<div class="prefix-item confirmed"> 54. Luxembourg</div>
-<div class="prefix-item confirmed"> 56. Finland</div>
-<div class="prefix-item confirmed"> 68. Northern Ireland</div>
-<div class="prefix-item deleted"> 87. Yemen (DELETED)</div>
-<div class="prefix-item confirmed"> 91. Indonesia</div>
-<div class="prefix-item confirmed"> 93. Malta</div>
-<div class="prefix-item confirmed">104. Corsica Island</div>
-<div class="prefix-item confirmed">107. Monaco</div>
-<div class="prefix-item confirmed">108. Scotland</div>
-<div class="prefix-item confirmed">109. Hungary</div>
-<div class="prefix-item waiting">116. Turkey</div>
-<div class="prefix-item deleted">139. South Yemen (DELETED)</div>
-<div class="prefix-item me">161. Poland</div>
-<div class="prefix-item confirmed">163. Wales</div>
-<div class="prefix-item deleted">179. Czechoslovakia (DELETED)</div>
-<div class="prefix-item deleted">292. Abu Ail Island (DELETED)</div>
-<div class="prefix-item deleted">295. Southern Sudan (DELETED)</div>
-<div class="prefix-item deleted">322. Walvis Bay (DELETED)</div>
-<div class="prefix-item deleted">324. Penguin Island (DELETED)</div>
-<div class="prefix-item deleted">326. Malyj Vysotskij (DELETED)
+<div class="prefix-list">
+<span class="green">  1. Italy</span>
+<span class="green">  2. United States of America</span>
+<span class="green">  3. Brazil</span>
+  4. Argentina
+  5. Venezuela
+  6. Colombia
+<span class="red">  7. Netherlands Antilles (DELETED see 347)</span>
+  8. Peru
+<span class="yellow">  9. Canada</span>
+ 10. Mexico
+<span class="blue"> 11. Puerto Rico</span>
+ 12. Uruguay
+<span class="green"> 13. Germany</span>
+<span class="green"> 14. France</span>
+<span class="green"> 15. Switzerland</span>
+<span class="green"> 16. Belgium</span>
+ 17. Hawai
+<span class="yellow"> 18. Greece</span>
+<span class="green"> 19. Netherlands</span>
+<span class="green"> 20. Norway</span>
+<span class="green"> 21. Sweden</span>
+ 22. French Guyana
+ 23. Jamaica
+ 24. Panama
+<span class="green"> 25. Japan</span>
+<span class="green"> 26. England</span>
+ 27. Iceland
+ 28. Honduras
+<span class="green"> 29. Ireland</span>
+<span class="green"> 30. Spain</span>
+<span class="green"> 31. Portugal</span>
+ 32. Chile
+ 33. Alaska
+<span class="yellow"> 34. Canary Islands</span>
+<span class="green"> 35. Austria</span>
+ 36. San Marino
+ 37. Dominican Republic
+ 38. Greenland
+ 39. Angola
+ 40. Liechtenstein
+ 41. New Zealand
+ 42. Liberia
+<span class="green"> 43. Australia</span>
+ 44. South Africa
+<span class="yellow"> 45. Serbia</span>
+<span class="red"> 46. East Germany (DELETED)</span>
+<span class="green"> 47. Denmark</span>
+ 48. Saudi Arabia
+ 49. Balearic Islands
+<span class="green"> 50. European Russia</span>
+ 51. Andorra
+ 52. Faroe Islands
+ 53. El Salvador
+<span class="green"> 54. Luxembourg</span>
+ 55. Gibraltar
+<span class="green"> 56. Finland</span>
+ 57. India
+ 58. East Malaysia
+ 59. Dodecanese Islands
+ 60. Hong Kong
+ 61. Ecuador
+ 62. Guam Island
+ 63. St. Helena
+ 64. Senegal
+ 65. Sierra Leone
+ 66. Mauritania
+ 67. Paraguay
+<span class="green"> 68. Northern Ireland</span>
+ 69. Costa Rica
+ 70. American Samoa Islands
+ 71. Midway Island
+ 72. Guatemala
+ 73. Suriname
+ 74. Namibia
+ 75. Azores Islands
+ 76. Morocco
+ 77. Ghana
+ 78. Zambia
+ 79. Philippines Islands
+ 80. Bolivia
+ 81. San Andres
+ 82. Guantanamo Bay
+ 83. Tanzania
+ 84. Ivory Coast
+ 85. Zimbabwe
+ 86. Nepal
+<span class="red"> 87. Yemen (DELETED)</span>
+ 88. Cuba
+ 89. Nigeria
+ 90. Crete Island
+<span class="green"> 91. Indonesia</span>
+ 92. Libya
+<span class="green"> 93. Malta</span>
+ 94. United Arab Emirates
+ 95. Mongolia
+ 96. Tonga
+ 97. Israel
+ 98. Singapore
+ 99. Fiji Islands
+100. South Korea
+101. Papua New Guinea
+102. Kuwait
+103. Haiti
+<span class="green">104. Corsica Island</span>
+105. Botswana
+106. Ceuta & Melila
+<span class="green">107. Monaco</span>
+<span class="green">108. Scotland</span>
+<span class="green">109. Hungary</span>
+110. Cyprus
+111. Jordan
+112. Lebanon
+113. Wesrt Malaysia
+114. Pakistan
+115. Qatar
+116. Turkey
+117. Egypt
+118. Gambia
+119. Madeira Island
+120. Antigua & Barbuda Island
+121. Bahamas
+122. Barbados
+123. Bermuda
+124. Amsterdam & St.Paul Isl.
+125. Cayman Islands
+126. Nicaragua
+127. Virgin Islands
+128. British Virgin Islands
+129. Macquarie Islands
+130. Norfolk Island
+131. Guyana
+132. Marshall Islands
+133. Marianas Islands
+134. Republic of
