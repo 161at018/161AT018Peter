@@ -38,15 +38,22 @@
         h1 { color: #cc0000; margin-top: 0; font-size: 2.2em; }
         h2 { color: #cc0000; font-size: 1.5em; margin-top: 25px; border-bottom: 1px solid #333; padding-bottom: 10px; }
         
-        .qth-container { text-align: center; margin: 30px 0; background: #151515; padding: 15px; border-radius: 5px; border: 1px solid #333; }
-        .qth-image { width: 100%; max-width: 700px; height: auto; border: 1px solid #444; }
+        .map-responsive {
+            overflow: hidden;
+            padding-bottom: 50%; /* Proporcje mapy */
+            position: relative;
+            height: 0;
+            margin: 20px 0;
+            border: 1px solid #cc0000;
+        }
 
-        /* Stylizacja mapy Google, aby była responsywna i ciemna */
-        .google-map {
+        .map-responsive iframe {
+            left: 0;
+            top: 0;
+            height: 100%;
             width: 100%;
-            height: 450px;
-            border: 0;
-            filter: grayscale(100%) invert(90%) contrast(90%); /* Efekt Dark Mode */
+            position: absolute;
+            /* Usunąłem filtr ciemny na chwilę, aby upewnić się, że mapa się ładuje */
         }
 
         @media (max-width: 850px) { 
@@ -54,6 +61,7 @@
             .content { order: -1; width: 100%; } 
             .panel { width: 100%; flex: 1 1 auto; }
             .header { height: 150px; } 
+            .map-responsive { padding-bottom: 75%; }
         }
     </style>
 </head>
@@ -80,39 +88,24 @@
     </div>
 
     <main class="content">
-        <h1>My QTH - Location Details</h1>
+        <h1>My QTH - Bystrzyca Kłodzka</h1>
         
         <div style="background: #252525; padding: 20px; border-left: 4px solid #cc0000; margin-bottom: 25px;">
             <p style="margin: 5px 0;"><b>City:</b> Bystrzyca Kłodzka</p>
-            <p style="margin: 5px 0;"><b>Province:</b> Lower Silesia (Dolnośląskie)</p>
-            <p style="margin: 5px 0;"><b>Country:</b> Poland</p>
             <p style="margin: 5px 0;"><b>Grid Locator:</b> JO80IH</p>
+            <p style="margin: 5px 0;"><b>Country:</b> Poland</p>
         </div>
 
         <h2>Interactive Google Map</h2>
-        <div class="qth-container">
+        <div class="map-responsive">
             <iframe 
-                src="http://googleusercontent.com/maps.google.com/3" 
-                class="google-map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10125.753896503942!2d16.6385287!3d50.2988354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470e0600a2662f55%3A0xc66517a9990b7933!2sBystrzyca%20K%Cłodzka!5e0!3m2!1spl!2spl!4v1700000000000!5m2!1spl!2spl" 
                 allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade">
+                loading="lazy">
             </iframe>
         </div>
 
-        <h2>Static Reference</h2>
-        <div class="qth-container">
-            <img src="images/qth_map.jpg" alt="My QTH Location Map" class="qth-image" onerror="this.style.display='none'">
-            <p style="font-size: 0.9em; color: #888; margin-top: 10px;">Bystrzyca Kłodzka on the map of Poland</p>
-        </div>
-
-        <h2>About the area</h2>
-        <p>
-            I am located in the beautiful <b>Kłodzko Valley</b>. The surrounding mountains provide 
-            an excellent backdrop for radio activities, although they can sometimes present 
-            challenges for long-distance contacts. Bystrzyca Kłodzka is famous for its 
-            medieval history and scenic views.
-        </p>
+        <p>Bystrzyca Kłodzka is a historic town in South-Western Poland, located in the beautiful Kłodzko Valley. Surrounded by mountains, it offers great but challenging conditions for DX-ing.</p>
     </main>
 
     <div class="panel" style="text-align:center;">
