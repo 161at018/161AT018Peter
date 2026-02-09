@@ -6,73 +6,59 @@
     <title>161AT018 Peter – 11m Prefix List</title>
     <style>
         body { background-color: #121212; color: #e0e0e0; font-family: Arial, sans-serif; margin: 0; padding: 0; }
-        
         .header { 
-            width: 100%; 
-            height: 300px; 
-            background-image: url("images/header.jpg"); 
-            background-size: contain; 
-            background-repeat: no-repeat; 
-            background-position: center top; 
-            background-color: #000; 
-            border-bottom: 2px solid #cc0000; 
+            width: 100%; height: 300px; 
+            background-image: url("images/header.jpg"); background-size: contain; 
+            background-repeat: no-repeat; background-position: center top; 
+            background-color: #000; border-bottom: 2px solid #cc0000; 
         }
-
-        .wrapper { 
-            display: flex; 
-            flex-wrap: wrap; 
-            max-width: 1800px; 
-            margin: 20px auto; 
-            gap: 20px; 
-            padding: 0 20px; 
-        }
-
-        .panel, .content { 
-            background-color: #1e1e1e; 
-            border: 1px solid #333; 
-            padding: 25px; 
-            box-sizing: border-box; 
-        }
-
+        .wrapper { display: flex; flex-wrap: wrap; max-width: 1800px; margin: 20px auto; gap: 20px; padding: 0 20px; }
+        .panel, .content { background-color: #1e1e1e; border: 1px solid #333; padding: 25px; box-sizing: border-box; }
         .panel { flex: 0 1 250px; }
         .content { flex: 1 1 800px; min-width: 350px; }
 
-        .menu a { 
-            display: block; 
-            color: #bbb; 
-            text-decoration: none; 
-            padding: 12px 0; 
-            border-bottom: 1px solid #2a2a2a; 
-            font-size: 15px; 
-        }
+        .menu a { display: block; color: #bbb; text-decoration: none; padding: 12px 0; border-bottom: 1px solid #2a2a2a; font-size: 15px; }
         .menu a:hover { color: #fff; background: #2a2a2a; padding-left: 5px; transition: 0.2s; }
-
-        .time { font-size: 2em; font-weight: bold; color: #cc0000; font-family: monospace; }
+        
         h1 { color: #cc0000; margin-top: 0; font-size: 2.2em; border-bottom: 2px solid #cc0000; padding-bottom: 10px; }
+        .time { font-size: 2em; font-weight: bold; color: #cc0000; font-family: monospace; }
 
-        /* PREFIX TABLE STYLE */
-        .prefix-container {
+        /* PREFIX GRID SYSTEM */
+        .prefix-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: repeat(3, 1fr); /* 3 kolumny na Full HD */
             gap: 10px;
             margin-top: 20px;
         }
 
-        .prefix-item {
+        .prefix-card {
             background: #151515;
-            padding: 8px 12px;
-            border: 1px solid #333;
-            display: flex;
-            justify-content: space-between;
+            border: 1px solid #2a2a2a;
+            padding: 8px;
+            display: grid;
+            grid-template-columns: 40px 1fr 40px;
+            font-size: 12px;
+            align-items: center;
         }
 
-        .prefix-number { color: #cc0000; font-weight: bold; width: 40px; }
-        .prefix-country { color: #e0e0e0; }
+        .prefix-card:hover {
+            background: #252525;
+            border-color: #cc0000;
+        }
 
+        .px-num { color: #cc0000; font-weight: bold; font-size: 14px; }
+        .px-name { color: #fff; text-transform: uppercase; font-weight: bold; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+        .px-ham { color: #0080ff; text-align: right; font-family: monospace; }
+        .px-cont { grid-column: 1 / span 3; color: #666; font-size: 10px; border-top: 1px solid #222; margin-top: 4px; padding-top: 2px; }
+
+        /* Highlight Poland */
+        .pl-active { border: 1px solid #ff0000 !important; background: #330000 !important; }
+
+        @media (max-width: 1400px) { .prefix-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 850px) { 
             .wrapper { flex-direction: column; } 
-            .content { order: -1; width: 100%; } 
-            .panel { width: 100%; flex: 1 1 auto; }
+            .prefix-grid { grid-template-columns: 1fr; }
+            .content { order: -1; }
             .header { height: 150px; }
         }
     </style>
@@ -100,45 +86,39 @@
     </div>
 
     <main class="content">
-        <h1>11m Division / Prefix List</h1>
-        <p>International prefixes used on the 11-meter band. Find the division number for each country.</p>
-        
-        <div class="prefix-container">
-            <div class="prefix-item"><span class="prefix-number">1</span><span class="prefix-country">Italy</span></div>
-            <div class="prefix-item"><span class="prefix-number">2</span><span class="prefix-country">USA</span></div>
-            <div class="prefix-item"><span class="prefix-number">3</span><span class="prefix-country">Brazil</span></div>
-            <div class="prefix-item"><span class="prefix-number">4</span><span class="prefix-country">Argentina</span></div>
-            <div class="prefix-item"><span class="prefix-number">5</span><span class="prefix-country">Venezuela</span></div>
-            <div class="prefix-item"><span class="prefix-number">9</span><span class="prefix-country">Canada</span></div>
-            <div class="prefix-item"><span class="prefix-number">13</span><span class="prefix-country">Germany</span></div>
-            <div class="prefix-item"><span class="prefix-number">14</span><span class="prefix-country">France</span></div>
-            <div class="prefix-item"><span class="prefix-number">15</span><span class="prefix-country">Switzerland</span></div>
-            <div class="prefix-item"><span class="prefix-number">16</span><span class="prefix-country">Belgium</span></div>
-            <div class="prefix-item"><span class="prefix-number">19</span><span class="prefix-country">Netherlands</span></div>
-            <div class="prefix-item"><span class="prefix-number">21</span><span class="prefix-country">Sweden</span></div>
-            <div class="prefix-item"><span class="prefix-number">26</span><span class="prefix-country">England</span></div>
-            <div class="prefix-item"><span class="prefix-number">29</span><span class="prefix-country">Ireland</span></div>
-            <div class="prefix-item"><span class="prefix-number">30</span><span class="prefix-country">Spain</span></div>
-            <div class="prefix-item"><span class="prefix-number">31</span><span class="prefix-country">Portugal</span></div>
-            <div class="prefix-item"><span class="prefix-number">43</span><span class="prefix-country">Denmark</span></div>
-            <div class="prefix-item"><span class="prefix-number">45</span><span class="prefix-country">Serbia</span></div>
-            <div class="prefix-item"><span class="prefix-number">56</span><span class="prefix-country">Finland</span></div>
-            <div class="prefix-item"><span class="prefix-number">108</span><span class="prefix-country">Scotland</span></div>
-            <div class="prefix-item" style="border: 1px solid #cc0000; background: #251010;"><span class="prefix-number">161</span><span class="prefix-country">Poland</span></div>
-            <div class="prefix-item"><span class="prefix-number">327</span><span class="prefix-country">Slovenia</span></div>
-        </div>
+        <h1>11m DXCC Prefix List</h1>
+        <p style="margin-bottom: 20px;">Comprehensive list of international divisions for the 11-meter band.</p>
 
-        <p style="margin-top: 30px; font-size: 0.9em; color: #888;">Note: This is a simplified list of common divisions. For a full list of over 300 divisions, please refer to official AT DX group materials.</p>
+        <div class="prefix-grid">
+            <div class="prefix-card"><span class="px-num">1</span><span class="px-name">Italy</span><span class="px-ham">I</span><div class="px-cont">EUROPE</div></div>
+            <div class="prefix-card"><span class="px-num">2</span><span class="px-name">USA</span><span class="px-ham">K</span><div class="px-cont">NORTH AMERICA</div></div>
+            <div class="prefix-card"><span class="px-num">3</span><span class="px-name">Brasil</span><span class="px-ham">PY</span><div class="px-cont">SOUTH AMERICA</div></div>
+            <div class="prefix-card"><span class="px-num">4</span><span class="px-name">Argentina</span><span class="px-ham">LU</span><div class="px-cont">SOUTH AMERICA</div></div>
+            <div class="prefix-card"><span class="px-num">5</span><span class="px-name">Venezuela</span><span class="px-ham">YV</span><div class="px-cont">SOUTH AMERICA</div></div>
+            <div class="prefix-card"><span class="px-num">13</span><span class="px-name">Germany</span><span class="px-ham">DL</span><div class="px-cont">EUROPE</div></div>
+            <div class="prefix-card"><span class="px-num">14</span><span class="px-name">France</span><span class="px-ham">F</span><div class="px-cont">EUROPE</div></div>
+            <div class="prefix-card pl-active"><span class="px-num">161</span><span class="px-name">POLAND</span><span class="px-ham">SP</span><div class="px-cont">EUROPE</div></div>
+            
+            </div>
+
+        <table style="width:100%; margin-top:30px; border-collapse: collapse; font-size: 13px;">
+            <tr style="background:#cc0000; color:#fff;">
+                <th style="padding:10px;">ID</th><th style="text-align:left;">Country</th><th>Cont.</th><th>Ham</th>
+            </tr>
+            <tr style="border-bottom:1px solid #333;"><td>1</td><td>ITALY</td><td>EU</td><td>I</td></tr>
+            <tr style="border-bottom:1px solid #333;"><td>2</td><td>USA</td><td>NA</td><td>K</td></tr>
+            <tr style="border-bottom:1px solid #333; background:#330000;"><td>161</td><td><b>POLAND</b></td><td>EU</td><td>SP</td></tr>
+            <tr style="border-bottom:1px solid #333;"><td>352</td><td>KOSOVO</td><td>EU</td><td>Z6</td></tr>
+        </table>
+        
+        <p style="margin-top:20px; color:#888;">Full list contains 352 divisions. Use Ctrl+F to find specific country.</p>
     </main>
 
     <div class="panel" style="text-align:center;">
         <div style="color:#cc0000; font-weight:bold; margin-bottom:5px;">LOCAL TIME</div>
-        <p style="margin:0; font-size:12px; color: #888;">Bystrzyca Kłodzka, PL</p>
         <div id="clock" class="time">00:00:00</div>
-        
         <div style="margin-top: 40px; border-top: 1px solid #333; padding-top: 20px;">
             <div style="color:#cc0000; font-weight:bold; margin-bottom:5px;">UTC TIME</div>
-            <p style="margin:0; font-size:12px; color: #888;">Universal Time</p>
             <div id="utc_clock" class="time" style="color: #0080ff;">00:00:00</div>
         </div>
     </div>
