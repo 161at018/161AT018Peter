@@ -7,6 +7,7 @@
     <style>
         body { background-color: #121212; color: #e0e0e0; font-family: Arial, sans-serif; margin: 0; padding: 0; }
         
+        /* NAGŁÓWEK - ścieżka do Twojego folderu images */
         .header { 
             width: 100%; 
             height: 300px; 
@@ -18,6 +19,7 @@
             border-bottom: 2px solid #cc0000; 
         }
 
+        /* GŁÓWNY KONTENER - szerokość 1800px dla Full HD */
         .wrapper { 
             display: flex; 
             flex-wrap: wrap; 
@@ -28,9 +30,14 @@
         }
 
         .panel, .content { background-color: #1e1e1e; border: 1px solid #333; padding: 25px; box-sizing: border-box; }
+        
+        /* Panele boczne */
         .panel { flex: 0 1 250px; }
+
+        /* Środkowa część - szeroka i elastyczna */
         .content { flex: 1 1 800px; min-width: 350px; }
 
+        /* MENU */
         .menu a { display: block; color: #bbb; text-decoration: none; padding: 12px 0; border-bottom: 1px solid #2a2a2a; font-size: 15px; }
         .menu a:hover { color: #fff; background: #2a2a2a; padding-left: 5px; transition: 0.2s; }
         
@@ -38,9 +45,23 @@
         h1 { color: #cc0000; margin-top: 0; font-size: 2.2em; }
         h2 { color: #cc0000; font-size: 1.5em; margin-top: 25px; border-bottom: 1px solid #333; padding-bottom: 10px; }
         
-        .qth-container { text-align: center; margin: 30px 0; background: #151515; padding: 20px; border-radius: 5px; }
-        .qth-image { width: 100%; max-width: 700px; height: auto; border: 1px solid #444; }
+        /* WYŚRODKOWANIE MAPY */
+        .qth-container { 
+            text-align: center; 
+            margin: 30px 0; 
+            background: #151515; 
+            padding: 20px; 
+            border-radius: 5px; 
+        }
+        .qth-image { 
+            width: 100%; 
+            max-width: 800px; /* Większa mapa dla szerokiego układu */
+            height: auto; 
+            border: 1px solid #444; 
+            display: inline-block;
+        }
 
+        /* Responsywność dla mniejszych ekranów */
         @media (max-width: 850px) { 
             .wrapper { flex-direction: column; } 
             .content { order: -1; width: 100%; } 
@@ -73,25 +94,26 @@
 
     <main class="content">
         <h1>My QTH - Location Details</h1>
-        <p>Welcome to the description of my radio station's home. I am operating from a very interesting part of Poland.</p>
+        <p>Operating from the heart of the Kłodzko Valley.</p>
         
         <div style="background: #252525; padding: 20px; border-left: 4px solid #cc0000; margin: 20px 0;">
             <p style="margin: 5px 0;"><b>City:</b> Bystrzyca Kłodzka</p>
-            <p style="margin: 5px 0;"><b>Region:</b> Lower Silesia (Dolnośląskie)</p>
+            <p style="margin: 5px 0;"><b>Province:</b> Lower Silesia (Dolnośląskie)</p>
             <p style="margin: 5px 0;"><b>Country:</b> Poland</p>
             <p style="margin: 5px 0;"><b>Grid Locator:</b> JO80IH</p>
         </div>
 
         <div class="qth-container">
             <img src="images/qth_map.jpg" alt="My QTH Location Map" class="qth-image" onerror="this.style.display='none'">
-            <p style="font-size: 0.9em; color: #888; margin-top: 10px;">Location map of Bystrzyca Kłodzka, Poland</p>
+            <p style="font-size: 0.9em; color: #888; margin-top: 10px;">Bystrzyca Kłodzka on the map of Poland</p>
         </div>
 
-        <h2>Geographical Context</h2>
+        <h2>About my location</h2>
         <p>
-            My QTH is situated in the <b>Kłodzko Valley</b>, surrounded by the beautiful <b>Sudetes Mountains</b>. 
-            The town itself is a historic gem, known for its well-preserved medieval layout and unique architecture. 
-            The mountainous terrain provides varied and often challenging radio propagation conditions, which makes every DX contact even more exciting!
+            <b>Bystrzyca Kłodzka</b> is a historic town in South-Western Poland. 
+            Located in a mountainous area (Sudetes), it offers great opportunities for radio propagation, 
+            though the surrounding peaks can sometimes be a challenge! 
+            The town is famous for its medieval architecture and beautiful landscapes.
         </p>
     </main>
 
