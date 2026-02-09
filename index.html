@@ -1,98 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>161AT018 Peter – Home</title>
+    <title>161AT018 Peter - Home</title>
     <style>
+        /* GŁÓWNE STYLE */
         body { background-color: #121212; color: #e0e0e0; font-family: Arial, sans-serif; margin: 0; padding: 0; }
         
+        /* HEADER / LOGO */
         .header { 
-            width: 100%; 
-            height: 300px; 
-            background-image: url("images/header.jpg"); 
-            background-size: contain; 
-            background-repeat: no-repeat; 
-            background-position: center top; 
-            background-color: #000; 
-            border-bottom: 2px solid #cc0000; 
+            width: 100%; height: 300px; 
+            background-image: url("images/header.jpg"); background-size: contain; 
+            background-repeat: no-repeat; background-position: center top; 
+            background-color: #000; border-bottom: 2px solid #cc0000; 
         }
 
-        .wrapper { 
-            display: flex; 
-            flex-wrap: wrap; 
-            max-width: 1800px; 
-            margin: 20px auto; 
-            gap: 20px; 
-            padding: 0 20px; 
-        }
-
+        /* UKŁAD STRONY */
+        .wrapper { display: flex; flex-wrap: wrap; max-width: 1800px; margin: 20px auto; gap: 20px; padding: 0 20px; }
         .panel, .content { background-color: #1e1e1e; border: 1px solid #333; padding: 25px; box-sizing: border-box; }
+        
+        /* PANELE BOCZNE (Menu i Zegar) */
         .panel { flex: 0 1 250px; }
+        
+        /* TREŚĆ GŁÓWNA */
         .content { flex: 1 1 800px; min-width: 350px; }
 
+        /* STYLIZACJA MENU */
         .menu a { display: block; color: #bbb; text-decoration: none; padding: 12px 0; border-bottom: 1px solid #2a2a2a; font-size: 15px; }
         .menu a:hover { color: #fff; background: #2a2a2a; padding-left: 5px; transition: 0.2s; }
         
-        .time { font-size: 2em; font-weight: bold; color: #cc0000; font-family: monospace; }
-        h1 { color: #cc0000; margin-top: 0; font-size: 2.2em; }
-        p { line-height: 1.6; font-size: 1.1em; }
+        /* NAGŁÓWKI */
+        h1 { color: #cc0000; margin-top: 0; font-size: 2.2em; border-bottom: 2px solid #cc0000; padding-bottom: 10px; }
+        h2 { color: #cc0000; border-bottom: 1px solid #444; padding-bottom: 5px; }
 
-        @media (max-width: 850px) { 
-            .wrapper { flex-direction: column; } 
-            .content { order: -1; width: 100%; } 
-            .panel { width: 100%; flex: 1 1 auto; }
-            .header { height: 150px; } 
-        }
+        /* ZEGARY */
+        .time-box { text-align: center; margin-bottom: 40px; }
+        .time-label { color: #cc0000; font-weight: bold; font-size: 14px; margin-bottom: 5px; text-transform: uppercase; }
+        .time-display { font-size: 1.8em; font-weight: bold; color: #e0e0e0; font-family: 'Courier New', monospace; letter-spacing: 2px; }
+
+        @media (max-width: 850px) { .wrapper { flex-direction: column; } .content { order: -1; } .header { height: 150px; } }
     </style>
 </head>
 <body onload="updateTime()">
 
-<div class="header"></div>
+    <div class="header"></div>
 
-<div class="wrapper">
-    <div class="panel">
-        <div style="color:#cc0000; font-weight:bold; border-bottom:1px solid #444; margin-bottom:10px; letter-spacing: 1px;">MENU</div>
-        <nav class="menu">
-            <a href="index.html">Home</a>
-            <a href="qth.html">My QTH</a>
-            <a href="equipment.html">My Equipment</a>
-            <a href="qsl.html">QSL info</a>
-            <a href="gallery.html">QSL Gallery</a>
-            <a href="prefix.html">11m Prefix List</a>
-            <a href="video.html">Video & Stream</a>
-            <a href="links.html">Links</a>
-            <a href="guestbook.html">Guestbook</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-        <p style="font-size: 11px; color: #555; margin-top: 30px;">© 161AT018 Peter 2026</p>
+    <div class="wrapper">
+        <aside class="panel">
+            <div style="color:#cc0000; font-weight:bold; border-bottom:1px solid #444; margin-bottom:10px; font-size: 16px;">MENU</div>
+            <nav class="menu">
+                <a href="index.html">Home</a>
+                <a href="qth.html">My QTH</a>
+                <a href="equipment.html">My Equipment</a>
+                <a href="qsl.html">QSL info</a>
+                <a href="gallery.html">QSL Gallery</a>
+                <a href="prefix.html">11m Prefix List</a>
+                <a href="video.html">Video & Stream</a>
+                <a href="links.html">Links</a>
+                <a href="guestbook.html">Guestbook</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <h1>Welcome to 161AT018 Peter's Website</h1>
+            <p>Welcome to my personal radio operator page. Here you can find information about my station, location, and the equipment I use for 11m band DXing.</p>
+            
+            <h2>Latest News</h2>
+            <p>I am active on the frequencies. Check my QSL info page for exchange details!</p>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <img src="images/radio_station.jpg" alt="Radio Station" style="max-width: 100%; border: 1px solid #444; border-radius: 5px;">
+            </div>
+        </main>
+
+        <aside class="panel">
+            <div class="time-box">
+                <div class="time-label">Local Time</div>
+                <div id="local-clock" class="time-display">00:00:00</div>
+            </div>
+
+            <div class="time-box">
+                <div class="time-label">UTC Time</div>
+                <div id="utc-clock" class="time-display" style="color: #0080ff;">00:00:00</div>
+            </div>
+
+            <div style="text-align: center; margin-top: 20px; border-top: 1px solid #333; padding-top: 20px;">
+                <div style="font-size: 12px; color: #777;">Your IP: <br> 
+                <span style="color: #cc0000;">161.XX.XX.XX</span></div>
+            </div>
+        </aside>
     </div>
 
-    <main class="content">
-        <h1>Welcome to my Personal page</h1>
-        <p>Greetings to all Radio Operators and friends!</p>
-        <p>I am <b>Peter 161AT018</b>, based in <b>Bystrzyca Kłodzka, Poland</b>.</p>
-        <p>My adventure with radio started back in 1992. Since November 2021, I have been active as <b>161AT018</b>.</p>
-        <p>Radio is my passion, and I am always happy to meet new people on the frequency. Feel free to explore my website to learn more about my station and location.</p>
-        <p style="color: #cc0000; font-weight: bold; font-size: 1.3em; margin-top: 30px;">Best 73 & Good DX!</p>
-    </main>
+    <script>
+        function updateTime() {
+            const options = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+            
+            function refresh() {
+                const now = new Date();
+                
+                // Odśwież zegar lokalny
+                document.getElementById('local-clock').textContent = now.toLocaleTimeString('pl-PL', options);
+                
+                // Odśwież zegar UTC
+                document.getElementById('utc-clock').textContent = now.toLocaleTimeString('en-GB', { 
+                    ...options, 
+                    timeZone: 'UTC' 
+                });
+            }
 
-    <div class="panel" style="text-align:center;">
-        <div style="color:#cc0000; font-weight:bold; margin-bottom:10px;">LOCAL TIME</div>
-        <p style="margin:0; font-size:13px; color: #888;">Bystrzyca Kłodzka, PL</p>
-        <div id="clock" class="time">00:00:00</div>
-    </div>
-</div>
+            refresh(); // Uruchom od razu
+            setInterval(refresh, 1000); // Odświeżaj co sekundę
+        }
+    </script>
 
-<script>
-    function updateTime() {
-        const options = { timeZone: 'Europe/Warsaw', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
-        const formatter = new Intl.DateTimeFormat('en-GB', options);
-        setInterval(() => {
-            const clock = document.getElementById('clock');
-            if (clock) clock.textContent = formatter.format(new Date());
-        }, 1000);
-    }
-</script>
 </body>
 </html>
