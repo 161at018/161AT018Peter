@@ -6,23 +6,19 @@
     <title>161AT018 Peter - Home</title>
     <style>
         body { background-color: #121212; color: #e0e0e0; font-family: Arial, sans-serif; margin: 0; padding: 0; }
-        .header { width: 100%; height: 300px; background: url("images/header.jpg") no-repeat center top / contain #000; border-bottom: 2px solid #cc0000; }
+        .header { width: 100%; height: 300px; background: url("images/header.jpg") no-repeat center top / contain #000; border-bottom: 2px solid #ff9900; }
         .wrapper { display: flex; flex-wrap: wrap; max-width: 1800px; margin: 20px auto; gap: 20px; padding: 0 20px; }
         .panel, .content { background-color: #1e1e1e; border: 1px solid #333; padding: 25px; box-sizing: border-box; }
         .panel { flex: 0 1 250px; }
         .content { flex: 1 1 800px; min-width: 350px; }
         .menu a { display: block; color: #bbb; text-decoration: none; padding: 12px 0; border-bottom: 1px solid #2a2a2a; font-size: 15px; }
         .menu a:hover { color: #fff; background: #2a2a2a; padding-left: 5px; transition: 0.2s; }
-        h1 { color: #cc0000; border-bottom: 2px solid #cc0000; padding-bottom: 10px; }
-        
-        /* ZEGARY - SKORYGOWANA WIELKOŚĆ CZCIONKI */
+        h1 { color: #ff9900; border-bottom: 2px solid #ff9900; padding-bottom: 10px; }
         .clock-container { text-align: center; }
-        .clock-label { color: #cc0000; font-weight: bold; font-size: 14px; margin-bottom: 2px; }
-        .clock-sub { color: #888; font-size: 10px; margin-bottom: 5px; }
-        .time-local { font-size: 1.6em; font-weight: bold; color: #ff0000; font-family: "Courier New", Courier, monospace; }
-        .time-utc { font-size: 1.6em; font-weight: bold; color: #0080ff; font-family: "Courier New", Courier, monospace; }
+        .clock-label { color: #ff9900; font-weight: bold; font-size: 14px; margin-bottom: 2px; }
+        .time-local { font-size: 1.6em; font-weight: bold; color: #ff9900; font-family: "Courier New", monospace; }
+        .time-utc { font-size: 1.6em; font-weight: bold; color: #0080ff; font-family: "Courier New", monospace; }
         .divider { border-top: 1px solid #333; margin: 20px 0; }
-
         @media (max-width: 850px) { .wrapper { flex-direction: column; } .content { order: -1; } .header { height: 150px; } }
     </style>
 </head>
@@ -30,48 +26,25 @@
     <div class="header"></div>
     <div class="wrapper">
         <aside class="panel">
-            <div style="color:#cc0000; font-weight:bold; border-bottom:1px solid #444; margin-bottom:10px;">MENU</div>
+            <div style="color:#ff9900; font-weight:bold; border-bottom:1px solid #444; margin-bottom:10px;">MENU</div>
             <nav class="menu">
-                <a href="index.html">Home</a>
-                <a href="qth.html">My QTH</a>
-                <a href="equipment.html">My Equipment</a>
-                <a href="qsl.html">QSL info</a>
-                <a href="gallery.html">QSL Gallery</a>
-                <a href="prefix.html">11m Prefix List</a>
-                <a href="video.html">Video & Stream</a>
-                <a href="links.html">Links</a>
-                <a href="guestbook.html">Guestbook</a>
-                <a href="contact.html">Contact</a>
+                <a href="index.html">Home</a><a href="qth.html">My QTH</a><a href="equipment.html">My Equipment</a><a href="qsl.html">QSL info</a><a href="gallery.html">QSL Gallery</a><a href="prefix.html">11m Prefix List</a><a href="video.html">Video & Stream</a><a href="links.html">Links</a><a href="guestbook.html">Guestbook</a><a href="contact.html">Contact</a>
             </nav>
         </aside>
-
         <main class="content">
             <h1>Welcome to 161AT018 Peter's Website</h1>
-            <p>Welcome to my personal radio operator page. I am active on the 11m band.</p>
+            <p>Welcome to my personal radio operator page. I am a member of the Alfa Tango group.</p>
+            <p>Feel free to browse my equipment, QSL gallery, and check out the 11m prefix list.</p>
+            <p><img src="images/at_logo.png" alt="AT Logo" style="max-width: 200px; display: block; margin: 20px auto;"></p>
         </main>
-
         <aside class="panel">
             <div class="clock-container">
-                <div class="clock-label">LOCAL TIME</div>
-                <div class="clock-sub">Bystrzyca Kłodzka, PL</div>
-                <div id="clock" class="time-local">00:00:00</div>
+                <div class="clock-label">LOCAL TIME</div><div id="clock" class="time-local">00:00:00</div>
                 <div class="divider"></div>
-                <div class="clock-label">UTC TIME</div>
-                <div class="clock-sub">Universal Time</div>
-                <div id="utc_clock" class="time-utc">00:00:00</div>
+                <div class="clock-label">UTC TIME</div><div id="utc_clock" class="time-utc">00:00:00</div>
             </div>
         </aside>
     </div>
-
-    <script>
-        function updateTime() {
-            const opts = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
-            setInterval(() => {
-                const now = new Date();
-                document.getElementById('clock').textContent = now.toLocaleTimeString('en-GB', opts);
-                document.getElementById('utc_clock').textContent = now.toLocaleTimeString('en-GB', { ...opts, timeZone: 'UTC' });
-            }, 1000);
-        }
-    </script>
+    <script>function updateTime(){const opts={hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false};setInterval(()=>{const now=new Date();document.getElementById('clock').textContent=now.toLocaleTimeString('en-GB',opts);document.getElementById('utc_clock').textContent=now.toLocaleTimeString('en-GB',{...opts,timeZone:'UTC'});},1000);}</script>
 </body>
 </html>
