@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>161AT018 Peter – 11m Prefix List</title>
+    <style>
+        body { background-color: #121212; color: #e0e0e0; font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        
+        .header { 
+            width: 100%; 
+            height: 300px; 
+            background-image: url("images/header.jpg"); 
+            background-size: contain; 
+            background-repeat: no-repeat; 
+            background-position: center top; 
+            background-color: #000; 
+            border-bottom: 2px solid #cc0000; 
+        }
+
+        .wrapper { 
+            display: flex; 
+            flex-wrap: wrap; 
+            max-width: 1800px; 
+            margin: 20px auto; 
+            gap: 20px; 
+            padding: 0 20px; 
+        }
+
+        .panel, .content { 
+            background-color: #1e1e1e; 
+            border: 1px solid #333; 
+            padding: 25px; 
+            box-sizing: border-box; 
+        }
+
+        .panel { flex: 0 1 250px; }
+        .content { flex: 1 1 800px; min-width: 350px; }
+
+        .menu a { 
+            display: block; 
+            color: #bbb; 
+            text-decoration: none; 
+            padding: 12px 0; 
+            border-bottom: 1px solid #2a2a2a; 
+            font-size: 15px; 
+        }
+        .menu a:hover { color: #fff; background: #2a2a2a; padding-left: 5px; transition: 0.2s; }
+
+        .time { font-size: 2em; font-weight: bold; color: #cc0000; font-family: monospace; }
+        h1 { color: #cc0000; margin-top: 0; font-size: 2.2em; border-bottom: 2px solid #cc0000; padding-bottom: 10px; }
+
+        /* PREFIX TABLE STYLE */
+        .prefix-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .prefix-item {
+            background: #151515;
+            padding: 8px 12px;
+            border: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .prefix-number { color: #cc0000; font-weight: bold; width: 40px; }
+        .prefix-country { color: #e0e0e0; }
+
+        @media (max-width: 850px) { 
+            .wrapper { flex-direction: column; } 
+            .content { order: -1; width: 100%; } 
+            .panel { width: 100%; flex: 1 1 auto; }
+            .header { height: 150px; }
+        }
+    </style>
+</head>
+<body onload="updateTime()">
+
+<div class="header"></div>
+
+<div class="wrapper">
+    <div class="panel">
+        <div style="color:#cc0000; font-weight:bold; border-bottom:1px solid #444; margin-bottom:10px;">MENU</div>
+        <nav class="menu">
+            <a href="index.html">Home</a>
+            <a href="qth.html">My QTH</a>
+            <a href="equipment.html">My Equipment</a>
+            <a href="qsl.html">QSL info</a>
+            <a href="gallery.html">QSL Gallery</a>
+            <a href="prefix.html">11m Prefix List</a>
+            <a href="video.html">Video & Stream</a>
+            <a href="links.html">Links</a>
+            <a href="guestbook.html">Guestbook</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <p style="font-size: 11px; color: #555; margin-top: 30px;">© 161AT018 Peter 2026</p>
+    </div>
+
+    <main class="content">
+        <h1>11m Division / Prefix List</h1>
+        <p>International prefixes used on the 11-meter band. Find the division number for each country.</p>
+        
+        <div class="prefix-container">
+            <div class="prefix-item"><span class="prefix-number">1</span><span class="prefix-country">Italy</span></div>
+            <div class="prefix-item"><span class="prefix-number">2</span><span class="prefix-country">USA</span></div>
+            <div class="prefix-item"><span class="prefix-number">3</span><span class="prefix-country">Brazil</span></div>
+            <div class="prefix-item"><span class="prefix-number">4</span><span class="prefix-country">Argentina</span></div>
+            <div class="prefix-item"><span class="prefix-number">5</span><span class="prefix-country">Venezuela</span></div>
+            <div class="prefix-item"><span class="prefix-number">9</span><span class="prefix-country">Canada</span></div>
+            <div class="prefix-item"><span class="prefix-number">13</span><span class="prefix-country">Germany</span></div>
+            <div class="prefix-item"><span class="prefix-number">14</span><span class="prefix-country">France</span></div>
+            <div class="prefix-item"><span class="prefix-number">15</span><span class="prefix-country">Switzerland</span></div>
+            <div class="prefix-item"><span class="prefix-number">16</span><span class="prefix-country">Belgium</span></div>
+            <div class="prefix-item"><span class="prefix-number">19</span><span class="prefix-country">Netherlands</span></div>
+            <div class="prefix-item"><span class="prefix-number">21</span><span class="prefix-country">Sweden</span></div>
+            <div class="prefix-item"><span class="prefix-number">26</span><span class="prefix-country">England</span></div>
+            <div class="prefix-item"><span class="prefix-number">29</span><span class="prefix-country">Ireland</span></div>
+            <div class="prefix-item"><span class="prefix-number">30</span><span class="prefix-country">Spain</span></div>
+            <div class="prefix-item"><span class="prefix-number">31</span><span class="prefix-country">Portugal</span></div>
+            <div class="prefix-item"><span class="prefix-number">43</span><span class="prefix-country">Denmark</span></div>
+            <div class="prefix-item"><span class="prefix-number">45</span><span class="prefix-country">Serbia</span></div>
+            <div class="prefix-item"><span class="prefix-number">56</span><span class="prefix-country">Finland</span></div>
+            <div class="prefix-item"><span class="prefix-number">108</span><span class="prefix-country">Scotland</span></div>
+            <div class="prefix-item" style="border: 1px solid #cc0000; background: #251010;"><span class="prefix-number">161</span><span class="prefix-country">Poland</span></div>
+            <div class="prefix-item"><span class="prefix-number">327</span><span class="prefix-country">Slovenia</span></div>
+        </div>
+
+        <p style="margin-top: 30px; font-size: 0.9em; color: #888;">Note: This is a simplified list of common divisions. For a full list of over 300 divisions, please refer to official AT DX group materials.</p>
+    </main>
+
+    <div class="panel" style="text-align:center;">
+        <div style="color:#cc0000; font-weight:bold; margin-bottom:5px;">LOCAL TIME</div>
+        <p style="margin:0; font-size:12px; color: #888;">Bystrzyca Kłodzka, PL</p>
+        <div id="clock" class="time">00:00:00</div>
+        
+        <div style="margin-top: 40px; border-top: 1px solid #333; padding-top: 20px;">
+            <div style="color:#cc0000; font-weight:bold; margin-bottom:5px;">UTC TIME</div>
+            <p style="margin:0; font-size:12px; color: #888;">Universal Time</p>
+            <div id="utc_clock" class="time" style="color: #0080ff;">00:00:00</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function updateTime() {
+        const localOpt = { timeZone: 'Europe/Warsaw', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+        const utcOpt = { timeZone: 'UTC', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+        const localFm = new Intl.DateTimeFormat('en-GB', localOpt);
+        const utcFm = new Intl.DateTimeFormat('en-GB', utcOpt);
+        setInterval(() => {
+            const now = new Date();
+            document.getElementById('clock').textContent = localFm.format(now);
+            document.getElementById('utc_clock').textContent = utcFm.format(now);
+        }, 1000);
+    }
+</script>
+</body>
+</html>
