@@ -21,27 +21,35 @@
         .menu a:hover { color: #fff; background: #2a2a2a; padding-left: 5px; transition: 0.2s; }
         
         h1 { color: #cc0000; margin-top: 0; font-size: 2.2em; border-bottom: 2px solid #cc0000; padding-bottom: 10px; font-family: Arial; }
-        .time { font-size: 2em; font-weight: bold; color: #cc0000; font-family: monospace; }
 
-        .legend { display: flex; gap: 20px; margin-bottom: 20px; font-family: Arial; font-size: 12px; flex-wrap: wrap; background: #151515; padding: 15px; border: 1px solid #333; }
-        .l-item { display: flex; align-items: center; gap: 8px; }
-        .box { width: 16px; height: 16px; border: 1px solid #fff; }
-
-        /* TABELA DX */
-        .dx-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-        .dx-table th { background-color: #222; color: white; padding: 10px; text-align: left; position: sticky; top: 0; border-bottom: 2px solid #cc0000; z-index: 10; }
-        .dx-table td { padding: 4px 10px; border-bottom: 1px solid #222; }
+        /* LEGEND */
+        .legend { margin-bottom: 20px; padding: 10px; border: 1px solid #444; font-size: 12px; font-family: Arial; }
         
-        /* KOLORY STATUSÓW */
-        .confirmed { background-color: #004d00 !important; color: #00ff00 !important; }
-        .worked { background-color: #4d4d00 !important; color: #ffff00 !important; }
-        .deleted { background-color: #4d0000 !important; color: #ff0000 !important; text-decoration: line-through; }
-        .my-div { background-color: #003366 !important; color: #ffffff !important; font-weight: bold; outline: 1px solid #fff; }
+        /* TWO COLUMN LIST STYLE */
+        .dx-container {
+            column-count: 2;
+            column-gap: 40px;
+            column-rule: 1px solid #333;
+        }
 
+        .prefix-item {
+            white-space: pre;
+            margin-bottom: 2px;
+            font-size: 13px;
+        }
+
+        /* STATUS COLORS */
+        .deleted { color: #ff0000; text-decoration: line-through; } /* RED */
+        .worked { color: #ffff00; }                                /* YELLOW */
+        .confirmed { color: #00ff00; font-weight: bold; }          /* GREEN */
+        .waiting { color: #0080ff; }                               /* BLUE */
+        .me { background-color: #cc0000; color: #fff; font-weight: bold; padding: 0 4px; }
+
+        @media (max-width: 1000px) { .dx-container { column-count: 1; } }
         @media (max-width: 850px) { .wrapper { flex-direction: column; } .content { order: -1; } .header { height: 150px; } }
     </style>
 </head>
-<body onload="updateTime()">
+<body>
 
 <div class="header"></div>
 
@@ -63,132 +71,83 @@
     </div>
 
     <main class="content">
-        <h1>11m DXCC Prefix List (1-352)</h1>
+        <h1>11m Prefix List</h1>
         
         <div class="legend">
-            <div class="l-item"><div class="box confirmed"></div> Confirmed</div>
-            <div class="l-item"><div class="box worked"></div> Worked</div>
-            <div class="l-item"><div class="box deleted"></div> Deleted / Off Air</div>
-            <div class="l-item"><div class="box my-div"></div> My Division (161)</div>
+            <span style="color:#00ff00;">GREEN: Confirmed</span> | 
+            <span style="color:#ffff00;">YELLOW: Worked</span> | 
+            <span style="color:#0080ff;">BLUE: Waiting QSL</span> | 
+            <span style="color:#ff0000;">RED: Deleted</span>
         </div>
 
-        <table class="dx-table">
-            <thead>
-                <tr>
-                    <th>PX</th>
-                    <th>Country / Entity</th>
-                    <th>Cont.</th>
-                    <th>Ham</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="confirmed"><td>1</td><td>ITALY</td><td>EU</td><td>I</td></tr>
-                <tr class="confirmed"><td>2</td><td>USA</td><td>NA</td><td>K</td></tr>
-                <tr class="confirmed"><td>3</td><td>BRASIL</td><td>SA</td><td>PY</td></tr>
-                <tr><td>4</td><td>ARGENTINA</td><td>SA</td><td>LU</td></tr>
-                <tr><td>5</td><td>VENEZUELA</td><td>SA</td><td>YV</td></tr>
-                <tr><td>6</td><td>COLOMBIA</td><td>SA</td><td>HK</td></tr>
-                <tr><td>7</td><td>NETHERLANDS ANTILLES</td><td>SA</td><td>PJ</td></tr>
-                <tr><td>8</td><td>PERU</td><td>SA</td><td>OA</td></tr>
-                <tr class="worked"><td>9</td><td>CANADA</td><td>NA</td><td>VE</td></tr>
-                <tr><td>10</td><td>MEXICO</td><td>NA</td><td>XE</td></tr>
-                <tr class="worked"><td>11</td><td>PUERTO RICO</td><td>NA</td><td>KP4</td></tr>
-                <tr><td>12</td><td>URUGUAY</td><td>SA</td><td>CX</td></tr>
-                <tr class="confirmed"><td>13</td><td>GERMANY</td><td>EU</td><td>DL</td></tr>
-                <tr class="confirmed"><td>14</td><td>FRANCE</td><td>EU</td><td>F</td></tr>
-                <tr class="confirmed"><td>15</td><td>SWITZERLAND</td><td>EU</td><td>HB</td></tr>
-                <tr class="confirmed"><td>16</td><td>BELGIUM</td><td>EU</td><td>ON</td></tr>
-                <tr><td>17</td><td>HAWAII</td><td>OC</td><td>KH6</td></tr>
-                <tr class="worked"><td>18</td><td>GREECE</td><td>EU</td><td>SV</td></tr>
-                <tr class="confirmed"><td>19</td><td>HOLLAND</td><td>EU</td><td>PA</td></tr>
-                <tr class="confirmed"><td>20</td><td>NORWAY</td><td>EU</td><td>LA</td></tr>
-                <tr class="confirmed"><td>21</td><td>SWEDEN</td><td>EU</td><td>SM</td></tr>
-                <tr><td>22</td><td>FRENCH GUYANA</td><td>SA</td><td>FY</td></tr>
-                <tr><td>23</td><td>JAMAICA</td><td>NA</td><td>6Y</td></tr>
-                <tr><td>24</td><td>PANAMA</td><td>NA</td><td>HP</td></tr>
-                <tr class="confirmed"><td>25</td><td>JAPAN</td><td>AS</td><td>JA</td></tr>
-                <tr class="confirmed"><td>26</td><td>ENGLAND</td><td>EU</td><td>G</td></tr>
-                <tr><td>27</td><td>ICELAND</td><td>EU</td><td>TF</td></tr>
-                <tr><td>28</td><td>HONDURAS</td><td>SA</td><td>HR</td></tr>
-                <tr class="confirmed"><td>29</td><td>IRELAND</td><td>EU</td><td>EI</td></tr>
-                <tr class="confirmed"><td>30</td><td>SPAIN</td><td>EU</td><td>EA</td></tr>
-                <tr class="confirmed"><td>31</td><td>PORTUGAL</td><td>EU</td><td>CT</td></tr>
-                <tr><td>32</td><td>CHILE</td><td>SA</td><td>CE</td></tr>
-                <tr><td>33</td><td>ALASKA</td><td>NA</td><td>KL7</td></tr>
-                <tr class="worked"><td>34</td><td>CANARY ISLS</td><td>AF</td><td>EA8</td></tr>
-                <tr class="confirmed"><td>35</td><td>AUSTRIA</td><td>EU</td><td>OE</td></tr>
-                <tr><td>36</td><td>SAN MARINO</td><td>EU</td><td>T7</td></tr>
-                <tr><td>37</td><td>DOMINICAN REPUBLIC</td><td>NA</td><td>HI</td></tr>
-                <tr><td>38</td><td>GREENLAND</td><td>NA</td><td>OX</td></tr>
-                <tr><td>39</td><td>ANGOLA</td><td>AF</td><td>D2</td></tr>
-                <tr><td>40</td><td>LIECHTENSTEIN</td><td>EU</td><td>HB0</td></tr>
-                <tr><td>41</td><td>NEW ZEALAND</td><td>OC</td><td>ZL</td></tr>
-                <tr><td>42</td><td>LIBERIA</td><td>AF</td><td>EL</td></tr>
-                <tr class="confirmed"><td>43</td><td>AUSTRALIA</td><td>OC</td><td>VK</td></tr>
-                <tr><td>44</td><td>SOUTH AFRICA</td><td>AF</td><td>ZS</td></tr>
-                <tr class="worked"><td>45</td><td>YUGOSLAVIA / SERBIA</td><td>EU</td><td>YU</td></tr>
-                <tr class="deleted"><td>46</td><td>EAST GERMANY (Deleted)</td><td>EU</td><td>DL</td></tr>
-                <tr class="confirmed"><td>47</td><td>DENMARK</td><td>EU</td><td>OZ</td></tr>
-                <tr><td>48</td><td>SAUDI ARABIA</td><td>AS</td><td>HZ</td></tr>
-                <tr><td>49</td><td>BALEARIC ISLS</td><td>EU</td><td>EA6</td></tr>
-                <tr class="confirmed"><td>50</td><td>RUSSIA</td><td>EU</td><td>UA</td></tr>
-
-                <tr><td>51</td><td>ANDORA</td><td>EU</td><td>C3</td></tr>
-                <tr class="confirmed"><td>54</td><td>LUXEMBOURG</td><td>EU</td><td>LX</td></tr>
-                <tr class="confirmed"><td>56</td><td>FINLAND</td><td>EU</td><td>OH</td></tr>
-                <tr class="confirmed"><td>68</td><td>NORTHERN IRELAND</td><td>EU</td><td>GI</td></tr>
-                <tr class="deleted"><td>87</td><td>NORTH YEMEN (Deleted)</td><td>AS</td><td>-</td></tr>
-                <tr class="confirmed"><td>91</td><td>INDONESIA</td><td>OC</td><td>YB</td></tr>
-                <tr class="confirmed"><td>93</td><td>MALTA</td><td>EU</td><td>9H</td></tr>
-                <tr class="confirmed"><td>104</td><td>CORSICA</td><td>EU</td><td>TK</td></tr>
-                <tr class="confirmed"><td>107</td><td>MONACO</td><td>EU</td><td>3A</td></tr>
-                <tr class="confirmed"><td>108</td><td>SCOTLAND</td><td>EU</td><td>GM</td></tr>
-                <tr class="confirmed"><td>109</td><td>HUNGARY</td><td>EU</td><td>HA</td></tr>
-                <tr class="worked"><td>116</td><td>TURKEY</td><td>EU</td><td>TA</td></tr>
-                <tr class="deleted"><td>139</td><td>SOUTH YEMEN (Deleted)</td><td>AS</td><td>-</td></tr>
-
-                <tr class="my-div"><td>161</td><td>POLAND</td><td>EU</td><td>SP</td></tr>
-
-                <tr class="confirmed"><td>163</td><td>WALES</td><td>EU</td><td>GW</td></tr>
-                <tr class="deleted"><td>179</td><td>CZECHOSLOVAKIA (Deleted)</td><td>EU</td><td>OK</td></tr>
-                <tr class="confirmed"><td>327</td><td>SLOVENIA</td><td>EU</td><td>S5</td></tr>
-                <tr class="confirmed"><td>328</td><td>CROATIA</td><td>EU</td><td>9A</td></tr>
-                <tr class="confirmed"><td>329</td><td>CZECH REPUBLIC</td><td>EU</td><td>OK</td></tr>
-                <tr class="confirmed"><td>330</td><td>SLOVAK REPUBLIC</td><td>EU</td><td>OM</td></tr>
-                <tr class="deleted"><td>324</td><td>PENGUIN ISL (Deleted)</td><td>AF</td><td>-</td></tr>
-                <tr class="deleted"><td>326</td><td>MALYJ VYSOTSKIJ ISL (Deleted)</td><td>EU</td><td>-</td></tr>
-                <tr><td>347</td><td>CURACAO</td><td>SA</td><td>PJ2</td></tr>
-                <tr><td>348</td><td>SINT MAARTEN</td><td>NA</td><td>PJ7</td></tr>
-                <tr><td>350</td><td>BONAIRE</td><td>SA</td><td>PJ4</td></tr>
-                <tr><td>352</td><td>KOSOVO</td><td>EU</td><td>Z6</td></tr>
-
-            </tbody>
-        </table>
-        <p style="margin-top: 20px; font-size: 11px; color: #666;">* List updated based on AT Division Prefix standards.</p>
-    </main>
-
-    <div class="panel" style="text-align:center;">
-        <div style="color:#cc0000; font-weight:bold; margin-bottom:5px;">LOCAL TIME</div>
-        <div id="clock" class="time">00:00:00</div>
-        <div style="margin-top: 40px; border-top: 1px solid #333; padding-top: 20px;">
-            <div style="color:#cc0000; font-weight:bold; margin-bottom:5px;">UTC TIME</div>
-            <div id="utc_clock" class="time" style="color: #0080ff;">00:00:00</div>
-        </div>
-    </div>
-</div>
-
-<script>
-    function updateTime() {
-        const localOpt = { timeZone: 'Europe/Warsaw', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
-        const utcOpt = { timeZone: 'UTC', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
-        const localFm = new Intl.DateTimeFormat('en-GB', localOpt);
-        const utcFm = new Intl.DateTimeFormat('en-GB', utcOpt);
-        setInterval(() => {
-            const now = new Date();
-            document.getElementById('clock').textContent = localFm.format(now);
-            document.getElementById('utc_clock').textContent = utcFm.format(now);
-        }, 1000);
-    }
-</script>
-</body>
-</html>
+        <div class="dx-container">
+<div class="prefix-item confirmed">  1. Italy</div>
+<div class="prefix-item confirmed">  2. United States of America</div>
+<div class="prefix-item confirmed">  3. Brazil</div>
+<div class="prefix-item">  4. Argentina</div>
+<div class="prefix-item">  5. Venezuela</div>
+<div class="prefix-item">  6. Colombia</div>
+<div class="prefix-item deleted">  7. Netherlands Antilles (DELETED)</div>
+<div class="prefix-item">  8. Peru</div>
+<div class="prefix-item worked">  9. Canada</div>
+<div class="prefix-item"> 10. Mexico</div>
+<div class="prefix-item waiting"> 11. Puerto Rico</div>
+<div class="prefix-item"> 12. Uruguay</div>
+<div class="prefix-item confirmed"> 13. Germany</div>
+<div class="prefix-item confirmed"> 14. France</div>
+<div class="prefix-item confirmed"> 15. Switzerland</div>
+<div class="prefix-item confirmed"> 16. Belgium</div>
+<div class="prefix-item"> 17. Hawai</div>
+<div class="prefix-item worked"> 18. Greece</div>
+<div class="prefix-item confirmed"> 19. Netherlands</div>
+<div class="prefix-item confirmed"> 20. Norway</div>
+<div class="prefix-item confirmed"> 21. Sweden</div>
+<div class="prefix-item"> 22. French Guyana</div>
+<div class="prefix-item"> 23. Jamaica</div>
+<div class="prefix-item"> 24. Panama</div>
+<div class="prefix-item confirmed"> 25. Japan</div>
+<div class="prefix-item confirmed"> 26. England</div>
+<div class="prefix-item"> 27. Iceland</div>
+<div class="prefix-item"> 28. Honduras</div>
+<div class="prefix-item confirmed"> 29. Ireland</div>
+<div class="prefix-item confirmed"> 30. Spain</div>
+<div class="prefix-item confirmed"> 31. Portugal</div>
+<div class="prefix-item"> 32. Chile</div>
+<div class="prefix-item"> 33. Alaska</div>
+<div class="prefix-item worked"> 34. Canary Islands</div>
+<div class="prefix-item confirmed"> 35. Austria</div>
+<div class="prefix-item"> 36. San Marino</div>
+<div class="prefix-item"> 37. Dominican Republic</div>
+<div class="prefix-item"> 38. Greenland</div>
+<div class="prefix-item"> 39. Angola</div>
+<div class="prefix-item"> 40. Liechtenstein</div>
+<div class="prefix-item"> 41. New Zealand</div>
+<div class="prefix-item"> 42. Liberia</div>
+<div class="prefix-item confirmed"> 43. Australia</div>
+<div class="prefix-item"> 44. South Africa</div>
+<div class="prefix-item worked"> 45. Serbia</div>
+<div class="prefix-item deleted"> 46. East Germany (DELETED)</div>
+<div class="prefix-item confirmed"> 47. Denmark</div>
+<div class="prefix-item"> 48. Saudi Arabia</div>
+<div class="prefix-item"> 49. Balearic Islands</div>
+<div class="prefix-item confirmed"> 50. European Russia</div>
+<div class="prefix-item confirmed"> 54. Luxembourg</div>
+<div class="prefix-item confirmed"> 56. Finland</div>
+<div class="prefix-item confirmed"> 68. Northern Ireland</div>
+<div class="prefix-item deleted"> 87. Yemen (DELETED)</div>
+<div class="prefix-item confirmed"> 91. Indonesia</div>
+<div class="prefix-item confirmed"> 93. Malta</div>
+<div class="prefix-item confirmed">104. Corsica Island</div>
+<div class="prefix-item confirmed">107. Monaco</div>
+<div class="prefix-item confirmed">108. Scotland</div>
+<div class="prefix-item confirmed">109. Hungary</div>
+<div class="prefix-item waiting">116. Turkey</div>
+<div class="prefix-item deleted">139. South Yemen (DELETED)</div>
+<div class="prefix-item me">161. Poland</div>
+<div class="prefix-item confirmed">163. Wales</div>
+<div class="prefix-item deleted">179. Czechoslovakia (DELETED)</div>
+<div class="prefix-item deleted">292. Abu Ail Island (DELETED)</div>
+<div class="prefix-item deleted">295. Southern Sudan (DELETED)</div>
+<div class="prefix-item deleted">322. Walvis Bay (DELETED)</div>
+<div class="prefix-item deleted">324. Penguin Island (DELETED)</div>
+<div class="prefix-item deleted">326. Malyj Vysotskij (DELETED)
