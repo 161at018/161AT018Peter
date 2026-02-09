@@ -6,7 +6,6 @@
     <title>161AT018 Peter – My QTH</title>
     <style>
         body { background-color: #121212; color: #e0e0e0; font-family: Arial, sans-serif; margin: 0; padding: 0; }
-        
         .header { 
             width: 100%; 
             height: 300px; 
@@ -17,58 +16,27 @@
             background-color: #000; 
             border-bottom: 2px solid #cc0000; 
         }
-
-        .wrapper { 
-            display: flex; 
-            flex-wrap: wrap; 
-            max-width: 1800px; 
-            margin: 20px auto; 
-            gap: 20px; 
-            padding: 0 20px; 
-        }
-
+        .wrapper { display: flex; flex-wrap: wrap; max-width: 1800px; margin: 20px auto; gap: 20px; padding: 0 20px; }
         .panel, .content { background-color: #1e1e1e; border: 1px solid #333; padding: 25px; box-sizing: border-box; }
         .panel { flex: 0 1 250px; }
         .content { flex: 1 1 800px; min-width: 350px; }
-
         .menu a { display: block; color: #bbb; text-decoration: none; padding: 12px 0; border-bottom: 1px solid #2a2a2a; font-size: 15px; }
         .menu a:hover { color: #fff; background: #2a2a2a; padding-left: 5px; transition: 0.2s; }
-        
         .time { font-size: 2em; font-weight: bold; color: #cc0000; font-family: monospace; }
         h1 { color: #cc0000; margin-top: 0; font-size: 2.2em; }
         h2 { color: #cc0000; font-size: 1.5em; margin-top: 25px; border-bottom: 1px solid #333; padding-bottom: 10px; }
-        
-        .map-responsive {
-            overflow: hidden;
-            padding-bottom: 50%; /* Proporcje mapy */
-            position: relative;
-            height: 0;
-            margin: 20px 0;
-            border: 1px solid #cc0000;
-        }
-
-        .map-responsive iframe {
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 100%;
-            position: absolute;
-            /* Usunąłem filtr ciemny na chwilę, aby upewnić się, że mapa się ładuje */
-        }
-
+        .map-container { width: 100%; height: 450px; margin: 20px 0; border: 1px solid #cc0000; }
+        .google-map { width: 100%; height: 100%; border: 0; }
         @media (max-width: 850px) { 
             .wrapper { flex-direction: column; } 
             .content { order: -1; width: 100%; } 
             .panel { width: 100%; flex: 1 1 auto; }
             .header { height: 150px; } 
-            .map-responsive { padding-bottom: 75%; }
         }
     </style>
 </head>
 <body onload="updateTime()">
-
 <div class="header"></div>
-
 <div class="wrapper">
     <div class="panel">
         <div style="color:#cc0000; font-weight:bold; border-bottom:1px solid #444; margin-bottom:10px;">MENU</div>
@@ -86,42 +54,43 @@
         </nav>
         <p style="font-size: 11px; color: #555; margin-top: 30px;">© 161AT018 Peter 2026</p>
     </div>
-
     <main class="content">
-        <h1>My QTH - Bystrzyca Kłodzka</h1>
-        
+        <h1>My QTH - Location Details</h1>
         <div style="background: #252525; padding: 20px; border-left: 4px solid #cc0000; margin-bottom: 25px;">
             <p style="margin: 5px 0;"><b>City:</b> Bystrzyca Kłodzka</p>
             <p style="margin: 5px 0;"><b>Grid Locator:</b> JO80IH</p>
             <p style="margin: 5px 0;"><b>Country:</b> Poland</p>
         </div>
-
-        <h2>Interactive Google Map</h2>
-        <div class="map-responsive">
+        <h2>Interactive Map</h2>
+        <div class="map-container">
             <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10125.753896503942!2d16.6385287!3d50.2988354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470e0600a2662f55%3A0xc66517a9990b7933!2sBystrzyca%20K%Cłodzka!5e0!3m2!1spl!2spl!4v1700000000000!5m2!1spl!2spl" 
-                allowfullscreen="" 
-                loading="lazy">
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10141.492193561633!2d16.638446928815124!3d50.29424757302604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470e0600a9442083%3A0x673c683832ca878c!2zQnlzdHJ6eWNhIEvFgm9kemth!5e0!3m2!1spl!2spl!4v1715854445678!5m2!1spl!2spl" 
+                class="google-map" allowfullscreen="" loading="lazy">
             </iframe>
         </div>
-
-        <p>Bystrzyca Kłodzka is a historic town in South-Western Poland, located in the beautiful Kłodzko Valley. Surrounded by mountains, it offers great but challenging conditions for DX-ing.</p>
+        <p>Bystrzyca Kłodzka is a historic town in South-Western Poland, located in the beautiful Kłodzko Valley.</p>
     </main>
-
     <div class="panel" style="text-align:center;">
-        <div style="color:#cc0000; font-weight:bold; margin-bottom:10px;">LOCAL TIME</div>
-        <p style="margin:0; font-size:13px; color: #888;">Bystrzyca Kłodzka, PL</p>
+        <div style="color:#cc0000; font-weight:bold; margin-bottom:5px;">LOCAL TIME</div>
+        <p style="margin:0; font-size:12px; color: #888;">Bystrzyca Kłodzka, PL</p>
         <div id="clock" class="time">00:00:00</div>
+        <div style="margin-top: 30px; border-top: 1px solid #333; padding-top: 20px;">
+            <div style="color:#cc0000; font-weight:bold; margin-bottom:5px;">UTC TIME</div>
+            <p style="margin:0; font-size:12px; color: #888;">Universal Time</p>
+            <div id="utc_clock" class="time" style="color: #0080ff;">00:00:00</div>
+        </div>
     </div>
 </div>
-
 <script>
     function updateTime() {
-        const options = { timeZone: 'Europe/Warsaw', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
-        const formatter = new Intl.DateTimeFormat('en-GB', options);
+        const localOpt = { timeZone: 'Europe/Warsaw', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+        const utcOpt = { timeZone: 'UTC', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+        const localFm = new Intl.DateTimeFormat('en-GB', localOpt);
+        const utcFm = new Intl.DateTimeFormat('en-GB', utcOpt);
         setInterval(() => {
-            const clock = document.getElementById('clock');
-            if (clock) clock.textContent = formatter.format(new Date());
+            const now = new Date();
+            document.getElementById('clock').textContent = localFm.format(now);
+            document.getElementById('utc_clock').textContent = utcFm.format(now);
         }, 1000);
     }
 </script>
