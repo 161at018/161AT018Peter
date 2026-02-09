@@ -15,6 +15,7 @@
         .menu a:hover { color: #fff; background: #2a2a2a; padding-left: 5px; transition: 0.2s; }
         h1 { color: #cc0000; border-bottom: 2px solid #cc0000; padding-bottom: 10px; }
         
+        /* ZEGARY */
         .clock-container { text-align: center; }
         .clock-label { color: #cc0000; font-weight: bold; font-size: 14px; margin-bottom: 2px; }
         .clock-sub { color: #888; font-size: 10px; margin-bottom: 5px; }
@@ -22,9 +23,26 @@
         .time-utc { font-size: 1.6em; font-weight: bold; color: #0080ff; font-family: "Courier New", Courier, monospace; }
         .divider { border-top: 1px solid #333; margin: 20px 0; }
 
-        .prefix-list { white-space: pre-wrap; font-family: 'Courier New', monospace; font-size: 14px; line-height: 1.5; color: #ddd; background: #151515; padding: 15px; border: 1px solid #333; }
+        /* LISTA W DWÓCH RZĘDACH */
+        .prefix-list { 
+            font-family: 'Courier New', monospace; 
+            font-size: 13px; 
+            line-height: 1.6; 
+            color: #ddd; 
+            background: #151515; 
+            padding: 20px; 
+            border: 1px solid #333;
+            column-count: 2; /* Dwa rzędy */
+            column-gap: 40px; /* Odstęp między rzędami */
+            column-rule: 1px solid #333; /* Linia rozdzielająca rzędy */
+        }
 
-        @media (max-width: 850px) { .wrapper { flex-direction: column; } .content { order: -1; } .header { height: 150px; } }
+        @media (max-width: 850px) { 
+            .wrapper { flex-direction: column; } 
+            .content { order: -1; } 
+            .header { height: 150px; } 
+            .prefix-list { column-count: 1; } /* Na telefonie jeden rząd */
+        }
     </style>
 </head>
 <body onload="updateTime()">
@@ -308,7 +326,7 @@
 257 Rodriguez Island
 258 Tristan da Cunha & Gough Islands
 259 Tromelin Island
-260 Baker &amp; Howland Islands
+260 Baker & Howland Islands
 261 Chatham Islands
 262 Johnston Island
 263 Kermadec Islands
@@ -401,7 +419,6 @@
 350 Bonaire
 351 Republic of South Sudan
 352 Kosovo
-
             </div>
         </main>
 
