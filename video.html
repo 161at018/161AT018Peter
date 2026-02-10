@@ -7,38 +7,49 @@
     <style>
         body { background-color: #121212; color: #e0e0e0; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; }
         .header { width: 100%; height: 200px; background: url("images/header.jpg") no-repeat center center; background-size: 100% 100%; border-bottom: 2px solid #ff9900; margin: 0; display: block; }
-        .wrapper { display: flex; flex-wrap: wrap; max-width: 1400px; margin: 20px auto; gap: 20px; padding: 0 20px; }
-        .panel, .content { background-color: #1e1e1e; border: 1px solid #333; padding: 25px; box-sizing: border-box; }
-        .panel { flex: 0 1 250px; }
-        .content { flex: 1 1 800px; min-width: 350px; }
         
-        /* Menu */
-        .menu a { display: block; color: #bbb; text-decoration: none; padding: 12px 10px; border-bottom: 1px solid #2a2a2a; transition: 0.3s; }
+        /* Wrapper spójny z resztą stron */
+        .wrapper { display: flex; max-width: 1400px; margin: 20px auto; gap: 20px; padding: 0 20px; }
+        
+        .panel { background-color: #1e1e1e; border: 1px solid #333; padding: 25px; flex: 0 0 250px; box-sizing: border-box; }
+        .content { background-color: #1e1e1e; border: 1px solid #333; padding: 25px; flex: 1; box-sizing: border-box; min-width: 0; }
+        
+        /* Menu Nawigacyjne */
+        .menu a { display: block; color: #bbb; text-decoration: none; padding: 12px 10px; border-bottom: 1px solid #2a2a2a; transition: 0.3s; cursor: pointer; }
         .menu a:hover { color: #fff; background: #2a2a2a; border-left: 4px solid #ff9900; }
-        
+        .dropdown { position: relative; display: block; }
+        .dropdown-content { display: none; background-color: #252525; min-width: 100%; border-left: 2px solid #ff9900; }
+        .dropdown-content a { padding: 10px 20px; font-size: 14px; border-bottom: 1px solid #333; background: #1a1a1a; }
+        .dropdown:hover .dropdown-content { display: block; }
+
         h1 { color: #ff9900; border-bottom: 2px solid #ff9900; padding-bottom: 10px; margin-top: 0; }
-        h2 { color: #ff9900; font-size: 1.2em; margin-bottom: 15px; text-transform: uppercase; }
 
-        /* Stylizacja Video */
-        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #000; border: 1px solid #444; margin-bottom: 20px; }
+        /* Styl dla Wideo */
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border: 2px solid #333; margin-bottom: 20px; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        
+        .stream-info { background: #252525; border: 1px solid #333; padding: 15px; color: #bbb; line-height: 1.6; }
+        .stream-info b { color: #ff9900; }
 
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 30px; }
-        .video-card { background: #151515; border: 1px solid #333; padding: 10px; border-radius: 4px; }
-        .video-title { margin-top: 10px; font-size: 14px; color: #ff9900; font-weight: bold; text-align: center; }
-
-        /* Zegarek */
+        /* Zegary i Solar */
         .clock-container { text-align: center; }
-        .clock-label { color: #ff9900; font-weight: bold; font-size: 14px; text-transform: uppercase; }
+        .clock-label { color: #ff9900; font-weight: bold; font-size: 14px; text-transform: uppercase; margin-bottom: 5px; }
         .time-local { font-size: 1.8em; font-weight: bold; color: #ff9900; font-family: "Courier New", monospace; }
         .time-utc { font-size: 1.8em; font-weight: bold; color: #0080ff; font-family: "Courier New", monospace; }
         .divider { border-top: 1px solid #333; margin: 20px 0; }
+        .solar-container { text-align: center; margin-top: 10px; }
+        .solar-border { border: 1px solid #ff9900; padding: 2px; display: inline-block; background: #fff; line-height: 0; border-radius: 2px; }
 
-        @media (max-width: 850px) { .wrapper { flex-direction: column; } .content { order: -1; } }
+        @media (max-width: 1150px) { 
+            .wrapper { flex-direction: column; } 
+            .panel { flex: 1 1 auto; width: 100%; }
+        }
     </style>
 </head>
 <body onload="updateTime()">
+
     <div class="header"></div>
+
     <div class="wrapper">
         <aside class="panel">
             <div style="color:#ff9900; font-weight:bold; border-bottom:1px solid #444; margin-bottom:10px;">NAVIGATION</div>
@@ -47,7 +58,16 @@
                 <a href="qth.html">My QTH</a>
                 <a href="equipment.html">My Equipment</a>
                 <a href="qsl.html">QSL info</a>
-                <a href="gallery.html">QSL Gallery</a>
+                <div class="dropdown">
+                    <a href="#">QSL Gallery ▾</a>
+                    <div class="dropdown-content">
+                        <a href="gallery1.html">Gallery 1</a>
+                        <a href="gallery2.html">Gallery 2</a>
+                        <a href="gallery3.html">Gallery 3</a>
+                        <a href="gallery4.html">Gallery 4</a>
+                        <a href="gallery5.html">Gallery 5</a>
+                    </div>
+                </div>
                 <a href="prefix.html">11m Prefix List</a>
                 <a href="video.html" style="color:#fff; border-left: 4px solid #ff9900;">Video & Stream</a>
                 <a href="links.html">Links</a>
@@ -58,36 +78,15 @@
         <main class="content">
             <h1>Video & Live Stream</h1>
             
-            <h2>Featured Video / Live Stream</h2>
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/live_stream?channel=TWOJE_ID_KANALU" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/live_stream?channel=TWÓJ_ID_KANAŁU" frameborder="0" allowfullscreen></iframe>
             </div>
-            <p style="font-style: italic; font-size: 0.9em; color: #888;">Zapraszam do oglądania moich transmisji na żywo z pasma 11m.</p>
 
-            <div class="divider"></div>
-
-            <h2>Archive Videos</h2>
-            <div class="video-grid">
-                <div class="video-card">
-                    <div class="video-container" style="padding-bottom: 56.25%;">
-                        <iframe src="https://www.youtube.com/embed/FILM_ID_1" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <div class="video-title">DX Expedition - 2025</div>
-                </div>
-
-                <div class="video-card">
-                    <div class="video-container" style="padding-bottom: 56.25%;">
-                        <iframe src="https://www.youtube.com/embed/FILM_ID_2" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <div class="video-title">Antenna Testing in the Forest</div>
-                </div>
-
-                <div class="video-card">
-                    <div class="video-container" style="padding-bottom: 56.25%;">
-                        <iframe src="https://www.youtube.com/embed/FILM_ID_3" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <div class="video-title">11m Propagation Highlights</div>
-                </div>
+            <div class="stream-info">
+                <h3>System Information</h3>
+                <p>Welcome to my live stream page. Here you can watch my radio activity live. 
+                If the stream is offline, check my <b>YouTube Channel</b> for latest records.</p>
+                <p>Status: <b>Monitoring 27.555 MHz USB</b></p>
             </div>
         </main>
 
@@ -99,6 +98,16 @@
                 <div class="clock-label">UTC Time</div>
                 <div id="utc_clock" class="time-utc">00:00:00</div>
             </div>
+            <div class="divider"></div>
+            <div class="solar-container">
+                <div class="clock-label" style="margin-bottom: 10px;">Solar Data</div>
+                <div class="solar-border">
+                    <a href="https://www.hamqsl.com/solar.html" target="_blank">
+                        <img src="https://www.hamqsl.com/solarn0nbh.php" alt="Solar Data" style="max-width: 100%; height: auto; display: block;">
+                    </a>
+                </div>
+                <p style="font-size: 10px; color: #666; margin-top: 8px;">Data by N0NBH</p>
+            </div>
         </aside>
     </div>
 
@@ -106,13 +115,11 @@
         function updateTime() {
             const localOpts = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'Europe/Warsaw' };
             const utcOpts = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'UTC' };
-            
             function tick() {
                 const now = new Date();
                 document.getElementById('clock').textContent = now.toLocaleTimeString('en-GB', localOpts);
                 document.getElementById('utc_clock').textContent = now.toLocaleTimeString('en-GB', utcOpts);
             }
-            
             tick();
             setInterval(tick, 1000);
         }
