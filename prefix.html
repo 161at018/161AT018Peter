@@ -8,50 +8,43 @@
         body { background-color: #121212; color: #e0e0e0; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; }
         .header { width: 100%; height: 200px; background: url("images/header.jpg") no-repeat center center; background-size: 100% 100%; border-bottom: 2px solid #ff9900; margin: 0; display: block; }
         
-        /* Wrapper z flex-nowrap zapobiega spadaniu paneli */
-        .wrapper { display: flex; flex-direction: row; max-width: 1500px; margin: 20px auto; gap: 20px; padding: 0 20px; align-items: flex-start; }
+        /* Standardowy wrapper dla wszystkich Twoich stron */
+        .wrapper { display: flex; max-width: 1400px; margin: 20px auto; gap: 20px; padding: 0 20px; }
         
-        .panel { background-color: #1e1e1e; border: 1px solid #333; padding: 20px; flex: 0 0 220px; box-sizing: border-box; }
+        /* Panele boczne - stała szerokość 250px jak w Index */
+        .panel { background-color: #1e1e1e; border: 1px solid #333; padding: 25px; flex: 0 0 250px; box-sizing: border-box; }
         .content { background-color: #1e1e1e; border: 1px solid #333; padding: 25px; flex: 1; box-sizing: border-box; min-width: 0; }
         
-        /* Menu Nawigacyjne */
+        /* Menu Nawigacyjne z Dropdown */
         .menu a { display: block; color: #bbb; text-decoration: none; padding: 12px 10px; border-bottom: 1px solid #2a2a2a; transition: 0.3s; cursor: pointer; }
         .menu a:hover { color: #fff; background: #2a2a2a; border-left: 4px solid #ff9900; }
-        
         .dropdown { position: relative; display: block; }
         .dropdown-content { display: none; background-color: #252525; min-width: 100%; border-left: 2px solid #ff9900; }
         .dropdown-content a { padding: 10px 20px; font-size: 14px; border-bottom: 1px solid #333; background: #1a1a1a; }
         .dropdown:hover .dropdown-content { display: block; }
 
-        h1 { color: #ff9900; border-bottom: 2px solid #ff9900; padding-bottom: 10px; margin-top: 0; font-size: 1.5em; }
+        h1 { color: #ff9900; border-bottom: 2px solid #ff9900; padding-bottom: 10px; margin-top: 0; }
 
-        /* Dwie ramki obok siebie wewnątrz contentu */
-        .prefix-container { display: flex; gap: 15px; margin-top: 15px; }
-        .prefix-box { 
-            flex: 1; 
-            background: #252525; 
-            border: 1px solid #333; 
-            padding: 15px; 
-            font-size: 11px; 
-            line-height: 1.4;
-            color: #bbb;
-            white-space: nowrap;
-        }
+        /* Styl tabeli dla prefiksów */
+        .prefix-layout { display: flex; gap: 20px; }
+        .prefix-column { flex: 1; }
+        table { width: 100%; border-collapse: collapse; font-size: 12px; color: #ccc; }
+        td { padding: 3px 5px; border-bottom: 1px solid #2a2a2a; }
+        .pref-num { color: #ff9900; font-weight: bold; width: 35px; text-align: right; padding-right: 10px; }
 
         /* Zegary i Solar */
         .clock-container { text-align: center; }
-        .clock-label { color: #ff9900; font-weight: bold; font-size: 13px; text-transform: uppercase; margin-bottom: 5px; }
-        .time-local { font-size: 1.6em; font-weight: bold; color: #ff9900; font-family: "Courier New", monospace; }
-        .time-utc { font-size: 1.6em; font-weight: bold; color: #0080ff; font-family: "Courier New", monospace; }
-        .divider { border-top: 1px solid #333; margin: 15px 0; }
-        .solar-container { text-align: center; }
+        .clock-label { color: #ff9900; font-weight: bold; font-size: 14px; text-transform: uppercase; margin-bottom: 5px; }
+        .time-local { font-size: 1.8em; font-weight: bold; color: #ff9900; font-family: "Courier New", monospace; }
+        .time-utc { font-size: 1.8em; font-weight: bold; color: #0080ff; font-family: "Courier New", monospace; }
+        .divider { border-top: 1px solid #333; margin: 20px 0; }
+        .solar-container { text-align: center; margin-top: 10px; }
         .solar-border { border: 1px solid #ff9900; padding: 2px; display: inline-block; background: #fff; line-height: 0; border-radius: 2px; }
 
-        /* Responsywność - tylko na małych ekranach pozwalamy na układ pionowy */
-        @media (max-width: 1100px) {
-            .wrapper { flex-wrap: wrap; }
-            .panel { flex: 1 1 200px; }
-            .content { order: -1; flex: 1 1 100%; }
+        @media (max-width: 1150px) { 
+            .wrapper { flex-direction: column; } 
+            .panel { flex: 1 1 auto; width: 100%; }
+            .prefix-layout { flex-direction: column; }
         }
     </style>
 </head>
@@ -86,12 +79,367 @@
 
         <main class="content">
             <h1>11m World Prefix List</h1>
-            <div class="prefix-container">
-                <div class="prefix-box">
-                    1. Italy<br>2. USA<br>3. Brazil<br>4. Argentina<br>5. Venezuela<br>6. Colombia<br>7. Netherlands Antilles (DEL)<br>8. Peru<br>9. Canada<br>10. Mexico<br>11. Puerto Rico<br>12. Uruguay<br>13. Germany<br>14. France<br>15. Switzerland<br>16. Belgium<br>17. Hawai<br>18. Greece<br>19. Netherlands<br>20. Norway<br>21. Sweden<br>22. French Guyana<br>23. Jamaica<br>24. Panama<br>25. Japan<br>26. England<br>27. Iceland<br>28. Honduras<br>29. Ireland<br>30. Spain<br>31. Portugal<br>32. Chile<br>33. Alaska<br>34. Canary Islands<br>35. Austria<br>36. San Marino<br>37. Dominican Republic<br>38. Greenland<br>39. Angola<br>40. Liechtenstein<br>41. New Zealand<br>42. Liberia<br>43. Australia<br>44. South Africa<br>45. Serbia<br>46. E. Germany (DEL)<br>47. Denmark<br>48. Saudi Arabia<br>49. Balearic Islands<br>50. European Russia<br>51. Andorra<br>52. Faroe Islands<br>53. El Salvador<br>54. Luxembourg<br>55. Gibraltar<br>56. Finland<br>57. India<br>58. East Malaysia<br>59. Dodecanese Islands<br>60. Hong Kong<br>61. Ecuador<br>62. Guam Island<br>63. St. Helena<br>64. Senegal<br>65. Sierra Leone<br>66. Mauritania<br>67. Paraguay<br>68. Northern Ireland<br>69. Costa Rica<br>70. American Samoa<br>71. Midway Island<br>72. Guatemala<br>73. Suriname<br>74. Namibia<br>75. Azores Islands<br>76. Morocco<br>77. Ghana<br>78. Zambia<br>79. Philippines Islands<br>80. Bolivia<br>81. San Andres<br>82. Guantanamo Bay<br>83. Tanzania<br>84. Ivory Coast<br>85. Zimbabwe<br>86. Nepal<br>87. Yemen (DEL)<br>88. Cuba<br>89. Nigeria<br>90. Crete Island<br>91. Indonesia<br>92. Libya<br>93. Malta<br>94. United Arab Emirates<br>95. Mongolia<br>96. Tonga<br>97. Israel<br>98. Singapore<br>99. Fiji Islands<br>100. South Korea<br>101. Papua New Guinea<br>102. Kuwait<br>103. Haiti<br>104. Corsica Island<br>105. Botswana<br>106. Ceuta & Melila<br>107. Monaco<br>108. Scotland<br>109. Hungary<br>110. Cyprus<br>111. Jordan<br>112. Lebanon<br>113. West Malaysia<br>114. Pakistan<br>115. Qatar<br>116. Turkey<br>117. Egypt<br>118. Gambia<br>119. Madeira Island<br>120. Antigua & Barbuda<br>121. Bahamas<br>122. Barbados<br>123. Bermuda<br>124. Amsterdam & St.Paul<br>125. Cayman Islands<br>126. Nicaragua<br>127. Virgin Islands<br>128. Brit. Virgin Isl.<br>129. Macquarie Islands<br>130. Norfolk Island<br>131. Guyana<br>132. Marshall Islands<br>133. Marianas Islands<br>134. Rep. of Belau<br>135. Salomon Islands<br>136. Martinique Island<br>137. Isle of Man<br>138. Vatican City<br>139. S. Yemen (DEL)<br>140. Antarctica<br>141. St. Pierre & Miquelon<br>142. Lesotho<br>143. St. Lucia<br>144. Easter Island<br>145. Galapagos Islands<br>146. Algeria<br>147. Tunisia<br>148. Ascension Island<br>149. Laccadive Islands<br>150. Bahrain<br>151. Iraq<br>152. Maledives Islands<br>153. Thailand<br>154. Iran<br>155. Taiwan<br>156. Cameroon<br>157. Montserrat Island<br>158. Trinidad & Tobago<br>159. Somalia<br>160. Sudan<br>161. Poland<br>162. DR Congo<br>163. Wales<br>164. Togo<br>165. Sardinia Island<br>166. St. Maarten (DEL)<br>167. Jersey Island<br>168. Mauritius Island<br>169. Guernsey Island<br>170. Burkina Faso<br>171. Svalbard<br>172. New Caledonia<br>173. Reunion Island<br>174. Uganda<br>175. Chad Republic<br>176. Central African Rep.
+            <div class="prefix-layout">
+                <div class="prefix-column">
+                    <table>
+                        <tr><td class="pref-num">1</td><td>Italy</td></tr>
+                        <tr><td class="pref-num">2</td><td>USA</td></tr>
+                        <tr><td class="pref-num">3</td><td>Brazil</td></tr>
+                        <tr><td class="pref-num">4</td><td>Argentina</td></tr>
+                        <tr><td class="pref-num">5</td><td>Venezuela</td></tr>
+                        <tr><td class="pref-num">6</td><td>Colombia</td></tr>
+                        <tr><td class="pref-num">7</td><td>Netherlands Antilles (DEL)</td></tr>
+                        <tr><td class="pref-num">8</td><td>Peru</td></tr>
+                        <tr><td class="pref-num">9</td><td>Canada</td></tr>
+                        <tr><td class="pref-num">10</td><td>Mexico</td></tr>
+                        <tr><td class="pref-num">11</td><td>Puerto Rico</td></tr>
+                        <tr><td class="pref-num">12</td><td>Uruguay</td></tr>
+                        <tr><td class="pref-num">13</td><td>Germany</td></tr>
+                        <tr><td class="pref-num">14</td><td>France</td></tr>
+                        <tr><td class="pref-num">15</td><td>Switzerland</td></tr>
+                        <tr><td class="pref-num">16</td><td>Belgium</td></tr>
+                        <tr><td class="pref-num">17</td><td>Hawai</td></tr>
+                        <tr><td class="pref-num">18</td><td>Greece</td></tr>
+                        <tr><td class="pref-num">19</td><td>Netherlands</td></tr>
+                        <tr><td class="pref-num">20</td><td>Norway</td></tr>
+                        <tr><td class="pref-num">21</td><td>Sweden</td></tr>
+                        <tr><td class="pref-num">22</td><td>French Guyana</td></tr>
+                        <tr><td class="pref-num">23</td><td>Jamaica</td></tr>
+                        <tr><td class="pref-num">24</td><td>Panama</td></tr>
+                        <tr><td class="pref-num">25</td><td>Japan</td></tr>
+                        <tr><td class="pref-num">26</td><td>England</td></tr>
+                        <tr><td class="pref-num">27</td><td>Iceland</td></tr>
+                        <tr><td class="pref-num">28</td><td>Honduras</td></tr>
+                        <tr><td class="pref-num">29</td><td>Ireland</td></tr>
+                        <tr><td class="pref-num">30</td><td>Spain</td></tr>
+                        <tr><td class="pref-num">31</td><td>Portugal</td></tr>
+                        <tr><td class="pref-num">32</td><td>Chile</td></tr>
+                        <tr><td class="pref-num">33</td><td>Alaska</td></tr>
+                        <tr><td class="pref-num">34</td><td>Canary Islands</td></tr>
+                        <tr><td class="pref-num">35</td><td>Austria</td></tr>
+                        <tr><td class="pref-num">36</td><td>San Marino</td></tr>
+                        <tr><td class="pref-num">37</td><td>Dominican Republic</td></tr>
+                        <tr><td class="pref-num">38</td><td>Greenland</td></tr>
+                        <tr><td class="pref-num">39</td><td>Angola</td></tr>
+                        <tr><td class="pref-num">40</td><td>Liechtenstein</td></tr>
+                        <tr><td class="pref-num">41</td><td>New Zealand</td></tr>
+                        <tr><td class="pref-num">42</td><td>Liberia</td></tr>
+                        <tr><td class="pref-num">43</td><td>Australia</td></tr>
+                        <tr><td class="pref-num">44</td><td>South Africa</td></tr>
+                        <tr><td class="pref-num">45</td><td>Serbia</td></tr>
+                        <tr><td class="pref-num">46</td><td>East Germany (DEL)</td></tr>
+                        <tr><td class="pref-num">47</td><td>Denmark</td></tr>
+                        <tr><td class="pref-num">48</td><td>Saudi Arabia</td></tr>
+                        <tr><td class="pref-num">49</td><td>Balearic Islands</td></tr>
+                        <tr><td class="pref-num">50</td><td>European Russia</td></tr>
+                        <tr><td class="pref-num">51</td><td>Andorra</td></tr>
+                        <tr><td class="pref-num">52</td><td>Faroe Islands</td></tr>
+                        <tr><td class="pref-num">53</td><td>El Salvador</td></tr>
+                        <tr><td class="pref-num">54</td><td>Luxembourg</td></tr>
+                        <tr><td class="pref-num">55</td><td>Gibraltar</td></tr>
+                        <tr><td class="pref-num">56</td><td>Finland</td></tr>
+                        <tr><td class="pref-num">57</td><td>India</td></tr>
+                        <tr><td class="pref-num">58</td><td>East Malaysia</td></tr>
+                        <tr><td class="pref-num">59</td><td>Dodecanese Islands</td></tr>
+                        <tr><td class="pref-num">60</td><td>Hong Kong</td></tr>
+                        <tr><td class="pref-num">61</td><td>Ecuador</td></tr>
+                        <tr><td class="pref-num">62</td><td>Guam Island</td></tr>
+                        <tr><td class="pref-num">63</td><td>St. Helena</td></tr>
+                        <tr><td class="pref-num">64</td><td>Senegal</td></tr>
+                        <tr><td class="pref-num">65</td><td>Sierra Leone</td></tr>
+                        <tr><td class="pref-num">66</td><td>Mauritania</td></tr>
+                        <tr><td class="pref-num">67</td><td>Paraguay</td></tr>
+                        <tr><td class="pref-num">68</td><td>Northern Ireland</td></tr>
+                        <tr><td class="pref-num">69</td><td>Costa Rica</td></tr>
+                        <tr><td class="pref-num">70</td><td>American Samoa Islands</td></tr>
+                        <tr><td class="pref-num">71</td><td>Midway Island</td></tr>
+                        <tr><td class="pref-num">72</td><td>Guatemala</td></tr>
+                        <tr><td class="pref-num">73</td><td>Suriname</td></tr>
+                        <tr><td class="pref-num">74</td><td>Namibia</td></tr>
+                        <tr><td class="pref-num">75</td><td>Azores Islands</td></tr>
+                        <tr><td class="pref-num">76</td><td>Morocco</td></tr>
+                        <tr><td class="pref-num">77</td><td>Ghana</td></tr>
+                        <tr><td class="pref-num">78</td><td>Zambia</td></tr>
+                        <tr><td class="pref-num">79</td><td>Philippines Islands</td></tr>
+                        <tr><td class="pref-num">80</td><td>Bolivia</td></tr>
+                        <tr><td class="pref-num">81</td><td>San Andres</td></tr>
+                        <tr><td class="pref-num">82</td><td>Guantanamo Bay</td></tr>
+                        <tr><td class="pref-num">83</td><td>Tanzania</td></tr>
+                        <tr><td class="pref-num">84</td><td>Ivory Coast</td></tr>
+                        <tr><td class="pref-num">85</td><td>Zimbabwe</td></tr>
+                        <tr><td class="pref-num">86</td><td>Nepal</td></tr>
+                        <tr><td class="pref-num">87</td><td>Yemen (DEL)</td></tr>
+                        <tr><td class="pref-num">88</td><td>Cuba</td></tr>
+                        <tr><td class="pref-num">89</td><td>Nigeria</td></tr>
+                        <tr><td class="pref-num">90</td><td>Crete Island</td></tr>
+                        <tr><td class="pref-num">91</td><td>Indonesia</td></tr>
+                        <tr><td class="pref-num">92</td><td>Libya</td></tr>
+                        <tr><td class="pref-num">93</td><td>Malta</td></tr>
+                        <tr><td class="pref-num">94</td><td>United Arab Emirates</td></tr>
+                        <tr><td class="pref-num">95</td><td>Mongolia</td></tr>
+                        <tr><td class="pref-num">96</td><td>Tonga</td></tr>
+                        <tr><td class="pref-num">97</td><td>Israel</td></tr>
+                        <tr><td class="pref-num">98</td><td>Singapore</td></tr>
+                        <tr><td class="pref-num">99</td><td>Fiji Islands</td></tr>
+                        <tr><td class="pref-num">100</td><td>South Korea</td></tr>
+                        <tr><td class="pref-num">101</td><td>Papua New Guinea</td></tr>
+                        <tr><td class="pref-num">102</td><td>Kuwait</td></tr>
+                        <tr><td class="pref-num">103</td><td>Haiti</td></tr>
+                        <tr><td class="pref-num">104</td><td>Corsica Island</td></tr>
+                        <tr><td class="pref-num">105</td><td>Botswana</td></tr>
+                        <tr><td class="pref-num">106</td><td>Ceuta & Melila</td></tr>
+                        <tr><td class="pref-num">107</td><td>Monaco</td></tr>
+                        <tr><td class="pref-num">108</td><td>Scotland</td></tr>
+                        <tr><td class="pref-num">109</td><td>Hungary</td></tr>
+                        <tr><td class="pref-num">110</td><td>Cyprus</td></tr>
+                        <tr><td class="pref-num">111</td><td>Jordan</td></tr>
+                        <tr><td class="pref-num">112</td><td>Lebanon</td></tr>
+                        <tr><td class="pref-num">113</td><td>Wesrt Malaysia</td></tr>
+                        <tr><td class="pref-num">114</td><td>Pakistan</td></tr>
+                        <tr><td class="pref-num">115</td><td>Qatar</td></tr>
+                        <tr><td class="pref-num">116</td><td>Turkey</td></tr>
+                        <tr><td class="pref-num">117</td><td>Egypt</td></tr>
+                        <tr><td class="pref-num">118</td><td>Gambia</td></tr>
+                        <tr><td class="pref-num">119</td><td>Madeira Island</td></tr>
+                        <tr><td class="pref-num">120</td><td>Antigua & Barbuda</td></tr>
+                        <tr><td class="pref-num">121</td><td>Bahamas</td></tr>
+                        <tr><td class="pref-num">122</td><td>Barbados</td></tr>
+                        <tr><td class="pref-num">123</td><td>Bermuda</td></tr>
+                        <tr><td class="pref-num">124</td><td>Amsterdam & St.Paul</td></tr>
+                        <tr><td class="pref-num">125</td><td>Cayman Islands</td></tr>
+                        <tr><td class="pref-num">126</td><td>Nicaragua</td></tr>
+                        <tr><td class="pref-num">127</td><td>Virgin Islands</td></tr>
+                        <tr><td class="pref-num">128</td><td>British Virgin Islands</td></tr>
+                        <tr><td class="pref-num">129</td><td>Macquarie Islands</td></tr>
+                        <tr><td class="pref-num">130</td><td>Norfolk Island</td></tr>
+                        <tr><td class="pref-num">131</td><td>Guyana</td></tr>
+                        <tr><td class="pref-num">132</td><td>Marshall Islands</td></tr>
+                        <tr><td class="pref-num">133</td><td>Marianas Islands</td></tr>
+                        <tr><td class="pref-num">134</td><td>Republic of Belau</td></tr>
+                        <tr><td class="pref-num">135</td><td>Salomon Islands</td></tr>
+                        <tr><td class="pref-num">136</td><td>Martinique Island</td></tr>
+                        <tr><td class="pref-num">137</td><td>Isle of Man</td></tr>
+                        <tr><td class="pref-num">138</td><td>Vatican City</td></tr>
+                        <tr><td class="pref-num">139</td><td>South Yemen (DEL)</td></tr>
+                        <tr><td class="pref-num">140</td><td>Antarctica</td></tr>
+                        <tr><td class="pref-num">141</td><td>St. Pierre & Miquelon</td></tr>
+                        <tr><td class="pref-num">142</td><td>Lesotho</td></tr>
+                        <tr><td class="pref-num">143</td><td>St. Lucia</td></tr>
+                        <tr><td class="pref-num">144</td><td>Easter Island</td></tr>
+                        <tr><td class="pref-num">145</td><td>Galapagos Islands</td></tr>
+                        <tr><td class="pref-num">146</td><td>Algeria</td></tr>
+                        <tr><td class="pref-num">147</td><td>Tunisia</td></tr>
+                        <tr><td class="pref-num">148</td><td>Ascension Island</td></tr>
+                        <tr><td class="pref-num">149</td><td>Laccadive Islands</td></tr>
+                        <tr><td class="pref-num">150</td><td>Bahrain</td></tr>
+                        <tr><td class="pref-num">151</td><td>Iraq</td></tr>
+                        <tr><td class="pref-num">152</td><td>Maledives Islands</td></tr>
+                        <tr><td class="pref-num">153</td><td>Thailand</td></tr>
+                        <tr><td class="pref-num">154</td><td>Iran</td></tr>
+                        <tr><td class="pref-num">155</td><td>Taiwan</td></tr>
+                        <tr><td class="pref-num">156</td><td>Cameroon</td></tr>
+                        <tr><td class="pref-num">157</td><td>Montserrat Island</td></tr>
+                        <tr><td class="pref-num">158</td><td>Trinidad & Tobago</td></tr>
+                        <tr><td class="pref-num">159</td><td>Somalia</td></tr>
+                        <tr><td class="pref-num">160</td><td>Sudan</td></tr>
+                        <tr><td class="pref-num">161</td><td>Poland</td></tr>
+                        <tr><td class="pref-num">162</td><td>DR Congo</td></tr>
+                        <tr><td class="pref-num">163</td><td>Wales</td></tr>
+                        <tr><td class="pref-num">164</td><td>Togo</td></tr>
+                        <tr><td class="pref-num">165</td><td>Sardinia Island</td></tr>
+                        <tr><td class="pref-num">166</td><td>St. Maarten (DEL)</td></tr>
+                        <tr><td class="pref-num">167</td><td>Jersey Island</td></tr>
+                        <tr><td class="pref-num">168</td><td>Mauritius Island</td></tr>
+                        <tr><td class="pref-num">169</td><td>Guernsey Island</td></tr>
+                        <tr><td class="pref-num">170</td><td>Burkina Faso</td></tr>
+                        <tr><td class="pref-num">171</td><td>Svalbard</td></tr>
+                        <tr><td class="pref-num">172</td><td>New Caledonia</td></tr>
+                        <tr><td class="pref-num">173</td><td>Reunion Island</td></tr>
+                        <tr><td class="pref-num">174</td><td>Uganda</td></tr>
+                        <tr><td class="pref-num">175</td><td>Chad Republic</td></tr>
+                        <tr><td class="pref-num">176</td><td>Central African Rep.</td></tr>
+                    </table>
                 </div>
-                <div class="prefix-box">
-                    177. Sri Lanka<br>178. Bulgaria<br>179. Czechoslovakia (DEL)<br>180. Oman<br>181. Syria<br>182. Rep. of Guinea<br>183. Benin<br>184. Burundi<br>185. Comoros Islands<br>186. Djibouti<br>187. Kenya<br>188. Madagascar<br>189. Mayotte Island<br>190. Seychelles Islands<br>191. Swaziland<br>192. Cocos Islands<br>193. Cocos Keeling Isl.<br>194. Dominica Island<br>195. Grenada Island<br>196. Guadeloupe Island<br>197. Vanuatu Islands<br>198. Falkland Islands<br>199. Equatorial Guinea<br>200. S. Shetland Isl.<br>201. French Polynesia<br>202. Bhutan<br>203. China<br>204. Mozambique<br>205. Cape Verde<br>206. Ethiopia<br>207. St. Martin Island<br>208. Glorioso Island<br>209. Juan de Nova Isl.<br>210. Wallis & Futuna<br>211. Jan Mayen Island<br>212. Aland Islands<br>213. Marked Reef<br>214. Congo Republic<br>215. Gabon<br>216. Mali<br>217. Christmas Island<br>218. Belize<br>219. Anguilla Island<br>220. St. Vincent Island<br>221. S. Orkney Islands<br>222. S. Sandwich Islands<br>223. Western Samoa<br>224. Western Kiribati<br>225. Brunei<br>226. Malawi<br>227. Rwanda<br>228. Chagos Island<br>229. Heard Island<br>230. Micronesia<br>231. St. Peter & Paul<br>232. Aruba<br>233. Romania<br>234. Afghanistan<br>235. I.T.U Geneva<br>236. Bangladesh<br>237. Myanmar<br>238. Cambodia<br>239. Laos<br>240. Macao<br>241. Spratly Islands<br>242. Vietnam<br>243. Agalega Isl.<br>244. Pagalu Islands<br>245. Niger<br>246. Sao Tome & Principe<br>247. Navassa Island<br>248. Turks & Caicos<br>249. N. Cook Islands<br>250. S. Cook Islands<br>251. Albania<br>252. Revilla Gigedo<br>253. Andaman & Nicobar<br>254. Mount Athos<br>255. Kerguelen Islands<br>256. Prince Edward Isl.<br>257. Rodriguez Island<br>258. Tristan da Cunha<br>259. Tromelin Island<br>260. Baker & Howland<br>261. Chatham Island<br>262. Johnston Island<br>263. Kermadec Islands<br>264. Kingman Reef<br>265. Central Kiribati<br>266. Eastern Kiribati<br>267. Kure Island<br>268. Lord Howe Island<br>269. Mellish Reef<br>270. Minami Torishima<br>271. Rep. of Nauru<br>272. Niue Island<br>273. Jarwis & Palmyra<br>274. Pitcairn Island<br>275. Tokelau Islands<br>276. Tuvalu Islands<br>277. Sable Island<br>278. Wake Island<br>279. Willis Island<br>280. Aves Island<br>281. Ogasawara Island<br>282. Auckland & Campbell<br>283. St. Kitts & Nevis<br>284. St. Paul Island<br>285. Fernando de Noronha<br>286. Juan Fernandez<br>287. Malpelo Island<br>288. San Felix Island<br>289. S. Georgia Islands<br>290. Trinidade & Martim<br>291. Dhekelia & Akrotiri<br>292. Abu Ail (DEL)<br>293. Guinea Bissau<br>294. Peter 1st Island<br>295. S. Sudan (DEL)<br>296. Clipperton Island<br>297. Bouvet Island<br>298. Crozet Island<br>299. Desecheo Island<br>300. Western Sahara<br>301. Armenia<br>302. Asiatic Russia<br>303. Azerbaijan<br>304. Estonia<br>305. Franz Josef Land<br>306. Georgia<br>307. Kaliningrad<br>308. Kazakhstan<br>309. Kyrgyzstan<br>310. Latvia<br>311. Lithuania<br>312. Moldavia<br>313. Tajikistan<br>314. Turkmenistan<br>315. Ukraine<br>316. Uzbekistan<br>317. Belarus<br>318. SMOM<br>319. UN - New York<br>320. Banaba Island<br>321. Conway Reef<br>322. Walvis Bay (DEL)<br>323. Yemen<br>324. Penguin Isl. (DEL)<br>325. Rotuma Island<br>326. Malyj Vysotskij (DEL)<br>327. Slovenia<br>328. Croatia<br>329. Czech Republic<br>330. Slovakia<br>331. Bosnia & Hercegovina<br>332. Macedonia<br>333. Eritrea<br>334. North Korea<br>335. Scarborough Reef<br>336. Pratas Island<br>337. Austral Islands<br>338. Marquesas Islands<br>339. Temotu Islands<br>340. Palestine<br>341. East Timor<br>342. Chesterfield Isl.<br>343. Ducie Island<br>344. Montenegro<br>345. Swains Island<br>346. St. Barthelemy<br>347. Curacao<br>348. St. Maarten<br>349. Saba & Eustatius<br>350. Bonaire Island<br>351. South Sudan<br>352. Kosovo
+
+                <div class="prefix-column">
+                    <table>
+                        <tr><td class="pref-num">177</td><td>Sri Lanka</td></tr>
+                        <tr><td class="pref-num">178</td><td>Bulgaria</td></tr>
+                        <tr><td class="pref-num">179</td><td>Czechoslovakia (DEL)</td></tr>
+                        <tr><td class="pref-num">180</td><td>Oman</td></tr>
+                        <tr><td class="pref-num">181</td><td>Syria</td></tr>
+                        <tr><td class="pref-num">182</td><td>Republic of Guinea</td></tr>
+                        <tr><td class="pref-num">183</td><td>Benin</td></tr>
+                        <tr><td class="pref-num">184</td><td>Burundi</td></tr>
+                        <tr><td class="pref-num">185</td><td>Comoros Islands</td></tr>
+                        <tr><td class="pref-num">186</td><td>Djibouti</td></tr>
+                        <tr><td class="pref-num">187</td><td>Kenya</td></tr>
+                        <tr><td class="pref-num">188</td><td>Madagascar</td></tr>
+                        <tr><td class="pref-num">189</td><td>Mayotte Island</td></tr>
+                        <tr><td class="pref-num">190</td><td>Seychelles Islands</td></tr>
+                        <tr><td class="pref-num">191</td><td>Swaziland</td></tr>
+                        <tr><td class="pref-num">192</td><td>Cocos Islands</td></tr>
+                        <tr><td class="pref-num">193</td><td>Cocos Keeling Islands</td></tr>
+                        <tr><td class="pref-num">194</td><td>Dominica Island</td></tr>
+                        <tr><td class="pref-num">195</td><td>Grenada Island</td></tr>
+                        <tr><td class="pref-num">196</td><td>Guadeloupe Island</td></tr>
+                        <tr><td class="pref-num">197</td><td>Vanuatu Islands</td></tr>
+                        <tr><td class="pref-num">198</td><td>Falkland Islands</td></tr>
+                        <tr><td class="pref-num">199</td><td>Equatorial Guinea</td></tr>
+                        <tr><td class="pref-num">200</td><td>South Shetland Islands</td></tr>
+                        <tr><td class="pref-num">201</td><td>French Polynesia</td></tr>
+                        <tr><td class="pref-num">202</td><td>Bhutan</td></tr>
+                        <tr><td class="pref-num">203</td><td>Republic of China</td></tr>
+                        <tr><td class="pref-num">204</td><td>Mozambique</td></tr>
+                        <tr><td class="pref-num">205</td><td>Cape Verde Republic</td></tr>
+                        <tr><td class="pref-num">206</td><td>Ethiopia</td></tr>
+                        <tr><td class="pref-num">207</td><td>St. Martin Island</td></tr>
+                        <tr><td class="pref-num">208</td><td>Glorioso Island</td></tr>
+                        <tr><td class="pref-num">209</td><td>Juan de Nova Island</td></tr>
+                        <tr><td class="pref-num">210</td><td>Wallis & Futuna Islands</td></tr>
+                        <tr><td class="pref-num">211</td><td>Jan Mayen Island</td></tr>
+                        <tr><td class="pref-num">212</td><td>Aland Islands</td></tr>
+                        <tr><td class="pref-num">213</td><td>Marked Reef</td></tr>
+                        <tr><td class="pref-num">214</td><td>Congo Republic</td></tr>
+                        <tr><td class="pref-num">215</td><td>Gabon</td></tr>
+                        <tr><td class="pref-num">216</td><td>Mali</td></tr>
+                        <tr><td class="pref-num">217</td><td>Christmas Island</td></tr>
+                        <tr><td class="pref-num">218</td><td>Belize</td></tr>
+                        <tr><td class="pref-num">219</td><td>Anguilla Island</td></tr>
+                        <tr><td class="pref-num">220</td><td>St. Vincent Island</td></tr>
+                        <tr><td class="pref-num">221</td><td>South Orkney Islands</td></tr>
+                        <tr><td class="pref-num">222</td><td>South Sandwich Islands</td></tr>
+                        <tr><td class="pref-num">223</td><td>Western Samoa Islands</td></tr>
+                        <tr><td class="pref-num">224</td><td>Western Kiribati Islands</td></tr>
+                        <tr><td class="pref-num">225</td><td>Brunei</td></tr>
+                        <tr><td class="pref-num">226</td><td>Malawi</td></tr>
+                        <tr><td class="pref-num">227</td><td>Rwanda</td></tr>
+                        <tr><td class="pref-num">228</td><td>Chagos Island</td></tr>
+                        <tr><td class="pref-num">229</td><td>Heard Island</td></tr>
+                        <tr><td class="pref-num">230</td><td>Micronesia</td></tr>
+                        <tr><td class="pref-num">231</td><td>St. Peter & St. Paul Rocks</td></tr>
+                        <tr><td class="pref-num">232</td><td>Aruba</td></tr>
+                        <tr><td class="pref-num">233</td><td>Romania</td></tr>
+                        <tr><td class="pref-num">234</td><td>Afghanistan</td></tr>
+                        <tr><td class="pref-num">235</td><td>I.T.U Geneva</td></tr>
+                        <tr><td class="pref-num">236</td><td>Bangladesh</td></tr>
+                        <tr><td class="pref-num">237</td><td>Union of Myanmar</td></tr>
+                        <tr><td class="pref-num">238</td><td>Cambodia</td></tr>
+                        <tr><td class="pref-num">239</td><td>Laos</td></tr>
+                        <tr><td class="pref-num">240</td><td>Macao</td></tr>
+                        <tr><td class="pref-num">241</td><td>Spratly Islands</td></tr>
+                        <tr><td class="pref-num">242</td><td>Vietnam</td></tr>
+                        <tr><td class="pref-num">243</td><td>Agalega & St. Brandon</td></tr>
+                        <tr><td class="pref-num">244</td><td>Pagalu Islands</td></tr>
+                        <tr><td class="pref-num">245</td><td>Niger</td></tr>
+                        <tr><td class="pref-num">246</td><td>Sao Tome & Principe</td></tr>
+                        <tr><td class="pref-num">247</td><td>Navassa Island</td></tr>
+                        <tr><td class="pref-num">248</td><td>Turks & Caicos Islands</td></tr>
+                        <tr><td class="pref-num">249</td><td>Northern Cook Islands</td></tr>
+                        <tr><td class="pref-num">250</td><td>South Cook Islands</td></tr>
+                        <tr><td class="pref-num">251</td><td>Albania</td></tr>
+                        <tr><td class="pref-num">252</td><td>Revilla Gigedo Island</td></tr>
+                        <tr><td class="pref-num">253</td><td>Andaman & Nicobar</td></tr>
+                        <tr><td class="pref-num">254</td><td>Mount Athos</td></tr>
+                        <tr><td class="pref-num">255</td><td>Kerguelen Islands</td></tr>
+                        <tr><td class="pref-num">256</td><td>Prince Edward & Marion</td></tr>
+                        <tr><td class="pref-num">257</td><td>Rodriguez Island</td></tr>
+                        <tr><td class="pref-num">258</td><td>Tristan da Cunha & Gough</td></tr>
+                        <tr><td class="pref-num">259</td><td>Tromelin Island</td></tr>
+                        <tr><td class="pref-num">260</td><td>Baker & Howland Islands</td></tr>
+                        <tr><td class="pref-num">261</td><td>Chatham Island</td></tr>
+                        <tr><td class="pref-num">262</td><td>Johnston Island</td></tr>
+                        <tr><td class="pref-num">263</td><td>Kermadec Islands</td></tr>
+                        <tr><td class="pref-num">264</td><td>Kingman Reef</td></tr>
+                        <tr><td class="pref-num">265</td><td>Central Kiribati</td></tr>
+                        <tr><td class="pref-num">266</td><td>Eastern Kiribati</td></tr>
+                        <tr><td class="pref-num">267</td><td>Kure Island</td></tr>
+                        <tr><td class="pref-num">268</td><td>Lord Howe Island</td></tr>
+                        <tr><td class="pref-num">269</td><td>Mellish Reef</td></tr>
+                        <tr><td class="pref-num">270</td><td>Minami Torishima Island</td></tr>
+                        <tr><td class="pref-num">271</td><td>Republic of Nauru</td></tr>
+                        <tr><td class="pref-num">272</td><td>Niue Island</td></tr>
+                        <tr><td class="pref-num">273</td><td>Jarwis & Palmyra Islands</td></tr>
+                        <tr><td class="pref-num">274</td><td>Pitcairn Island</td></tr>
+                        <tr><td class="pref-num">275</td><td>Tokelau Islands</td></tr>
+                        <tr><td class="pref-num">276</td><td>Tuvalu Islands</td></tr>
+                        <tr><td class="pref-num">277</td><td>Sable Island</td></tr>
+                        <tr><td class="pref-num">278</td><td>Wake Island</td></tr>
+                        <tr><td class="pref-num">279</td><td>Willis Island</td></tr>
+                        <tr><td class="pref-num">280</td><td>Aves Island</td></tr>
+                        <tr><td class="pref-num">281</td><td>Ogasawara Island</td></tr>
+                        <tr><td class="pref-num">282</td><td>Auckland & Campbell</td></tr>
+                        <tr><td class="pref-num">283</td><td>St. Kitts & Nevis Islands</td></tr>
+                        <tr><td class="pref-num">284</td><td>St. Paul Island</td></tr>
+                        <tr><td class="pref-num">285</td><td>Fernando de Noronha</td></tr>
+                        <tr><td class="pref-num">286</td><td>Juan Fernandez Island</td></tr>
+                        <tr><td class="pref-num">287</td><td>Malpelo Island</td></tr>
+                        <tr><td class="pref-num">288</td><td>San Felix Island</td></tr>
+                        <tr><td class="pref-num">289</td><td>South Georgia Islands</td></tr>
+                        <tr><td class="pref-num">290</td><td>Trinidade & Martim Vaz</td></tr>
+                        <tr><td class="pref-num">291</td><td>Dhekelia & Akrotiri</td></tr>
+                        <tr><td class="pref-num">292</td><td>Abu Ail Island (DEL)</td></tr>
+                        <tr><td class="pref-num">293</td><td>Guinea Bissau</td></tr>
+                        <tr><td class="pref-num">294</td><td>Peter 1st Island</td></tr>
+                        <tr><td class="pref-num">295</td><td>Southern Sudan (DEL)</td></tr>
+                        <tr><td class="pref-num">296</td><td>Clipperton Island</td></tr>
+                        <tr><td class="pref-num">297</td><td>Bouvet Island</td></tr>
+                        <tr><td class="pref-num">298</td><td>Crozet Island</td></tr>
+                        <tr><td class="pref-num">299</td><td>Desecheo Island</td></tr>
+                        <tr><td class="pref-num">300</td><td>Western Sahara</td></tr>
+                        <tr><td class="pref-num">301</td><td>Armenia</td></tr>
+                        <tr><td class="pref-num">302</td><td>Asiatic Russia</td></tr>
+                        <tr><td class="pref-num">303</td><td>Azerbaijan</td></tr>
+                        <tr><td class="pref-num">304</td><td>Estonia</td></tr>
+                        <tr><td class="pref-num">305</td><td>Franz Josef Land</td></tr>
+                        <tr><td class="pref-num">306</td><td>Georgia</td></tr>
+                        <tr><td class="pref-num">307</td><td>Kaliningrad</td></tr>
+                        <tr><td class="pref-num">308</td><td>Kazakhstan</td></tr>
+                        <tr><td class="pref-num">309</td><td>Kyrgyzstan</td></tr>
+                        <tr><td class="pref-num">310</td><td>Latvia</td></tr>
+                        <tr><td class="pref-num">311</td><td>Lithuania</td></tr>
+                        <tr><td class="pref-num">312</td><td>Moldavia</td></tr>
+                        <tr><td class="pref-num">313</td><td>Tajikistan</td></tr>
+                        <tr><td class="pref-num">314</td><td>Turkmenistan</td></tr>
+                        <tr><td class="pref-num">315</td><td>Ukraine</td></tr>
+                        <tr><td class="pref-num">316</td><td>Uzbekistan</td></tr>
+                        <tr><td class="pref-num">317</td><td>Belarus</td></tr>
+                        <tr><td class="pref-num">318</td><td>SMOM</td></tr>
+                        <tr><td class="pref-num">319</td><td>United Nations - NY</td></tr>
+                        <tr><td class="pref-num">320</td><td>Banaba Island</td></tr>
+                        <tr><td class="pref-num">321</td><td>Conway Reef</td></tr>
+                        <tr><td class="pref-num">322</td><td>Walvis Bay (DEL)</td></tr>
+                        <tr><td class="pref-num">323</td><td>Yemen</td></tr>
+                        <tr><td class="pref-num">324</td><td>Penguin Island (DEL)</td></tr>
+                        <tr><td class="pref-num">325</td><td>Rotuma Island</td></tr>
+                        <tr><td class="pref-num">326</td><td>Malyj Vysotskij (DEL)</td></tr>
+                        <tr><td class="pref-num">327</td><td>Slovenia</td></tr>
+                        <tr><td class="pref-num">328</td><td>Croatia</td></tr>
+                        <tr><td class="pref-num">329</td><td>Czech Republic</td></tr>
+                        <tr><td class="pref-num">330</td><td>Slovakia</td></tr>
+                        <tr><td class="pref-num">331</td><td>Bosnia & Hercegovina</td></tr>
+                        <tr><td class="pref-num">332</td><td>Macedonia</td></tr>
+                        <tr><td class="pref-num">333</td><td>Eritrea</td></tr>
+                        <tr><td class="pref-num">334</td><td>North Korea</td></tr>
+                        <tr><td class="pref-num">335</td><td>Scarborough Reef</td></tr>
+                        <tr><td class="pref-num">336</td><td>Pratas Island</td></tr>
+                        <tr><td class="pref-num">337</td><td>Austral Islands</td></tr>
+                        <tr><td class="pref-num">338</td><td>Marquesas Islands</td></tr>
+                        <tr><td class="pref-num">339</td><td>Temotu Islands</td></tr>
+                        <tr><td class="pref-num">340</td><td>Palestine</td></tr>
+                        <tr><td class="pref-num">341</td><td>East Timor</td></tr>
+                        <tr><td class="pref-num">342</td><td>Chesterfield Islands</td></tr>
+                        <tr><td class="pref-num">343</td><td>Ducie Island</td></tr>
+                        <tr><td class="pref-num">344</td><td>Montenegro</td></tr>
+                        <tr><td class="pref-num">345</td><td>Swains Island</td></tr>
+                        <tr><td class="pref-num">346</td><td>St. Barthelemy Island</td></tr>
+                        <tr><td class="pref-num">347</td><td>Curacao</td></tr>
+                        <tr><td class="pref-num">348</td><td>St. Maarten</td></tr>
+                        <tr><td class="pref-num">349</td><td>Saba & Eustatius</td></tr>
+                        <tr><td class="pref-num">350</td><td>Bonaire Island</td></tr>
+                        <tr><td class="pref-num">351</td><td>South Sudan</td></tr>
+                        <tr><td class="pref-num">352</td><td>Kosovo</td></tr>
+                    </table>
                 </div>
             </div>
         </main>
@@ -112,6 +460,7 @@
                         <img src="https://www.hamqsl.com/solarn0nbh.php" alt="Solar Data" style="max-width: 100%; height: auto; display: block;">
                     </a>
                 </div>
+                <p style="font-size: 10px; color: #666; margin-top: 8px;">Data by N0NBH</p>
             </div>
         </aside>
     </div>
