@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>161AT018 Peter - QSL Gallery 1</title>
+    <style>
+        body { background-color: #121212; color: #e0e0e0; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; }
+        .header { width: 100%; height: 200px; background: url("images/header.jpg") no-repeat center center; background-size: 100% 100%; border-bottom: 2px solid #ff9900; margin: 0; display: block; }
+        .wrapper { display: flex; flex-wrap: wrap; max-width: 1400px; margin: 20px auto; gap: 20px; padding: 0 20px; }
+        .panel, .content { background-color: #1e1e1e; border: 1px solid #333; padding: 25px; box-sizing: border-box; }
+        .panel { flex: 0 1 250px; }
+        .content { flex: 1 1 800px; min-width: 350px; }
+        
+        /* Menu Nawigacyjne z Dropdown */
+        .menu a { display: block; color: #bbb; text-decoration: none; padding: 12px 10px; border-bottom: 1px solid #2a2a2a; transition: 0.3s; }
+        .menu a:hover { color: #fff; background: #2a2a2a; border-left: 4px solid #ff9900; }
+        
+        .dropdown { position: relative; display: block; }
+        .dropdown-content {
+            display: none;
+            background-color: #252525;
+            min-width: 100%;
+            border-left: 2px solid #ff9900;
+        }
+        .dropdown-content a {
+            padding: 10px 20px;
+            font-size: 14px;
+            border-bottom: 1px solid #333;
+            background: #1a1a1a;
+        }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        h1 { color: #ff9900; border-bottom: 2px solid #ff9900; padding-bottom: 10px; margin-top: 0; }
+
+        /* Styl Galerii Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .gallery-item {
+            aspect-ratio: 3 / 2; /* Proporcje 3:2 dla kart QSL */
+            overflow: hidden;
+            border: 1px solid #333;
+            border-radius: 4px;
+            background: #000;
+            transition: border-color 0.3s;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Zachowuje proporcje bez rozciągania */
+            transition: transform 0.4s ease;
+            cursor: pointer;
+            display: block;
+        }
+        .gallery-item:hover { border-color: #ff9900; }
+        .gallery-item:hover img { transform: scale(1.1); }
+
+        /* Zegary i Solar (Identyczne jak w Index) */
+        .clock-container { text-align: center; }
+        .clock-label { color: #ff9900; font-weight: bold; font-size: 14px; text-transform: uppercase; margin-bottom: 5px; }
+        .time-local { font-size: 1.8em; font-weight: bold; color: #ff9900; font-family: "Courier New", monospace; }
+        .time-utc { font-size: 1.8em; font-weight: bold; color: #0080ff; font-family: "Courier New", monospace; }
+        .divider { border-top: 1px solid #333; margin: 20px 0; }
+        .solar-container { text-align: center; margin-top: 10px; }
+        .solar-border { border: 1px solid #ff9900; padding: 2px; display: inline-block; background: #fff; line-height: 0; border-radius: 2px; }
+
+        @media (max-width: 850px) { .wrapper { flex-direction: column; } .header { height: 120px; } }
+    </style>
+</head>
+<body onload="updateTime()">
+
+    <div class="header"></div>
+
+    <div class="wrapper">
+        <aside class="panel">
+            <div style="color:#ff9900; font-weight:bold; border-bottom:1px solid #444; margin-bottom:10px;">NAVIGATION</div>
+            <nav class="menu">
+                <a href="index.html">Home</a>
+                <a href="qth.html">My QTH</a>
+                <a href="equipment.html">My Equipment</a>
+                <a href="qsl.html">QSL info</a>
+                
+                <div class="dropdown">
+                    <a href="#" style="color:#fff; border-left: 4px solid #ff9900;">QSL Gallery ▾</a>
+                    <div class="dropdown-content">
+                        <a href="gallery1.html" style="color:#ff9900;">Gallery 1</a>
+                        <a href="gallery2.html">Gallery 2</a>
+                        <a href="gallery3.html">Gallery 3</a>
+                        <a href="gallery4.html">Gallery 4</a>
+                        <a href="gallery5.html">Gallery 5</a>
+                    </div>
+                </div>
+
+                <a href="prefix.html">11m Prefix List</a>
+                <a href="video.html">Video & Stream</a>
+                <a href="links.html">Links</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <h1>QSL Gallery - Page 1</h1>
+            <p>Collection of received QSL cards. Click on an image to zoom.</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/qsl/card1.jpg" alt="QSL Card 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/qsl/card2.jpg" alt="QSL Card 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/qsl/card3.jpg" alt="QSL Card 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/qsl/card4.jpg" alt="QSL Card 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/qsl/card5.jpg" alt="QSL Card 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/qsl/card6.jpg" alt="QSL Card 6">
+                </div>
+            </div>
+            
+            <p style="margin-top: 30px; font-size: 0.9em; color: #888; text-align: center;">
+                More cards available in the next gallery sections.
+            </p>
+        </main>
+
+        <aside class="panel">
+            <div class="clock-container">
+                <div class="clock-label">Local Time (PL)</div>
+                <div id="clock" class="time-local">00:00:00</div>
+                <div class="divider"></div>
+                <div class="clock-label">UTC Time</div>
+                <div id="utc_clock" class="time-utc">00:00:00</div>
+            </div>
+            <div class="divider"></div>
+            <div class="solar-container">
+                <div class="clock-label" style="margin-bottom: 10px;">Solar Data</div>
+                <div class="solar-border">
+                    <a href="https://www.hamqsl.com/solar.html" title="Solar Data">
+                        <img src="https://www.hamqsl.com/solarn0nbh.php" alt="Solar Data" style="max-width: 100%; height: auto; display: block;">
+                    </a>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script>
+        function updateTime() {
+            const localOpts = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'Europe/Warsaw' };
+            const utcOpts = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'UTC' };
+            function tick() {
+                const now = new Date();
+                document.getElementById('clock').textContent = now.toLocaleTimeString('en-GB', localOpts);
+                document.getElementById('utc_clock').textContent = now.toLocaleTimeString('en-GB', utcOpts);
+            }
+            tick();
+            setInterval(tick, 1000);
+        }
+    </script>
+</body>
+</html>
