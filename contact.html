@@ -12,37 +12,57 @@
         .panel { flex: 0 1 250px; }
         .content { flex: 1 1 800px; min-width: 350px; }
         
-        /* Menu */
+        /* Navigation Menu */
         .menu a { display: block; color: #bbb; text-decoration: none; padding: 12px 10px; border-bottom: 1px solid #2a2a2a; transition: 0.3s; }
         .menu a:hover { color: #fff; background: #2a2a2a; border-left: 4px solid #ff9900; }
         
         h1 { color: #ff9900; border-bottom: 2px solid #ff9900; padding-bottom: 10px; margin-top: 0; }
-        h2 { color: #ff9900; font-size: 1.2em; margin-top: 0; }
+        h2 { color: #ff9900; font-size: 1.2em; margin-top: 25px; text-transform: uppercase; }
 
-        /* Stylizacja Kontaktu */
-        .contact-card { background: #151515; border: 1px solid #333; padding: 30px; border-radius: 4px; display: flex; flex-direction: column; gap: 20px; }
-        .contact-info { display: flex; align-items: center; gap: 15px; font-size: 16px; border-bottom: 1px solid #222; padding-bottom: 15px; }
-        .contact-info strong { color: #ff9900; min-width: 100px; text-transform: uppercase; font-size: 13px; }
-        
-        .social-links { display: flex; gap: 10px; margin-top: 10px; }
-        .social-btn { 
-            padding: 10px 20px; background: #222; color: #ddd; text-decoration: none; 
-            border: 1px solid #444; border-radius: 4px; transition: 0.3s; font-size: 14px;
+        /* Contact Form Styles */
+        .contact-form { margin-top: 20px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; color: #ff9900; margin-bottom: 5px; font-size: 14px; font-weight: bold; }
+        .form-group input, .form-group textarea { 
+            width: 100%; 
+            padding: 12px; 
+            background: #151515; 
+            border: 1px solid #444; 
+            color: #fff; 
+            border-radius: 4px; 
+            box-sizing: border-box;
+            font-family: inherit;
         }
-        .social-btn:hover { background: #ff9900; color: #000; border-color: #ff9900; font-weight: bold; }
+        .form-group input:focus, .form-group textarea:focus { border-color: #ff9900; outline: none; background: #1a1a1a; }
+        .btn-submit { 
+            background: #ff9900; 
+            color: #000; 
+            border: none; 
+            padding: 12px 30px; 
+            font-weight: bold; 
+            text-transform: uppercase; 
+            cursor: pointer; 
+            border-radius: 4px; 
+            transition: 0.3s;
+            font-size: 14px;
+        }
+        .btn-submit:hover { background: #e68a00; transform: translateY(-1px); }
 
-        /* Zegarek */
+        /* Clocks & Solar Widget */
         .clock-container { text-align: center; }
-        .clock-label { color: #ff9900; font-weight: bold; font-size: 14px; text-transform: uppercase; }
+        .clock-label { color: #ff9900; font-weight: bold; font-size: 14px; text-transform: uppercase; margin-bottom: 5px; }
         .time-local { font-size: 1.8em; font-weight: bold; color: #ff9900; font-family: "Courier New", monospace; }
         .time-utc { font-size: 1.8em; font-weight: bold; color: #0080ff; font-family: "Courier New", monospace; }
         .divider { border-top: 1px solid #333; margin: 20px 0; }
+        .solar-border { border: 1px solid #ff9900; padding: 2px; display: inline-block; background: #fff; line-height: 0; border-radius: 2px; }
 
-        @media (max-width: 850px) { .wrapper { flex-direction: column; } .content { order: -1; } }
+        @media (max-width: 850px) { .wrapper { flex-direction: column; } .header { height: 120px; } }
     </style>
 </head>
 <body onload="updateTime()">
+
     <div class="header"></div>
+
     <div class="wrapper">
         <aside class="panel">
             <div style="color:#ff9900; font-weight:bold; border-bottom:1px solid #444; margin-bottom:10px;">NAVIGATION</div>
@@ -60,39 +80,30 @@
         </aside>
 
         <main class="content">
-            <h1>Contact Details</h1>
+            <h1>Contact Me</h1>
+            <p>If you have any questions regarding my station or would like to arrange a schedule (sked), please use the form below.</p>
+
+            <form class="contact-form" action="mailto:161at018@gmail.com" method="post" enctype="text/plain">
+                <div class="form-group">
+                    <label>Callsign / Name:</label>
+                    <input type="text" name="name" placeholder="Enter your callsign or name..." required>
+                </div>
+                <div class="form-group">
+                    <label>Email Address:</label>
+                    <input type="email" name="email" placeholder="Enter your email address..." required>
+                </div>
+                <div class="form-group">
+                    <label>Message:</label>
+                    <textarea name="message" rows="6" placeholder="Write your message here..." required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Send Message</button>
+            </form>
+
+            <div class="divider"></div>
             
-            <div class="contact-card">
-                <h2>161 AT 018 Peter</h2>
-                
-                <div class="contact-info">
-                    <strong>Callsign:</strong> 161AT018
-                </div>
-                <div class="contact-info">
-                    <strong>Operator:</strong> Peter (Piotr)
-                </div>
-                <div class="contact-info">
-                    <strong>Email:</strong> 161at018@gmail.com </div>
-                <div class="contact-info">
-                    <strong>Location:</strong> Poland (Division 161)
-                </div>
-                <div class="contact-info">
-                    <strong>Working:</strong> 27.555 MHz (USB)
-                </div>
-
-                <div style="margin-top: 10px;">
-                    <div style="color: #ff9900; font-size: 13px; font-weight: bold; margin-bottom: 10px; text-transform: uppercase;">Follow / Find me:</div>
-                    <div class="social-links">
-                        <a href="https://www.facebook.com/alfatango.zerooneeight/" target="_blank" class="social-btn">Facebook</a>
-                        <a href="https://www.youtube.com/user/29at118/videos" target="_blank" class="social-btn">YouTube</a>
-                        <a href="https://clusterdx.org/admin/user_profile.php?id=209" target="_blank" class="social-btn">ClusterDX</a>
-                    </div>
-                </div>
-            </div>
-
-            <p style="margin-top: 30px; font-style: italic; color: #888;">
-                Note: For QSL requests, please check the <a href="qsl.html" style="color: #ff9900;">QSL info</a> page for instructions.
-            </p>
+            <h2>Station Info</h2>
+            <p><strong>Official Email:</strong> 161at018@gmail.com</p>
+            <p><strong>Primary Frequency:</strong> 27.555 MHz (USB)</p>
         </main>
 
         <aside class="panel">
@@ -102,6 +113,16 @@
                 <div class="divider"></div>
                 <div class="clock-label">UTC Time</div>
                 <div id="utc_clock" class="time-utc">00:00:00</div>
+            </div>
+            <div class="divider"></div>
+            <div style="text-align: center;">
+                <div class="clock-label" style="margin-bottom: 10px;">Solar Data</div>
+                <div class="solar-border">
+                    <a href="https://www.hamqsl.com/solar.html" title="Solar-Terrestrial Data">
+                        <img src="https://www.hamqsl.com/solarn0nbh.php" alt="Solar Data" style="max-width: 100%; height: auto; display: block;">
+                    </a>
+                </div>
+                <p style="font-size: 10px; color: #666; margin-top: 8px;">Data by N0NBH</p>
             </div>
         </aside>
     </div>
