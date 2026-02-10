@@ -99,7 +99,7 @@
 
         <aside class="panel">
             <div class="clock-container">
-                <div class="clock-label">Local Time</div>
+                <div class="clock-label">Local Time (PL)</div>
                 <div id="clock" class="time-local">00:00:00</div>
                 <div class="divider"></div>
                 <div class="clock-label">UTC Time</div>
@@ -110,11 +110,28 @@
 
     <script>
         function updateTime() {
-            const opts = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+            // Wymuszenie strefy czasowej Polski
+            const localOpts = { 
+                hour: '2-digit', 
+                minute: '2-digit', 
+                second: '2-digit', 
+                hour12: false, 
+                timeZone: 'Europe/Warsaw' 
+            };
+
+            // Czas UTC
+            const utcOpts = { 
+                hour: '2-digit', 
+                minute: '2-digit', 
+                second: '2-digit', 
+                hour12: false, 
+                timeZone: 'UTC' 
+            };
+
             setInterval(() => {
                 const now = new Date();
-                document.getElementById('clock').textContent = now.toLocaleTimeString('en-GB', opts);
-                document.getElementById('utc_clock').textContent = now.toLocaleTimeString('en-GB', { ...opts, timeZone: 'UTC' });
+                document.getElementById('clock').textContent = now.toLocaleTimeString('en-GB', localOpts);
+                document.getElementById('utc_clock').textContent = now.toLocaleTimeString('en-GB', utcOpts);
             }, 1000);
         }
     </script>
