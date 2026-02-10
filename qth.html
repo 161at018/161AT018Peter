@@ -12,17 +12,36 @@
         .panel { flex: 0 1 250px; }
         .content { flex: 1 1 800px; min-width: 350px; }
         
-        .menu a { display: block; color: #bbb; text-decoration: none; padding: 12px 10px; border-bottom: 1px solid #2a2a2a; transition: 0.3s; }
+        /* Menu Nawigacyjne */
+        .menu a { display: block; color: #bbb; text-decoration: none; padding: 12px 10px; border-bottom: 1px solid #2a2a2a; transition: 0.3s; cursor: pointer; }
         .menu a:hover { color: #fff; background: #2a2a2a; border-left: 4px solid #ff9900; }
         
+        /* Dropdown Menu dla Galerii */
+        .dropdown { position: relative; display: block; }
+        .dropdown-content {
+            display: none;
+            background-color: #252525;
+            min-width: 100%;
+            border-left: 2px solid #ff9900;
+        }
+        .dropdown-content a {
+            padding: 10px 20px;
+            font-size: 14px;
+            border-bottom: 1px solid #333;
+            background: #1a1a1a;
+        }
+        .dropdown:hover .dropdown-content { display: block; }
+        .dropdown:hover > a { color: #fff; background: #2a2a2a; border-left: 4px solid #ff9900; }
+
         h1 { color: #ff9900; border-bottom: 2px solid #ff9900; padding-bottom: 10px; margin-top: 0; }
         h2 { color: #ff9900; font-size: 1.2em; margin-top: 25px; }
 
-        /* QTH Specific Styles */
+        /* QTH Info Cards */
         .qth-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px; }
         .qth-card { background: #252525; padding: 15px; border-left: 3px solid #ff9900; }
         .qth-card b { color: #ff9900; display: block; font-size: 0.9em; text-transform: uppercase; }
         .qth-card span { font-size: 1.1em; font-weight: bold; }
+
         .map-wrapper { border: 1px solid #ff9900; margin-top: 20px; background: #000; line-height: 0; }
         .map-wrapper iframe { width: 100%; filter: grayscale(80%) invert(90%) hue-rotate(180deg); }
 
@@ -50,7 +69,18 @@
                 <a href="qth.html" style="color:#fff; border-left: 4px solid #ff9900;">My QTH</a>
                 <a href="equipment.html">My Equipment</a>
                 <a href="qsl.html">QSL info</a>
-                <a href="gallery.html">QSL Gallery</a>
+                
+                <div class="dropdown">
+                    <a href="#">QSL Gallery ▾</a>
+                    <div class="dropdown-content">
+                        <a href="gallery1.html">Gallery 1</a>
+                        <a href="gallery2.html">Gallery 2</a>
+                        <a href="gallery3.html">Gallery 3</a>
+                        <a href="gallery4.html">Gallery 4</a>
+                        <a href="gallery5.html">Gallery 5</a>
+                    </div>
+                </div>
+
                 <a href="prefix.html">11m Prefix List</a>
                 <a href="video.html">Video & Stream</a>
                 <a href="links.html">Links</a>
@@ -72,7 +102,7 @@
             
             <h2>Location Map</h2>
             <div class="map-wrapper">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20247.7818967406!2d16.63412355!3d50.2974724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470e0f3933333333%3A0x3333333333333333!2sBystrzyca%20K%C5%82odzka!5e0!3m2!1spl!2spl!4v1700000000000" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d40498.05316453982!2d16.6133276!3d50.29742665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470e041352e8913b%3A0xc64e18378d380721!2s57-500%20Bystrzyca%20K%C5%82odzka!5e0!3m2!1spl!2spl!4v1700000000000" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </main>
 
