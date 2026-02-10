@@ -7,7 +7,7 @@
     <style>
         body { background-color: #121212; color: #e0e0e0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; line-height: 1.6; }
         
-        /* NAGŁÓWEK 200px - BEZ PRZERWY */
+        /* NAGŁÓWEK 200px */
         .header { 
             width: 100%; 
             height: 200px; 
@@ -29,11 +29,23 @@
         h1 { color: #ff9900; border-bottom: 2px solid #ff9900; padding-bottom: 10px; margin-top: 0; font-variant: small-caps; }
         h2 { color: #ff9900; font-size: 1.2em; margin-top: 20px; }
         
+        /* Zegary */
         .clock-container { text-align: center; }
-        .clock-label { color: #ff9900; font-weight: bold; font-size: 14px; text-transform: uppercase; }
+        .clock-label { color: #ff9900; font-weight: bold; font-size: 14px; text-transform: uppercase; margin-bottom: 5px; }
         .time-local { font-size: 1.8em; font-weight: bold; color: #ff9900; font-family: "Courier New", Courier, monospace; text-shadow: 0 0 10px rgba(255,153,0,0.3); }
         .time-utc { font-size: 1.8em; font-weight: bold; color: #0080ff; font-family: "Courier New", Courier, monospace; text-shadow: 0 0 10px rgba(0,128,255,0.3); }
         .divider { border-top: 1px solid #333; margin: 20px 0; }
+
+        /* Widżet Solar */
+        .solar-container { text-align: center; margin-top: 10px; }
+        .solar-border {
+            border: 1px solid #ff9900; 
+            padding: 2px; 
+            display: inline-block; 
+            background: #fff; 
+            line-height: 0;
+            border-radius: 2px;
+        }
 
         /* Mapa i Info */
         .qth-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px; }
@@ -57,7 +69,7 @@
             <div style="color:#ff9900; font-weight:bold; border-bottom:1px solid #444; margin-bottom:10px; letter-spacing: 2px;">NAVIGATION</div>
             <nav class="menu">
                 <a href="index.html">Home</a>
-                <a href="qth.html">My QTH</a>
+                <a href="qth.html" style="color:#fff; border-left: 4px solid #ff9900;">My QTH</a>
                 <a href="equipment.html">My Equipment</a>
                 <a href="qsl.html">QSL info</a>
                 <a href="gallery.html">QSL Gallery</a>
@@ -82,7 +94,7 @@
             
             <h2>Google Maps View</h2>
             <div class="map-wrapper">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20390.53382190368!2d16.629344697869982!3d50.29534888001012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470e053f0d0be2e9%3A0x8bbf5fb049b4ef9a!2sBystrzyca%20K%C5%82odzka%2C%20Polska!5e0!3m2!1spl!2sie!4v1770678978815!5m2!1spl!2sie" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10144.33230325996!2d16.64360334707269!3d50.298751301828874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470e0466375080c3%3A0xe510c4366b571168!2sBystrzyca%20K%C5%82odzka!5e0!3m2!1spl!2spl!4v1700000000000!5m2!1spl!2spl" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
             
             <p style="margin-top: 20px; font-size: 0.9em; color: #888;">
@@ -98,12 +110,23 @@
                 <div class="clock-label">UTC Time</div>
                 <div id="utc_clock" class="time-utc">00:00:00</div>
             </div>
+
+            <div class="divider"></div>
+
+            <div class="solar-container">
+                <div class="clock-label" style="margin-bottom: 10px;">Solar Data</div>
+                <div class="solar-border">
+                    <a href="https://www.hamqsl.com/solar.html" title="Click to add Solar-Terrestrial Data to your website!">
+                        <img src="https://www.hamqsl.com/solarn0nbh.php" alt="Solar Data" style="max-width: 100%; height: auto; display: block;">
+                    </a>
+                </div>
+                <p style="font-size: 10px; color: #666; margin-top: 8px;">Data by N0NBH</p>
+            </div>
         </aside>
     </div>
 
     <script>
         function updateTime() {
-            // Opcje dla czasu lokalnego w Polsce
             const localOpts = { 
                 hour: '2-digit', 
                 minute: '2-digit', 
@@ -112,7 +135,6 @@
                 timeZone: 'Europe/Warsaw' 
             };
 
-            // Opcje dla czasu UTC
             const utcOpts = { 
                 hour: '2-digit', 
                 minute: '2-digit', 
@@ -121,11 +143,13 @@
                 timeZone: 'UTC' 
             };
 
-            setInterval(() => {
+            function tick() {
                 const now = new Date();
                 document.getElementById('clock').textContent = now.toLocaleTimeString('en-GB', localOpts);
                 document.getElementById('utc_clock').textContent = now.toLocaleTimeString('en-GB', utcOpts);
-            }, 1000);
+            }
+            tick();
+            setInterval(tick, 1000);
         }
     </script>
 </body>
