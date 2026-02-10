@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>161AT018 Peter - Useful Links</title>
+    <style>
+        body { background-color: #121212; color: #e0e0e0; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; }
+        .header { width: 100%; height: 200px; background: url("images/header.jpg") no-repeat center center; background-size: 100% 100%; border-bottom: 2px solid #ff9900; margin: 0; display: block; }
+        .wrapper { display: flex; flex-wrap: wrap; max-width: 1400px; margin: 20px auto; gap: 20px; padding: 0 20px; }
+        .panel, .content { background-color: #1e1e1e; border: 1px solid #333; padding: 25px; box-sizing: border-box; }
+        .panel { flex: 0 1 250px; }
+        .content { flex: 1 1 800px; min-width: 350px; }
+        
+        /* Menu */
+        .menu a { display: block; color: #bbb; text-decoration: none; padding: 12px 10px; border-bottom: 1px solid #2a2a2a; transition: 0.3s; }
+        .menu a:hover { color: #fff; background: #2a2a2a; border-left: 4px solid #ff9900; }
+        
+        h1 { color: #ff9900; border-bottom: 2px solid #ff9900; padding-bottom: 10px; margin-top: 0; }
+        h2 { color: #ff9900; font-size: 1.1em; margin-top: 25px; border-left: 3px solid #ff9900; padding-left: 10px; }
+
+        /* Stylizacja Linków */
+        .link-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 20px; }
+        .link-item { 
+            background: #151515; 
+            border: 1px solid #333; 
+            padding: 15px; 
+            text-decoration: none; 
+            color: #ddd; 
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            border-radius: 4px;
+        }
+        .link-item:hover { 
+            border-color: #ff9900; 
+            background: #222; 
+            box-shadow: 0 0 10px rgba(255, 153, 0, 0.2);
+            transform: translateY(-2px);
+        }
+        .link-title { color: #ff9900; font-weight: bold; margin-bottom: 5px; font-size: 16px; }
+        .link-desc { font-size: 13px; color: #999; line-height: 1.4; }
+
+        /* Zegarek */
+        .clock-container { text-align: center; }
+        .clock-label { color: #ff9900; font-weight: bold; font-size: 14px; text-transform: uppercase; }
+        .time-local { font-size: 1.8em; font-weight: bold; color: #ff9900; font-family: "Courier New", monospace; }
+        .time-utc { font-size: 1.8em; font-weight: bold; color: #0080ff; font-family: "Courier New", monospace; }
+        .divider { border-top: 1px solid #333; margin: 20px 0; }
+
+        @media (max-width: 850px) { .wrapper { flex-direction: column; } .content { order: -1; } }
+    </style>
+</head>
+<body onload="updateTime()">
+    <div class="header"></div>
+    <div class="wrapper">
+        <aside class="panel">
+            <div style="color:#ff9900; font-weight:bold; border-bottom:1px solid #444; margin-bottom:10px;">NAVIGATION</div>
+            <nav class="menu">
+                <a href="index.html">Home</a>
+                <a href="qth.html">My QTH</a>
+                <a href="equipment.html">My Equipment</a>
+                <a href="qsl.html">QSL info</a>
+                <a href="gallery.html">QSL Gallery</a>
+                <a href="prefix.html">11m Prefix List</a>
+                <a href="video.html">Video & Stream</a>
+                <a href="links.html" style="color:#fff; border-left: 4px solid #ff9900;">Links</a>
+                <a href="guestbook.html">Guestbook</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <h1>Useful Links</h1>
+            
+            <h2>DX Clusters & Spotting</h2>
+            <div class="link-grid">
+                <a href="https://www.cluster.alfatango.org/" target="_blank" class="link-item">
+                    <span class="link-title">AT DX Cluster</span>
+                    <span class="link-desc">Official Alfa Tango DX Cluster. The best place for AT spots.</span>
+                </a>
+                <a href="http://www.dxsummit.fi/" target="_blank" class="link-item">
+                    <span class="link-title">DX Summit</span>
+                    <span class="link-desc">General DX cluster covering all amateur bands.</span>
+                </a>
+                <a href="https://11m.org/cluster" target="_blank" class="link-item">
+                    <span class="link-title">11m DX Cluster</span>
+                    <span class="link-desc">Real-time spots specifically for the 11-meter band.</span>
+                </a>
+            </div>
+
+            <h2>Propagation & Weather</h2>
+            <div class="link-grid">
+                <a href="https://www.solarham.net/" target="_blank" class="link-item">
+                    <span class="link-title">SolarHam</span>
+                    <span class="link-desc">Real-time solar news, magnetosphere data, and propagation.</span>
+                </a>
+                <a href="https://www.dxmaps.com/spots/map.php?Lan=E&Frec=28&ML=M&Map=W" target="_blank" class="link-item">
+                    <span class="link-title">DXMaps</span>
+                    <span class="link-desc">Live map of DX contacts (check 10m/28MHz for 11m potential).</span>
+                </a>
+                <a href="https://pskreporter.info/" target="_blank" class="link-item">
+                    <span class="link-title">PSK Reporter</span>
+                    <span class="link-desc">Monitor digital modes propagation worldwide.</span>
+                </a>
+            </div>
+
+            <h2>Other Resources</h2>
+            <div class="link-grid">
+                <a href="https://www.qrz.com/" target="_blank" class="link-item">
+                    <span class="link-title">QRZ.com</span>
+                    <span class="link-desc">World's most popular callsign database for licensed hams.</span>
+                </a>
+                <a href="http://www.alfatango.org/" target="_blank" class="link-item">
+                    <span class="link-title">Alfa Tango Official</span>
+                    <span class="link-desc">The official international website of the AT Group.</span>
+                </a>
+            </div>
+        </main>
+
+        <aside class="panel">
+            <div class="clock-container">
+                <div class="clock-label">Local Time (PL)</div>
+                <div id="clock" class="time-local">00:00:00</div>
+                <div class="divider"></div>
+                <div class="clock-label">UTC Time</div>
+                <div id="utc_clock" class="time-utc">00:00:00</div>
+            </div>
+        </aside>
+    </div>
+
+    <script>
+        function updateTime() {
+            const localOpts = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'Europe/Warsaw' };
+            const utcOpts = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'UTC' };
+            function tick() {
+                const now = new Date();
+                document.getElementById('clock').textContent = now.toLocaleTimeString('en-GB', localOpts);
+                document.getElementById('utc_clock').textContent = now.toLocaleTimeString('en-GB', utcOpts);
+            }
+            tick();
+            setInterval(tick, 1000);
+        }
+    </script>
+</body>
+</html>
