@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,42 +12,78 @@
         .panel { flex: 0 1 250px; }
         .content { flex: 1 1 800px; min-width: 350px; }
         
-        /* Menu */
-        .menu a { display: block; color: #bbb; text-decoration: none; padding: 12px 10px; border-bottom: 1px solid #2a2a2a; transition: 0.3s; }
+        /* Menu Nawigacyjne z Dropdown */
+        .menu a { display: block; color: #bbb; text-decoration: none; padding: 12px 10px; border-bottom: 1px solid #2a2a2a; transition: 0.3s; cursor: pointer; }
         .menu a:hover { color: #fff; background: #2a2a2a; border-left: 4px solid #ff9900; }
         
+        .dropdown { position: relative; display: block; }
+        .dropdown-content {
+            display: none;
+            background-color: #252525;
+            min-width: 100%;
+            border-left: 2px solid #ff9900;
+        }
+        .dropdown-content a {
+            padding: 10px 20px;
+            font-size: 14px;
+            border-bottom: 1px solid #333;
+            background: #1a1a1a;
+        }
+        .dropdown:hover .dropdown-content { display: block; }
+        .dropdown:hover > a { color: #fff; background: #2a2a2a; border-left: 4px solid #ff9900; }
+
         h1 { color: #ff9900; border-bottom: 2px solid #ff9900; padding-bottom: 10px; margin-top: 0; }
-        h2 { color: #ff9900; font-size: 1.2em; margin-top: 30px; border-left: 3px solid #ff9900; padding-left: 10px; }
+        h2 { color: #ff9900; font-size: 1.3em; margin-top: 25px; border-left: 3px solid #ff9900; padding-left: 10px; }
 
-        /* Tabela Sprzętu */
-        .eq-table { width: 100%; border-collapse: collapse; margin-top: 15px; background: #151515; }
-        .eq-table th, .eq-table td { border: 1px solid #333; padding: 12px; text-align: left; }
-        .eq-table th { background: #222; color: #ff9900; text-transform: uppercase; font-size: 13px; }
-        .eq-table tr:hover { background: #1a1a1a; }
-        .eq-category { color: #ff9900; font-weight: bold; width: 30%; }
+        /* Equipment List Styles */
+        .eq-list { list-style: none; padding: 0; }
+        .eq-list li { background: #252525; margin-bottom: 10px; padding: 15px; border-radius: 4px; display: flex; align-items: center; }
+        .eq-list b { color: #ff9900; min-width: 120px; display: inline-block; }
+        
+        .eq-photo { 
+            max-width: 100%; 
+            height: auto; 
+            border: 1px solid #333; 
+            margin-top: 15px; 
+            border-radius: 4px; 
+        }
 
-        /* Zegary i Widżet */
+        /* Zegary i Solar - IDENTYCZNE JAK W INDEX */
         .clock-container { text-align: center; }
-        .clock-label { color: #ff9900; font-weight: bold; font-size: 14px; text-transform: uppercase; }
+        .clock-label { color: #ff9900; font-weight: bold; font-size: 14px; text-transform: uppercase; margin-bottom: 5px; }
         .time-local { font-size: 1.8em; font-weight: bold; color: #ff9900; font-family: "Courier New", monospace; }
         .time-utc { font-size: 1.8em; font-weight: bold; color: #0080ff; font-family: "Courier New", monospace; }
         .divider { border-top: 1px solid #333; margin: 20px 0; }
-        .solar-widget { background: #fff; padding: 5px; border-radius: 4px; display: inline-block; margin-top: 10px; }
+        .solar-container { text-align: center; margin-top: 10px; }
+        .solar-border { border: 1px solid #ff9900; padding: 2px; display: inline-block; background: #fff; line-height: 0; border-radius: 2px; }
 
-        @media (max-width: 850px) { .wrapper { flex-direction: column; } .content { order: -1; } }
+        @media (max-width: 850px) { .wrapper { flex-direction: column; } .header { height: 120px; } }
     </style>
 </head>
 <body onload="updateTime()">
+
     <div class="header"></div>
+
     <div class="wrapper">
         <aside class="panel">
-            <div style="color:#ff9900; font-weight:bold; border-bottom:1px solid #444; margin-bottom:10px;">NAWIGACJA</div>
+            <div style="color:#ff9900; font-weight:bold; border-bottom:1px solid #444; margin-bottom:10px;">NAVIGATION</div>
             <nav class="menu">
                 <a href="index.html">Home</a>
                 <a href="qth.html">My QTH</a>
                 <a href="equipment.html" style="color:#fff; border-left: 4px solid #ff9900;">My Equipment</a>
                 <a href="qsl.html">QSL info</a>
-                <a href="gallery.html">QSL Gallery</a>
+                
+                <div class="dropdown">
+                    <a href="#">QSL Gallery ▾</a>
+                    <div class="dropdown-content">
+                        <a href="gallery1.html">Gallery 1</a>
+                        <a href="gallery2.html">Gallery 2</a>
+                        <a href="gallery3.html">Gallery 3</a>
+                        <a href="gallery4.html">Gallery 4</a>
+                        <a href="gallery5.html">Gallery 5</a>
+                    </div>
+                </div>
+
                 <a href="prefix.html">11m Prefix List</a>
                 <a href="video.html">Video & Stream</a>
                 <a href="links.html">Links</a>
@@ -56,29 +92,28 @@
         </aside>
 
         <main class="content">
-            <h1>My Station Equipment</h1>
-            <p>Sprzęt, którego używam w mojej stacji bazowej oraz podczas operacji terenowych.</p>
-
+            <h1>My Equipment</h1>
+            <p>Below is a list of the hardware I currently use in my radio station.</p>
+            
             <h2>Transceivers</h2>
-            <table class="eq-table">
-                <tr><th>Device</th><th>Model</th><th>Details</th></tr>
-                <tr><td class="eq-category">HF Transceiver</td><td>Icom IC-7300</td><td>+ original mic HM-219</td></tr>
-                <tr><td class="eq-category">Former Radio</td><td>Icom IC-7000</td><td>HM-151 + modification (<strong>SOLD</strong>)</td></tr>
-            </table>
+            <ul class="eq-list">
+                <li><b>Radio 1:</b> Your Main Radio Model (e.g., Yaesu FT-991A)</li>
+                <li><b>Radio 2:</b> Your Secondary Radio Model</li>
+            </ul>
 
             <h2>Antennas</h2>
-            <table class="eq-table">
-                <tr><th>Type</th><th>Model</th><th>Usage</th></tr>
-                <tr><td class="eq-category">Base Antenna</td><td>YAGI 3 el. (Spitfire 27)</td><td>Main antenna for DXing</td></tr>
-                <tr><td class="eq-category">Portable</td><td>SKYPPER</td><td>Lightweight antenna for field days</td></tr>
-                <tr><td class="eq-category">Mobile</td><td>SIRIO Megawatt 4000</td><td>Vehicle installation</td></tr>
-            </table>
+            <ul class="eq-list">
+                <li><b>Main Antenna:</b> Your Antenna Model (e.g., Skypper, Gain Master)</li>
+                <li><b>Mobile:</b> Your Mobile Antenna</li>
+            </ul>
 
-            <h2>Tools & Accessories</h2>
-            <table class="eq-table">
-                <tr><th>Category</th><th>Model</th><th>Notes</th></tr>
-                <tr><td class="eq-category">Analyzer</td><td>MAX 6</td><td>Antenna system tuning</td></tr>
-            </table>
+            <h2>Accessories</h2>
+            <ul class="eq-list">
+                <li><b>Microphone:</b> Your Desk Microphone</li>
+                <li><b>Power Supply:</b> Your PSU Model</li>
+            </ul>
+
+            <img src="images/shack.jpg" alt="My Radio Shack" class="eq-photo">
         </main>
 
         <aside class="panel">
@@ -89,17 +124,15 @@
                 <div class="clock-label">UTC Time</div>
                 <div id="utc_clock" class="time-utc">00:00:00</div>
             </div>
-
             <div class="divider"></div>
-
-            <div style="text-align: center;">
-                <div class="clock-label" style="margin-bottom:10px;">Propagation Info</div>
-                <div class="solar-widget">
-                    <a href="https://www.hamqsl.com/solar.html" title="Click to add Solar-Terrestrial Data to your website!">
+            <div class="solar-container">
+                <div class="clock-label" style="margin-bottom: 10px;">Solar Data</div>
+                <div class="solar-border">
+                    <a href="https://www.hamqsl.com/solar.html" title="Solar Data">
                         <img src="https://www.hamqsl.com/solarn0nbh.php" alt="Solar Data" style="max-width: 100%; height: auto; display: block;">
                     </a>
                 </div>
-                <p style="font-size: 11px; color: #666; margin-top: 10px;">Data by N0NBH</p>
+                <p style="font-size: 10px; color: #666; margin-top: 8px;">Data by N0NBH</p>
             </div>
         </aside>
     </div>
