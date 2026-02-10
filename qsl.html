@@ -5,46 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>161AT018 Peter - QSL Info</title>
     <style>
-        body { background-color: #121212; color: #e0e0e0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; line-height: 1.6; }
-        
-        /* HEADER 200px - NO GAP */
-        .header { 
-            width: 100%; 
-            height: 200px; 
-            background: url("images/header.jpg") no-repeat center center; 
-            background-size: 100% 100%; 
-            border-bottom: 2px solid #ff9900; 
-            margin: 0;
-            display: block;
-        }
-
+        body { background-color: #121212; color: #e0e0e0; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; }
+        .header { width: 100%; height: 200px; background: url("images/header.jpg") no-repeat center center; background-size: 100% 100%; border-bottom: 2px solid #ff9900; margin: 0; display: block; }
         .wrapper { display: flex; flex-wrap: wrap; max-width: 1400px; margin: 20px auto; gap: 20px; padding: 0 20px; }
-        .panel, .content { background-color: #1e1e1e; border: 1px solid #333; padding: 25px; box-sizing: border-box; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+        .panel, .content { background-color: #1e1e1e; border: 1px solid #333; padding: 25px; box-sizing: border-box; }
         .panel { flex: 0 1 250px; }
         .content { flex: 1 1 800px; min-width: 350px; }
         
-        .menu a { display: block; color: #bbb; text-decoration: none; padding: 12px 10px; border-bottom: 1px solid #2a2a2a; font-size: 15px; transition: 0.3s; }
-        .menu a:hover { color: #fff; background: #2a2a2a; padding-left: 15px; border-left: 4px solid #ff9900; }
+        /* Menu Nawigacyjne z Dropdown */
+        .menu a { display: block; color: #bbb; text-decoration: none; padding: 12px 10px; border-bottom: 1px solid #2a2a2a; transition: 0.3s; cursor: pointer; }
+        .menu a:hover { color: #fff; background: #2a2a2a; border-left: 4px solid #ff9900; }
         
-        h1 { color: #ff9900; border-bottom: 2px solid #ff9900; padding-bottom: 10px; margin-top: 0; font-variant: small-caps; }
-        h2 { color: #ff9900; font-size: 1.3em; margin-top: 25px; }
-        
+        .dropdown { position: relative; display: block; }
+        .dropdown-content {
+            display: none;
+            background-color: #252525;
+            min-width: 100%;
+            border-left: 2px solid #ff9900;
+        }
+        .dropdown-content a {
+            padding: 10px 20px;
+            font-size: 14px;
+            border-bottom: 1px solid #333;
+            background: #1a1a1a;
+        }
+        .dropdown:hover .dropdown-content { display: block; }
+        .dropdown:hover > a { color: #fff; background: #2a2a2a; border-left: 4px solid #ff9900; }
+
+        h1 { color: #ff9900; border-bottom: 2px solid #ff9900; padding-bottom: 10px; margin-top: 0; }
+        h2 { color: #ff9900; font-size: 1.3em; margin-top: 25px; border-left: 3px solid #ff9900; padding-left: 10px; }
+
+        /* QSL Info Styles */
+        .qsl-box { background: #252525; padding: 20px; border-radius: 4px; border: 1px solid #333; margin-top: 20px; }
+        .qsl-box b { color: #ff9900; }
+        .status-badge { background: #ff9900; color: #000; padding: 2px 8px; border-radius: 3px; font-weight: bold; font-size: 0.9em; }
+
+        /* Zegary i Solar - IDENTYCZNE JAK W INDEX */
         .clock-container { text-align: center; }
-        .clock-label { color: #ff9900; font-weight: bold; font-size: 14px; text-transform: uppercase; }
-        .time-local { font-size: 1.8em; font-weight: bold; color: #ff9900; font-family: "Courier New", Courier, monospace; text-shadow: 0 0 10px rgba(255,153,0,0.3); }
-        .time-utc { font-size: 1.8em; font-weight: bold; color: #0080ff; font-family: "Courier New", Courier, monospace; text-shadow: 0 0 10px rgba(0,128,255,0.3); }
+        .clock-label { color: #ff9900; font-weight: bold; font-size: 14px; text-transform: uppercase; margin-bottom: 5px; }
+        .time-local { font-size: 1.8em; font-weight: bold; color: #ff9900; font-family: "Courier New", monospace; }
+        .time-utc { font-size: 1.8em; font-weight: bold; color: #0080ff; font-family: "Courier New", monospace; }
         .divider { border-top: 1px solid #333; margin: 20px 0; }
+        .solar-container { text-align: center; margin-top: 10px; }
+        .solar-border { border: 1px solid #ff9900; padding: 2px; display: inline-block; background: #fff; line-height: 0; border-radius: 2px; }
 
-        /* QSL Styles */
-        .qsl-box { background: #151515; border: 1px solid #333; padding: 20px; margin-top: 20px; }
-        .qsl-status { display: inline-block; padding: 5px 15px; background: #ff9900; color: #000; font-weight: bold; border-radius: 3px; margin-bottom: 15px; }
-        
-        .method-card { background: #252525; padding: 20px; border-top: 2px solid #ff9900; margin-top: 20px; }
-        .method-card b { color: #ff9900; display: block; margin-bottom: 10px; font-size: 1.1em; }
-        .email-link { color: #ff9900; text-decoration: none; font-weight: bold; border-bottom: 1px dashed #ff9900; }
-        .email-link:hover { color: #fff; border-bottom: 1px solid #fff; }
-
-        @media (max-width: 850px) { .wrapper { flex-direction: column; } .content { order: -1; } .header { height: 120px; } }
+        @media (max-width: 850px) { .wrapper { flex-direction: column; } .header { height: 120px; } }
     </style>
 </head>
 <body onload="updateTime()">
@@ -53,13 +58,13 @@
 
     <div class="wrapper">
         <aside class="panel">
-            <div style="color:#ff9900; font-weight:bold; border-bottom:1px solid #444; margin-bottom:10px; letter-spacing: 2px;">NAVIGATION</div>
+            <div style="color:#ff9900; font-weight:bold; border-bottom:1px solid #444; margin-bottom:10px;">NAVIGATION</div>
             <nav class="menu">
                 <a href="index.html">Home</a>
                 <a href="qth.html">My QTH</a>
                 <a href="equipment.html">My Equipment</a>
-                <a href="qsl.html">QSL info</a>
-                             
+                <a href="qsl.html" style="color:#fff; border-left: 4px solid #ff9900;">QSL info</a>
+                
                 <div class="dropdown">
                     <a href="#">QSL Gallery ▾</a>
                     <div class="dropdown-content">
@@ -70,6 +75,7 @@
                         <a href="gallery5.html">Gallery 5</a>
                     </div>
                 </div>
+
                 <a href="prefix.html">11m Prefix List</a>
                 <a href="video.html">Video & Stream</a>
                 <a href="links.html">Links</a>
@@ -78,31 +84,25 @@
         </aside>
 
         <main class="content">
-            <h1>QSL Exchange Information</h1>
+            <h1>QSL Information</h1>
+            <p>Exchange of QSL cards is an important part of the hobby for me. I follow the standard Alfa Tango rules.</p>
             
             <div class="qsl-box">
-                <div class="qsl-status">QSL STATUS: 100% RETURN</div>
-                <p>Exchanging QSL cards is a vital part of the radio hobby. I value every single contact and I am committed to returning every paper card I receive.</p>
+                <p><b>QSL:</b> <span class="status-badge">DIRECT ONLY</span></p>
+                <p><b>Contribution:</b> Standard contribution is always welcome (SAE + 2$).</p>
+                <p><b>My Address:</b> Please contact me via email or the contact form to receive my full postal address.</p>
             </div>
 
-            <div class="method-card">
-                <b>Direct QSL Exchange</b>
-                <p>For a direct exchange, please contact me via email to receive my current postal address. Self-Addressed Envelope (SAE) is always helpful.</p>
-                <p style="margin-top: 15px;">
-                    Contact Email: <a href="mailto:161at018@gmail.com" class="email-link">161at018@gmail.com</a>
-                </p>
-            </div>
-
-            <h2>Important Requirements</h2>
-            <p>To ensure a smooth confirmation process, please make sure your card includes:</p>
-            <ul style="list-style-type: none; padding: 0;">
-                <li style="border-left: 2px solid #ff9900; padding-left: 10px; margin-bottom: 5px;">Correct QSO Date and Time (UTC)</li>
-                <li style="border-left: 2px solid #ff9900; padding-left: 10px; margin-bottom: 5px;">Frequency and Mode (USB/LSB)</li>
-                <li style="border-left: 2px solid #ff9900; padding-left: 10px; margin-bottom: 5px;">Signal Report (RST)</li>
+            <h2>QSL Policy</h2>
+            <ul style="line-height: 2;">
+                <li>All cards received <b>Direct</b> with contribution will be answered 100% via Direct.</li>
+                <li>Cards received without contribution will be answered via the bureau (if possible) or during next activation.</li>
+                <li>I do not use eQSL or other digital confirmations for AT activities.</li>
             </ul>
-            
-            <div style="margin-top: 30px; text-align: center; border: 1px dashed #ff9900; padding: 20px; background: #1a1a1a;">
-                <p style="color: #ff9900; font-weight: bold; margin: 0;">Address information and logs verification via email: 161at018@gmail.com</p>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <img src="images/qsl_sample.jpg" alt="161AT018 QSL Card Preview" style="max-width: 80%; border: 1px solid #ff9900; border-radius: 4px;">
+                <p style="font-size: 0.9em; font-style: italic; color: #888;">Preview of my current QSL card</p>
             </div>
         </main>
 
@@ -114,34 +114,30 @@
                 <div class="clock-label">UTC Time</div>
                 <div id="utc_clock" class="time-utc">00:00:00</div>
             </div>
+            <div class="divider"></div>
+            <div class="solar-container">
+                <div class="clock-label" style="margin-bottom: 10px;">Solar Data</div>
+                <div class="solar-border">
+                    <a href="https://www.hamqsl.com/solar.html" title="Solar Data">
+                        <img src="https://www.hamqsl.com/solarn0nbh.php" alt="Solar Data" style="max-width: 100%; height: auto; display: block;">
+                    </a>
+                </div>
+                <p style="font-size: 10px; color: #666; margin-top: 8px;">Data by N0NBH</p>
+            </div>
         </aside>
     </div>
 
     <script>
         function updateTime() {
-            // Wymuszenie strefy czasowej Polski
-            const localOpts = { 
-                hour: '2-digit', 
-                minute: '2-digit', 
-                second: '2-digit', 
-                hour12: false, 
-                timeZone: 'Europe/Warsaw' 
-            };
-
-            // Czas UTC
-            const utcOpts = { 
-                hour: '2-digit', 
-                minute: '2-digit', 
-                second: '2-digit', 
-                hour12: false, 
-                timeZone: 'UTC' 
-            };
-
-            setInterval(() => {
+            const localOpts = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'Europe/Warsaw' };
+            const utcOpts = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'UTC' };
+            function tick() {
                 const now = new Date();
                 document.getElementById('clock').textContent = now.toLocaleTimeString('en-GB', localOpts);
                 document.getElementById('utc_clock').textContent = now.toLocaleTimeString('en-GB', utcOpts);
-            }, 1000);
+            }
+            tick();
+            setInterval(tick, 1000);
         }
     </script>
 </body>
