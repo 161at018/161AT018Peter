@@ -11,56 +11,121 @@
         .panel, .content { background-color: #1e1e1e; border: 1px solid #333; padding: 25px; box-sizing: border-box; }
         .panel { flex: 0 1 250px; }
         .content { flex: 1 1 800px; min-width: 350px; }
+        
+        /* Menu Nawigacyjne */
         .menu a { display: block; color: #bbb; text-decoration: none; padding: 12px 10px; border-bottom: 1px solid #2a2a2a; transition: 0.3s; }
         .menu a:hover { color: #fff; background: #2a2a2a; border-left: 4px solid #ff9900; }
+        
         h1 { color: #ff9900; border-bottom: 2px solid #ff9900; padding-bottom: 10px; margin-top: 0; }
+        
+        /* Główne Zdjęcie Stacji */
+        .main-photo { 
+            display: block; 
+            margin: 25px auto; 
+            max-width: 100%; 
+            height: auto; 
+            border: 1px solid #ff9900; 
+            border-radius: 4px; 
+            box-shadow: 0 0 15px rgba(255, 153, 0, 0.2); 
+        }
+
+        /* Zegary */
         .clock-container { text-align: center; }
-        .clock-label { color: #ff9900; font-weight: bold; font-size: 14px; text-transform: uppercase; }
+        .clock-label { color: #ff9900; font-weight: bold; font-size: 14px; text-transform: uppercase; margin-bottom: 5px; }
         .time-local { font-size: 1.8em; font-weight: bold; color: #ff9900; font-family: "Courier New", monospace; }
         .time-utc { font-size: 1.8em; font-weight: bold; color: #0080ff; font-family: "Courier New", monospace; }
         .divider { border-top: 1px solid #333; margin: 20px 0; }
+
+        /* Widżet Solar (Cienka ramka) */
+        .solar-container { 
+            text-align: center; 
+            margin-top: 10px;
+        }
+        .solar-border {
+            border: 1px solid #ff9900; 
+            padding: 2px; 
+            display: inline-block; 
+            background: #fff; 
+            line-height: 0;
+            border-radius: 2px;
+        }
+
         @media (max-width: 850px) { .wrapper { flex-direction: column; } .header { height: 120px; } }
     </style>
 </head>
 <body onload="updateTime()">
+
     <div class="header"></div>
+
     <div class="wrapper">
         <aside class="panel">
             <div style="color:#ff9900; font-weight:bold; border-bottom:1px solid #444; margin-bottom:10px;">NAVIGATION</div>
             <nav class="menu">
-                <a href="index.html">Home</a><a href="qth.html">My QTH</a><a href="equipment.html">My Equipment</a><a href="qsl.html">QSL info</a><a href="gallery.html">QSL Gallery</a><a href="prefix.html">11m Prefix List</a><a href="video.html">Video & Stream</a><a href="links.html">Links</a><a href="contact.html">Contact</a>
+                <a href="index.html" style="color:#fff; border-left: 4px solid #ff9900;">Home</a>
+                <a href="qth.html">My QTH</a>
+                <a href="equipment.html">My Equipment</a>
+                <a href="qsl.html">QSL info</a>
+                <a href="gallery.html">QSL Gallery</a>
+                <a href="prefix.html">11m Prefix List</a>
+                <a href="video.html">Video & Stream</a>
+                <a href="links.html">Links</a>
+                <a href="contact.html">Contact</a>
             </nav>
         </aside>
+
         <main class="content">
             <h1>Welcome to 161AT018 Peter's Website</h1>
             <p>Hello! I am Peter, a radio operator from Poland and a proud member of the Alfa Tango International Group.</p>
-            <div style="text-align: center; margin-top: 30px;">
-                <img src="images/at_logo.png" alt="Alfa Tango Logo" style="max-width: 250px;">
+            
+            <img src="images/main_station.jpg" alt="161AT018 Radio Station" class="main-photo">
+
+            <p style="text-align: center; font-style: italic;">Welcome to my personal radio page. Thanks for visiting! 73s.</p>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <img src="images/at_logo.png" alt="Alfa Tango Logo" style="max-width: 200px; opacity: 0.8;">
             </div>
         </main>
+
         <aside class="panel">
             <div class="clock-container">
                 <div class="clock-label">Local Time (PL)</div>
                 <div id="clock" class="time-local">00:00:00</div>
+                
                 <div class="divider"></div>
+                
                 <div class="clock-label">UTC Time</div>
                 <div id="utc_clock" class="time-utc">00:00:00</div>
             </div>
+
+            <div class="divider"></div>
+
+            <div class="solar-container">
+                <div class="clock-label" style="margin-bottom: 10px;">Solar Data</div>
+                <div class="solar-border">
+                    <a href="https://www.hamqsl.com/solar.html" title="Click to add Solar-Terrestrial Data to your website!">
+                        <img src="https://www.hamqsl.com/solarn0nbh.php" alt="Solar Data" style="max-width: 100%; height: auto; display: block;">
+                    </a>
+                </div>
+                <p style="font-size: 10px; color: #666; margin-top: 8px;">Data by N0NBH</p>
+            </div>
         </aside>
     </div>
+
     <script>
         function updateTime() {
             const localOpts = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'Europe/Warsaw' };
             const utcOpts = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'UTC' };
-            setInterval(() => {
+            
+            function tick() {
                 const now = new Date();
                 document.getElementById('clock').textContent = now.toLocaleTimeString('en-GB', localOpts);
                 document.getElementById('utc_clock').textContent = now.toLocaleTimeString('en-GB', utcOpts);
-            }, 1000);
+            }
+            
+            tick();
+            setInterval(tick, 1000);
         }
     </script>
+
 </body>
 </html>
-
-
-
