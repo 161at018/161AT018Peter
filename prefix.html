@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>161AT018 Peter - Prefix List</title>
+    <title>161AT018 Peter - 11m Prefix List</title>
     <style>
         body { background-color: #121212; color: #e0e0e0; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; }
         .header { width: 100%; height: 200px; background: url("images/header.jpg") no-repeat center center; background-size: 100% 100%; border-bottom: 2px solid #ff9900; margin: 0; display: block; }
@@ -15,7 +15,6 @@
         .menu a:hover { color: #fff; background: #2a2a2a; border-left: 4px solid #ff9900; }
         h1 { color: #ff9900; border-bottom: 2px solid #ff9900; padding-bottom: 10px; margin-top: 0; }
         
-        /* ZEGARY */
         .clock-container { text-align: center; }
         .clock-label { color: #ff9900; font-weight: bold; font-size: 14px; text-transform: uppercase; }
         .time-local { font-size: 1.8em; font-weight: bold; color: #ff9900; font-family: "Courier New", monospace; }
@@ -25,20 +24,20 @@
         /* LISTA PREFIKSÓW */
         .prefix-container { 
             display: flex; 
-            gap: 30px; 
+            gap: 25px; 
             background: #151515; 
-            padding: 20px; 
+            padding: 15px; 
             border: 1px solid #333;
             font-family: 'Courier New', Courier, monospace;
-            font-size: 13px;
+            font-size: 11.5px;
         }
         .prefix-column { flex: 1; }
-        .prefix-item { border-bottom: 1px solid #222; padding: 2px 0; display: flex; }
-        .prefix-num { color: #ff0000; font-weight: bold; width: 35px; flex-shrink: 0; }
+        .prefix-item { border-bottom: 1px solid #222; padding: 2px 0; display: flex; align-items: flex-start; }
+        .prefix-num { color: #ff9900; font-weight: bold; width: 35px; flex-shrink: 0; }
         .prefix-name { color: #ddd; }
 
-        @media (max-width: 1000px) { .prefix-container { flex-direction: column; } }
-        @media (max-width: 850px) { .wrapper { flex-direction: column; } .content { order: -1; } .header { height: 120px; } }
+        @media (max-width: 1100px) { .prefix-container { flex-direction: column; } }
+        @media (max-width: 850px) { .wrapper { flex-direction: column; } .header { height: 120px; } .content { order: -1; } }
     </style>
 </head>
 <body onload="updateTime()">
@@ -61,21 +60,365 @@
         </aside>
 
         <main class="content">
-            <h1>11m Prefix List</h1>
+            <h1>11m Prefix List (Alfa Tango)</h1>
             <div class="prefix-container">
                 <div class="prefix-column">
                     <div class="prefix-item"><div class="prefix-num">1</div><div class="prefix-name">Italy</div></div>
-                    <div class="prefix-item"><div class="prefix-num">2</div><div class="prefix-name">USA</div></div>
+                    <div class="prefix-item"><div class="prefix-num">2</div><div class="prefix-name">United States of America</div></div>
                     <div class="prefix-item"><div class="prefix-num">3</div><div class="prefix-name">Brazil</div></div>
+                    <div class="prefix-item"><div class="prefix-num">4</div><div class="prefix-name">Argentina</div></div>
+                    <div class="prefix-item"><div class="prefix-num">5</div><div class="prefix-name">Venezuela</div></div>
+                    <div class="prefix-item"><div class="prefix-num">6</div><div class="prefix-name">Colombia</div></div>
+                    <div class="prefix-item"><div class="prefix-num">7</div><div class="prefix-name">Netherlands Antilles (deleted)</div></div>
+                    <div class="prefix-item"><div class="prefix-num">8</div><div class="prefix-name">Peru</div></div>
+                    <div class="prefix-item"><div class="prefix-num">9</div><div class="prefix-name">Canada</div></div>
+                    <div class="prefix-item"><div class="prefix-num">10</div><div class="prefix-name">Mexico</div></div>
+                    <div class="prefix-item"><div class="prefix-num">11</div><div class="prefix-name">Puerto Rico</div></div>
+                    <div class="prefix-item"><div class="prefix-num">12</div><div class="prefix-name">Uruguay</div></div>
                     <div class="prefix-item"><div class="prefix-num">13</div><div class="prefix-name">Germany</div></div>
                     <div class="prefix-item"><div class="prefix-num">14</div><div class="prefix-name">France</div></div>
+                    <div class="prefix-item"><div class="prefix-num">15</div><div class="prefix-name">Switzerland</div></div>
+                    <div class="prefix-item"><div class="prefix-num">16</div><div class="prefix-name">Belgium</div></div>
+                    <div class="prefix-item"><div class="prefix-num">17</div><div class="prefix-name">Hawaiian Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">18</div><div class="prefix-name">Greece</div></div>
+                    <div class="prefix-item"><div class="prefix-num">19</div><div class="prefix-name">Netherlands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">20</div><div class="prefix-name">Norway</div></div>
+                    <div class="prefix-item"><div class="prefix-num">21</div><div class="prefix-name">Sweden</div></div>
+                    <div class="prefix-item"><div class="prefix-num">22</div><div class="prefix-name">French Guyana</div></div>
+                    <div class="prefix-item"><div class="prefix-num">23</div><div class="prefix-name">Jamaica</div></div>
+                    <div class="prefix-item"><div class="prefix-num">24</div><div class="prefix-name">Panama</div></div>
+                    <div class="prefix-item"><div class="prefix-num">25</div><div class="prefix-name">Japan</div></div>
+                    <div class="prefix-item"><div class="prefix-num">26</div><div class="prefix-name">England</div></div>
+                    <div class="prefix-item"><div class="prefix-num">27</div><div class="prefix-name">Iceland</div></div>
+                    <div class="prefix-item"><div class="prefix-num">28</div><div class="prefix-name">Honduras</div></div>
+                    <div class="prefix-item"><div class="prefix-num">29</div><div class="prefix-name">Ireland</div></div>
+                    <div class="prefix-item"><div class="prefix-num">30</div><div class="prefix-name">Spain</div></div>
+                    <div class="prefix-item"><div class="prefix-num">31</div><div class="prefix-name">Portugal</div></div>
+                    <div class="prefix-item"><div class="prefix-num">32</div><div class="prefix-name">Chile</div></div>
+                    <div class="prefix-item"><div class="prefix-num">33</div><div class="prefix-name">Alaska</div></div>
+                    <div class="prefix-item"><div class="prefix-num">34</div><div class="prefix-name">Canary Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">35</div><div class="prefix-name">Austria</div></div>
+                    <div class="prefix-item"><div class="prefix-num">36</div><div class="prefix-name">San Marino</div></div>
+                    <div class="prefix-item"><div class="prefix-num">37</div><div class="prefix-name">Dominican Republic</div></div>
+                    <div class="prefix-item"><div class="prefix-num">38</div><div class="prefix-name">Greenland</div></div>
+                    <div class="prefix-item"><div class="prefix-num">39</div><div class="prefix-name">Angola</div></div>
+                    <div class="prefix-item"><div class="prefix-num">40</div><div class="prefix-name">Liechtenstein</div></div>
+                    <div class="prefix-item"><div class="prefix-num">41</div><div class="prefix-name">New Zealand</div></div>
+                    <div class="prefix-item"><div class="prefix-num">42</div><div class="prefix-name">Liberia</div></div>
+                    <div class="prefix-item"><div class="prefix-num">43</div><div class="prefix-name">Australia</div></div>
+                    <div class="prefix-item"><div class="prefix-num">44</div><div class="prefix-name">South Africa</div></div>
+                    <div class="prefix-item"><div class="prefix-num">45</div><div class="prefix-name">Yugoslavia</div></div>
+                    <div class="prefix-item"><div class="prefix-num">46</div><div class="prefix-name">East Germany (deleted)</div></div>
+                    <div class="prefix-item"><div class="prefix-num">47</div><div class="prefix-name">Denmark</div></div>
+                    <div class="prefix-item"><div class="prefix-num">48</div><div class="prefix-name">Saudi Arabia</div></div>
+                    <div class="prefix-item"><div class="prefix-num">49</div><div class="prefix-name">Balearic Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">50</div><div class="prefix-name">European Russia</div></div>
+                    <div class="prefix-item"><div class="prefix-num">51</div><div class="prefix-name">Andorra</div></div>
+                    <div class="prefix-item"><div class="prefix-num">52</div><div class="prefix-name">Faroer Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">53</div><div class="prefix-name">El Salvador</div></div>
+                    <div class="prefix-item"><div class="prefix-num">54</div><div class="prefix-name">Luxembourg</div></div>
+                    <div class="prefix-item"><div class="prefix-num">55</div><div class="prefix-name">Gibraltar</div></div>
+                    <div class="prefix-item"><div class="prefix-num">56</div><div class="prefix-name">Finland</div></div>
+                    <div class="prefix-item"><div class="prefix-num">57</div><div class="prefix-name">India</div></div>
+                    <div class="prefix-item"><div class="prefix-num">58</div><div class="prefix-name">East Malaysia</div></div>
+                    <div class="prefix-item"><div class="prefix-num">59</div><div class="prefix-name">Dodecanese Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">60</div><div class="prefix-name">Hong Kong</div></div>
+                    <div class="prefix-item"><div class="prefix-num">61</div><div class="prefix-name">Ecuador</div></div>
+                    <div class="prefix-item"><div class="prefix-num">62</div><div class="prefix-name">Guam</div></div>
+                    <div class="prefix-item"><div class="prefix-num">63</div><div class="prefix-name">St. Helena</div></div>
+                    <div class="prefix-item"><div class="prefix-num">64</div><div class="prefix-name">Senegal</div></div>
+                    <div class="prefix-item"><div class="prefix-num">65</div><div class="prefix-name">Sierra Leone</div></div>
+                    <div class="prefix-item"><div class="prefix-num">66</div><div class="prefix-name">Mauritania</div></div>
+                    <div class="prefix-item"><div class="prefix-num">67</div><div class="prefix-name">Paraguay</div></div>
+                    <div class="prefix-item"><div class="prefix-num">68</div><div class="prefix-name">North Ireland</div></div>
+                    <div class="prefix-item"><div class="prefix-num">69</div><div class="prefix-name">Costa Rica</div></div>
+                    <div class="prefix-item"><div class="prefix-num">70</div><div class="prefix-name">American Samoa Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">71</div><div class="prefix-name">Midway Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">72</div><div class="prefix-name">Guatemala</div></div>
+                    <div class="prefix-item"><div class="prefix-num">73</div><div class="prefix-name">Suriname</div></div>
+                    <div class="prefix-item"><div class="prefix-num">74</div><div class="prefix-name">Namibia</div></div>
+                    <div class="prefix-item"><div class="prefix-num">75</div><div class="prefix-name">Azores Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">76</div><div class="prefix-name">Morocco</div></div>
+                    <div class="prefix-item"><div class="prefix-num">77</div><div class="prefix-name">Ghana</div></div>
+                    <div class="prefix-item"><div class="prefix-num">78</div><div class="prefix-name">Zambia</div></div>
+                    <div class="prefix-item"><div class="prefix-num">79</div><div class="prefix-name">Philippine Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">80</div><div class="prefix-name">Bolivia</div></div>
+                    <div class="prefix-item"><div class="prefix-num">81</div><div class="prefix-name">San Andres</div></div>
+                    <div class="prefix-item"><div class="prefix-num">82</div><div class="prefix-name">Guantanamo Bay</div></div>
+                    <div class="prefix-item"><div class="prefix-num">83</div><div class="prefix-name">Tanzania</div></div>
+                    <div class="prefix-item"><div class="prefix-num">84</div><div class="prefix-name">Ivory Coast</div></div>
+                    <div class="prefix-item"><div class="prefix-num">85</div><div class="prefix-name">Zimbabwe</div></div>
+                    <div class="prefix-item"><div class="prefix-num">86</div><div class="prefix-name">Nepal</div></div>
+                    <div class="prefix-item"><div class="prefix-num">87</div><div class="prefix-name">Yemen (deleted)</div></div>
+                    <div class="prefix-item"><div class="prefix-num">88</div><div class="prefix-name">Cuba</div></div>
+                    <div class="prefix-item"><div class="prefix-num">89</div><div class="prefix-name">Nigeria</div></div>
+                    <div class="prefix-item"><div class="prefix-num">90</div><div class="prefix-name">Crete</div></div>
+                    <div class="prefix-item"><div class="prefix-num">91</div><div class="prefix-name">Indonesia</div></div>
+                    <div class="prefix-item"><div class="prefix-num">92</div><div class="prefix-name">Libya</div></div>
+                    <div class="prefix-item"><div class="prefix-num">93</div><div class="prefix-name">Malta</div></div>
+                    <div class="prefix-item"><div class="prefix-num">94</div><div class="prefix-name">United Arab Emirates</div></div>
+                    <div class="prefix-item"><div class="prefix-num">95</div><div class="prefix-name">Mongolia</div></div>
+                    <div class="prefix-item"><div class="prefix-num">96</div><div class="prefix-name">Tonga</div></div>
+                    <div class="prefix-item"><div class="prefix-num">97</div><div class="prefix-name">Israel</div></div>
+                    <div class="prefix-item"><div class="prefix-num">98</div><div class="prefix-name">Singapore</div></div>
+                    <div class="prefix-item"><div class="prefix-num">99</div><div class="prefix-name">Fiji</div></div>
+                    <div class="prefix-item"><div class="prefix-num">100</div><div class="prefix-name">South Korea</div></div>
+                    <div class="prefix-item"><div class="prefix-num">101</div><div class="prefix-name">Papua New Guinea</div></div>
+                    <div class="prefix-item"><div class="prefix-num">102</div><div class="prefix-name">Kuwait</div></div>
+                    <div class="prefix-item"><div class="prefix-num">103</div><div class="prefix-name">Haiti</div></div>
+                    <div class="prefix-item"><div class="prefix-num">104</div><div class="prefix-name">Corsica</div></div>
+                    <div class="prefix-item"><div class="prefix-num">105</div><div class="prefix-name">Botswana</div></div>
+                    <div class="prefix-item"><div class="prefix-num">106</div><div class="prefix-name">Ceuta & Melilla</div></div>
+                    <div class="prefix-item"><div class="prefix-num">107</div><div class="prefix-name">Monaco</div></div>
+                    <div class="prefix-item"><div class="prefix-num">108</div><div class="prefix-name">Scotland</div></div>
+                    <div class="prefix-item"><div class="prefix-num">109</div><div class="prefix-name">Hungary</div></div>
+                    <div class="prefix-item"><div class="prefix-num">110</div><div class="prefix-name">Cyprus</div></div>
+                    <div class="prefix-item"><div class="prefix-num">111</div><div class="prefix-name">Jordan</div></div>
+                    <div class="prefix-item"><div class="prefix-num">112</div><div class="prefix-name">Lebanon</div></div>
+                    <div class="prefix-item"><div class="prefix-num">113</div><div class="prefix-name">West Malaysia</div></div>
+                    <div class="prefix-item"><div class="prefix-num">114</div><div class="prefix-name">Pakistan</div></div>
+                    <div class="prefix-item"><div class="prefix-num">115</div><div class="prefix-name">Qatar</div></div>
+                    <div class="prefix-item"><div class="prefix-num">116</div><div class="prefix-name">Turkey</div></div>
+                    <div class="prefix-item"><div class="prefix-num">117</div><div class="prefix-name">Egypt</div></div>
+                    <div class="prefix-item"><div class="prefix-num">118</div><div class="prefix-name">Gambia</div></div>
+                    <div class="prefix-item"><div class="prefix-num">119</div><div class="prefix-name">Madeira</div></div>
+                    <div class="prefix-item"><div class="prefix-num">120</div><div class="prefix-name">Antigua & Barbuda Isl</div></div>
+                    <div class="prefix-item"><div class="prefix-num">121</div><div class="prefix-name">Bahamas</div></div>
+                    <div class="prefix-item"><div class="prefix-num">122</div><div class="prefix-name">Barbados</div></div>
+                    <div class="prefix-item"><div class="prefix-num">123</div><div class="prefix-name">Bermuda</div></div>
+                    <div class="prefix-item"><div class="prefix-num">124</div><div class="prefix-name">St. Paul & Amsterdam</div></div>
+                    <div class="prefix-item"><div class="prefix-num">125</div><div class="prefix-name">Cayman Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">126</div><div class="prefix-name">Nicaragua</div></div>
+                    <div class="prefix-item"><div class="prefix-num">127</div><div class="prefix-name">Virgin Islands American</div></div>
+                    <div class="prefix-item"><div class="prefix-num">128</div><div class="prefix-name">Virgin Islands British</div></div>
+                    <div class="prefix-item"><div class="prefix-num">129</div><div class="prefix-name">Macquarie Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">130</div><div class="prefix-name">Norfolk Island</div></div>
+                    <div class="prefix-item"><div class="prefix-num">131</div><div class="prefix-name">Guyana</div></div>
+                    <div class="prefix-item"><div class="prefix-num">132</div><div class="prefix-name">Marshall Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">133</div><div class="prefix-name">Marianas Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">134</div><div class="prefix-name">Republic of Belau</div></div>
+                    <div class="prefix-item"><div class="prefix-num">135</div><div class="prefix-name">Solomon Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">136</div><div class="prefix-name">Martinique</div></div>
+                    <div class="prefix-item"><div class="prefix-num">137</div><div class="prefix-name">Isle of Man</div></div>
+                    <div class="prefix-item"><div class="prefix-num">138</div><div class="prefix-name">Vatican City</div></div>
+                    <div class="prefix-item"><div class="prefix-num">139</div><div class="prefix-name">South Yemen (deleted)</div></div>
+                    <div class="prefix-item"><div class="prefix-num">140</div><div class="prefix-name">Antarctica</div></div>
+                    <div class="prefix-item"><div class="prefix-num">141</div><div class="prefix-name">St. Pierre & Miquelon</div></div>
+                    <div class="prefix-item"><div class="prefix-num">142</div><div class="prefix-name">Lesotho</div></div>
+                    <div class="prefix-item"><div class="prefix-num">143</div><div class="prefix-name">St. Lucia</div></div>
+                    <div class="prefix-item"><div class="prefix-num">144</div><div class="prefix-name">Easter Island</div></div>
+                    <div class="prefix-item"><div class="prefix-num">145</div><div class="prefix-name">Galapagos Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">146</div><div class="prefix-name">Algeria</div></div>
+                    <div class="prefix-item"><div class="prefix-num">147</div><div class="prefix-name">Tunisia</div></div>
+                    <div class="prefix-item"><div class="prefix-num">148</div><div class="prefix-name">Ascension Island</div></div>
+                    <div class="prefix-item"><div class="prefix-num">149</div><div class="prefix-name">Laccadive Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">150</div><div class="prefix-name">Bahrain</div></div>
+                    <div class="prefix-item"><div class="prefix-num">151</div><div class="prefix-name">Iraq</div></div>
+                    <div class="prefix-item"><div class="prefix-num">152</div><div class="prefix-name">Maldive Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">153</div><div class="prefix-name">Thailand</div></div>
+                    <div class="prefix-item"><div class="prefix-num">154</div><div class="prefix-name">Iran</div></div>
+                    <div class="prefix-item"><div class="prefix-num">155</div><div class="prefix-name">Taiwan</div></div>
+                    <div class="prefix-item"><div class="prefix-num">156</div><div class="prefix-name">Cameroon</div></div>
+                    <div class="prefix-item"><div class="prefix-num">157</div><div class="prefix-name">Montserrat</div></div>
+                    <div class="prefix-item"><div class="prefix-num">158</div><div class="prefix-name">Trinidad & Tobago</div></div>
+                    <div class="prefix-item"><div class="prefix-num">159</div><div class="prefix-name">Somalia Republic</div></div>
+                    <div class="prefix-item"><div class="prefix-num">160</div><div class="prefix-name">Sudan</div></div>
                     <div class="prefix-item"><div class="prefix-num">161</div><div class="prefix-name">Poland</div></div>
-                    </div>
+                    <div class="prefix-item"><div class="prefix-num">162</div><div class="prefix-name">Democratic Republic of Congo</div></div>
+                    <div class="prefix-item"><div class="prefix-num">163</div><div class="prefix-name">Wales</div></div>
+                    <div class="prefix-item"><div class="prefix-num">164</div><div class="prefix-name">Togo Republic</div></div>
+                    <div class="prefix-item"><div class="prefix-num">165</div><div class="prefix-name">Sardinia</div></div>
+                    <div class="prefix-item"><div class="prefix-num">166</div><div class="prefix-name">St. Maarten, Saba (del)</div></div>
+                    <div class="prefix-item"><div class="prefix-num">167</div><div class="prefix-name">Jersey Island</div></div>
+                    <div class="prefix-item"><div class="prefix-num">168</div><div class="prefix-name">Mauritius Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">169</div><div class="prefix-name">Guernsey Island</div></div>
+                    <div class="prefix-item"><div class="prefix-num">170</div><div class="prefix-name">Burkina Faso</div></div>
+                    <div class="prefix-item"><div class="prefix-num">171</div><div class="prefix-name">Svalbard Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">172</div><div class="prefix-name">New Caledonia</div></div>
+                    <div class="prefix-item"><div class="prefix-num">173</div><div class="prefix-name">Reunion Island</div></div>
+                    <div class="prefix-item"><div class="prefix-num">174</div><div class="prefix-name">Uganda</div></div>
+                    <div class="prefix-item"><div class="prefix-num">175</div><div class="prefix-name">Chad Republic</div></div>
+                    <div class="prefix-item"><div class="prefix-num">176</div><div class="prefix-name">Central African Republic</div></div>
+                </div>
+
                 <div class="prefix-column">
                     <div class="prefix-item"><div class="prefix-num">177</div><div class="prefix-name">Sri Lanka</div></div>
+                    <div class="prefix-item"><div class="prefix-num">178</div><div class="prefix-name">Bulgaria</div></div>
+                    <div class="prefix-item"><div class="prefix-num">179</div><div class="prefix-name">Czechoslovakia (deleted)</div></div>
+                    <div class="prefix-item"><div class="prefix-num">180</div><div class="prefix-name">Oman</div></div>
+                    <div class="prefix-item"><div class="prefix-num">181</div><div class="prefix-name">Syria</div></div>
+                    <div class="prefix-item"><div class="prefix-num">182</div><div class="prefix-name">Guinea Republic</div></div>
+                    <div class="prefix-item"><div class="prefix-num">183</div><div class="prefix-name">Benin</div></div>
+                    <div class="prefix-item"><div class="prefix-num">184</div><div class="prefix-name">Burundi</div></div>
+                    <div class="prefix-item"><div class="prefix-num">185</div><div class="prefix-name">Comoros Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">186</div><div class="prefix-name">Djibouti</div></div>
+                    <div class="prefix-item"><div class="prefix-num">187</div><div class="prefix-name">Kenya</div></div>
+                    <div class="prefix-item"><div class="prefix-num">188</div><div class="prefix-name">Madagascar</div></div>
+                    <div class="prefix-item"><div class="prefix-num">189</div><div class="prefix-name">Mayotte</div></div>
+                    <div class="prefix-item"><div class="prefix-num">190</div><div class="prefix-name">Seychelles Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">191</div><div class="prefix-name">Swaziland</div></div>
+                    <div class="prefix-item"><div class="prefix-num">192</div><div class="prefix-name">Cocos Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">193</div><div class="prefix-name">Cocos - Keeling Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">194</div><div class="prefix-name">Dominica</div></div>
+                    <div class="prefix-item"><div class="prefix-num">195</div><div class="prefix-name">Grenada</div></div>
+                    <div class="prefix-item"><div class="prefix-num">196</div><div class="prefix-name">Guadeloupe Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">197</div><div class="prefix-name">Vanuatu Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">198</div><div class="prefix-name">Falkland Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">199</div><div class="prefix-name">Equatorial Guinea</div></div>
+                    <div class="prefix-item"><div class="prefix-num">200</div><div class="prefix-name">South Shetland Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">201</div><div class="prefix-name">French Polynesia</div></div>
+                    <div class="prefix-item"><div class="prefix-num">202</div><div class="prefix-name">Bhutan</div></div>
+                    <div class="prefix-item"><div class="prefix-num">203</div><div class="prefix-name">China</div></div>
+                    <div class="prefix-item"><div class="prefix-num">204</div><div class="prefix-name">Mozambique</div></div>
+                    <div class="prefix-item"><div class="prefix-num">205</div><div class="prefix-name">Republic of Cape Verde</div></div>
+                    <div class="prefix-item"><div class="prefix-num">206</div><div class="prefix-name">Ethiopia</div></div>
+                    <div class="prefix-item"><div class="prefix-num">207</div><div class="prefix-name">St. Martin Island</div></div>
+                    <div class="prefix-item"><div class="prefix-num">208</div><div class="prefix-name">Glorieuses Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">209</div><div class="prefix-name">Juan de Nova Island</div></div>
+                    <div class="prefix-item"><div class="prefix-num">210</div><div class="prefix-name">Wallis & Futuna Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">211</div><div class="prefix-name">Jan Mayen Island</div></div>
+                    <div class="prefix-item"><div class="prefix-num">212</div><div class="prefix-name">Aland Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">213</div><div class="prefix-name">Market Reef</div></div>
+                    <div class="prefix-item"><div class="prefix-num">214</div><div class="prefix-name">Congo Republic</div></div>
+                    <div class="prefix-item"><div class="prefix-num">215</div><div class="prefix-name">Gabon Republic</div></div>
+                    <div class="prefix-item"><div class="prefix-num">216</div><div class="prefix-name">Mali</div></div>
+                    <div class="prefix-item"><div class="prefix-num">217</div><div class="prefix-name">Christmas Island</div></div>
+                    <div class="prefix-item"><div class="prefix-num">218</div><div class="prefix-name">Belize</div></div>
+                    <div class="prefix-item"><div class="prefix-num">219</div><div class="prefix-name">Anguilla</div></div>
+                    <div class="prefix-item"><div class="prefix-num">220</div><div class="prefix-name">St Vincent & Dependencies</div></div>
+                    <div class="prefix-item"><div class="prefix-num">221</div><div class="prefix-name">South Orkney Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">222</div><div class="prefix-name">South Sandwich Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">223</div><div class="prefix-name">Western Samoa Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">224</div><div class="prefix-name">Western Kiribati</div></div>
+                    <div class="prefix-item"><div class="prefix-num">225</div><div class="prefix-name">Brunei</div></div>
+                    <div class="prefix-item"><div class="prefix-num">226</div><div class="prefix-name">Malawi</div></div>
+                    <div class="prefix-item"><div class="prefix-num">227</div><div class="prefix-name">Rwanda</div></div>
+                    <div class="prefix-item"><div class="prefix-num">228</div><div class="prefix-name">Chagos Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">229</div><div class="prefix-name">Heard Island</div></div>
+                    <div class="prefix-item"><div class="prefix-num">230</div><div class="prefix-name">Micronesia</div></div>
+                    <div class="prefix-item"><div class="prefix-num">231</div><div class="prefix-name">St. Peter & St. Paul Rocks</div></div>
+                    <div class="prefix-item"><div class="prefix-num">232</div><div class="prefix-name">Aruba</div></div>
                     <div class="prefix-item"><div class="prefix-num">233</div><div class="prefix-name">Romania</div></div>
+                    <div class="prefix-item"><div class="prefix-num">234</div><div class="prefix-name">Afghanistan</div></div>
+                    <div class="prefix-item"><div class="prefix-num">235</div><div class="prefix-name">ITU Geneva</div></div>
+                    <div class="prefix-item"><div class="prefix-num">236</div><div class="prefix-name">Bangladesh</div></div>
+                    <div class="prefix-item"><div class="prefix-num">237</div><div class="prefix-name">Union of Myanmar</div></div>
+                    <div class="prefix-item"><div class="prefix-num">238</div><div class="prefix-name">Cambodia</div></div>
+                    <div class="prefix-item"><div class="prefix-num">239</div><div class="prefix-name">Laos</div></div>
+                    <div class="prefix-item"><div class="prefix-num">240</div><div class="prefix-name">Macao</div></div>
+                    <div class="prefix-item"><div class="prefix-num">241</div><div class="prefix-name">Spratly Island</div></div>
+                    <div class="prefix-item"><div class="prefix-num">242</div><div class="prefix-name">Vietnam</div></div>
+                    <div class="prefix-item"><div class="prefix-num">243</div><div class="prefix-name">Agalega & St. Brandon</div></div>
+                    <div class="prefix-item"><div class="prefix-num">244</div><div class="prefix-name">Pagalu Island</div></div>
+                    <div class="prefix-item"><div class="prefix-num">245</div><div class="prefix-name">Niger Republic</div></div>
+                    <div class="prefix-item"><div class="prefix-num">246</div><div class="prefix-name">Sao Tome & Principe Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">247</div><div class="prefix-name">Navassa Island</div></div>
+                    <div class="prefix-item"><div class="prefix-num">248</div><div class="prefix-name">Turks & Caicos Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">249</div><div class="prefix-name">Northern Cook Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">250</div><div class="prefix-name">Cook Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">251</div><div class="prefix-name">Albania</div></div>
+                    <div class="prefix-item"><div class="prefix-num">252</div><div class="prefix-name">Revillagigedo Island</div></div>
+                    <div class="prefix-item"><div class="prefix-num">253</div><div class="prefix-name">Andaman & Nicobar Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">254</div><div class="prefix-name">Mount Athos</div></div>
+                    <div class="prefix-item"><div class="prefix-num">255</div><div class="prefix-name">Kerguelen Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">256</div><div class="prefix-name">Prince Edward & Marion</div></div>
+                    <div class="prefix-item"><div class="prefix-num">257</div><div class="prefix-name">Rodriguez Island</div></div>
+                    <div class="prefix-item"><div class="prefix-num">258</div><div class="prefix-name">Tristan da Cunha</div></div>
+                    <div class="prefix-item"><div class="prefix-num">259</div><div class="prefix-name">Tromelin Island</div></div>
+                    <div class="prefix-item"><div class="prefix-num">260</div><div class="prefix-name">Baker & Howland Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">261</div><div class="prefix-name">Chatham Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">262</div><div class="prefix-name">Johnston Island</div></div>
+                    <div class="prefix-item"><div class="prefix-num">263</div><div class="prefix-name">Kermadec Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">264</div><div class="prefix-name">Kingman Reef</div></div>
+                    <div class="prefix-item"><div class="prefix-num">265</div><div class="prefix-name">Central Kiribati</div></div>
+                    <div class="prefix-item"><div class="prefix-num">266</div><div class="prefix-name">Eastern Kiribati</div></div>
+                    <div class="prefix-item"><div class="prefix-num">267</div><div class="prefix-name">Kure Island</div></div>
+                    <div class="prefix-item"><div class="prefix-num">268</div><div class="prefix-name">Lord Howe Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">269</div><div class="prefix-name">Mellish Reef</div></div>
+                    <div class="prefix-item"><div class="prefix-num">270</div><div class="prefix-name">Minami Torishima Island</div></div>
+                    <div class="prefix-item"><div class="prefix-num">271</div><div class="prefix-name">Republic of Nauru</div></div>
+                    <div class="prefix-item"><div class="prefix-num">272</div><div class="prefix-name">Niue</div></div>
+                    <div class="prefix-item"><div class="prefix-num">273</div><div class="prefix-name">Jarvis & Palmyra Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">274</div><div class="prefix-name">Pitcairn Island</div></div>
+                    <div class="prefix-item"><div class="prefix-num">275</div><div class="prefix-name">Tokelau Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">276</div><div class="prefix-name">Tuvalu</div></div>
+                    <div class="prefix-item"><div class="prefix-num">277</div><div class="prefix-name">Sable Island</div></div>
+                    <div class="prefix-item"><div class="prefix-num">278</div><div class="prefix-name">Wake Island</div></div>
+                    <div class="prefix-item"><div class="prefix-num">279</div><div class="prefix-name">Willis Islets</div></div>
+                    <div class="prefix-item"><div class="prefix-num">280</div><div class="prefix-name">Aves Island</div></div>
+                    <div class="prefix-item"><div class="prefix-num">281</div><div class="prefix-name">Ogasawara Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">282</div><div class="prefix-name">Auckland & Campbell</div></div>
+                    <div class="prefix-item"><div class="prefix-num">283</div><div class="prefix-name">St. Kitts & Nevis</div></div>
+                    <div class="prefix-item"><div class="prefix-num">284</div><div class="prefix-name">St. Paul Island</div></div>
+                    <div class="prefix-item"><div class="prefix-num">285</div><div class="prefix-name">Fernando de Noronha</div></div>
+                    <div class="prefix-item"><div class="prefix-num">286</div><div class="prefix-name">Juan Fernandez Island</div></div>
+                    <div class="prefix-item"><div class="prefix-num">287</div><div class="prefix-name">Malpelo Island</div></div>
+                    <div class="prefix-item"><div class="prefix-num">288</div><div class="prefix-name">San Felix & San Ambrosio</div></div>
+                    <div class="prefix-item"><div class="prefix-num">289</div><div class="prefix-name">South Georgia Island</div></div>
+                    <div class="prefix-item"><div class="prefix-num">290</div><div class="prefix-name">Trindade & Martim Vaz</div></div>
+                    <div class="prefix-item"><div class="prefix-num">291</div><div class="prefix-name">Dhekelia & Akrotiri</div></div>
+                    <div class="prefix-item"><div class="prefix-num">292</div><div class="prefix-name">Abu-Ail & Jabal-At-Tair (del)</div></div>
+                    <div class="prefix-item"><div class="prefix-num">293</div><div class="prefix-name">Guinea Bissau</div></div>
+                    <div class="prefix-item"><div class="prefix-num">294</div><div class="prefix-name">Peter 1st Island</div></div>
+                    <div class="prefix-item"><div class="prefix-num">295</div><div class="prefix-name">Southern Sudan (deleted)</div></div>
+                    <div class="prefix-item"><div class="prefix-num">296</div><div class="prefix-name">Clipperton Island</div></div>
+                    <div class="prefix-item"><div class="prefix-num">297</div><div class="prefix-name">Bouvet Island</div></div>
+                    <div class="prefix-item"><div class="prefix-num">298</div><div class="prefix-name">Crozet Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">299</div><div class="prefix-name">Desecheo Island</div></div>
+                    <div class="prefix-item"><div class="prefix-num">300</div><div class="prefix-name">West Sahara - Rio de Oro</div></div>
+                    <div class="prefix-item"><div class="prefix-num">301</div><div class="prefix-name">Armenia</div></div>
+                    <div class="prefix-item"><div class="prefix-num">302</div><div class="prefix-name">Asiatic Russia</div></div>
+                    <div class="prefix-item"><div class="prefix-num">303</div><div class="prefix-name">Azerbaijan</div></div>
+                    <div class="prefix-item"><div class="prefix-num">304</div><div class="prefix-name">Estonia</div></div>
+                    <div class="prefix-item"><div class="prefix-num">305</div><div class="prefix-name">Franz Josef Land</div></div>
+                    <div class="prefix-item"><div class="prefix-num">306</div><div class="prefix-name">Georgia</div></div>
+                    <div class="prefix-item"><div class="prefix-num">307</div><div class="prefix-name">Kaliningradsk</div></div>
+                    <div class="prefix-item"><div class="prefix-num">308</div><div class="prefix-name">Kazakhstan</div></div>
+                    <div class="prefix-item"><div class="prefix-num">309</div><div class="prefix-name">Kyrgyzstan</div></div>
+                    <div class="prefix-item"><div class="prefix-num">310</div><div class="prefix-name">Latvia</div></div>
+                    <div class="prefix-item"><div class="prefix-num">311</div><div class="prefix-name">Lithuania</div></div>
+                    <div class="prefix-item"><div class="prefix-num">312</div><div class="prefix-name">Moldavia</div></div>
+                    <div class="prefix-item"><div class="prefix-num">313</div><div class="prefix-name">Tajikistan</div></div>
+                    <div class="prefix-item"><div class="prefix-num">314</div><div class="prefix-name">Turkmenistan</div></div>
                     <div class="prefix-item"><div class="prefix-num">315</div><div class="prefix-name">Ukraine</div></div>
-                    </div>
+                    <div class="prefix-item"><div class="prefix-num">316</div><div class="prefix-name">Uzbekistan</div></div>
+                    <div class="prefix-item"><div class="prefix-num">317</div><div class="prefix-name">White Russia (Belarus)</div></div>
+                    <div class="prefix-item"><div class="prefix-num">318</div><div class="prefix-name">Survey Military of Malta</div></div>
+                    <div class="prefix-item"><div class="prefix-num">319</div><div class="prefix-name">United Nations - New York</div></div>
+                    <div class="prefix-item"><div class="prefix-num">320</div><div class="prefix-name">Banaba Island</div></div>
+                    <div class="prefix-item"><div class="prefix-num">321</div><div class="prefix-name">Conway Reef</div></div>
+                    <div class="prefix-item"><div class="prefix-num">322</div><div class="prefix-name">Walvis Bay (deleted)</div></div>
+                    <div class="prefix-item"><div class="prefix-num">323</div><div class="prefix-name">Yemen Republic</div></div>
+                    <div class="prefix-item"><div class="prefix-num">324</div><div class="prefix-name">Penguin Islands (deleted)</div></div>
+                    <div class="prefix-item"><div class="prefix-num">325</div><div class="prefix-name">Rotuma Island</div></div>
+                    <div class="prefix-item"><div class="prefix-num">326</div><div class="prefix-name">Malyj Vytsotskj (deleted)</div></div>
+                    <div class="prefix-item"><div class="prefix-num">327</div><div class="prefix-name">Slovenia</div></div>
+                    <div class="prefix-item"><div class="prefix-num">328</div><div class="prefix-name">Croatia</div></div>
+                    <div class="prefix-item"><div class="prefix-num">329</div><div class="prefix-name">Czech Republic</div></div>
+                    <div class="prefix-item"><div class="prefix-num">330</div><div class="prefix-name">Slovakia</div></div>
+                    <div class="prefix-item"><div class="prefix-num">331</div><div class="prefix-name">Bosnia Herzegovina</div></div>
+                    <div class="prefix-item"><div class="prefix-num">332</div><div class="prefix-name">Macedonia</div></div>
+                    <div class="prefix-item"><div class="prefix-num">333</div><div class="prefix-name">Eritrea</div></div>
+                    <div class="prefix-item"><div class="prefix-num">334</div><div class="prefix-name">North Korea</div></div>
+                    <div class="prefix-item"><div class="prefix-num">335</div><div class="prefix-name">Scarborough Reef</div></div>
+                    <div class="prefix-item"><div class="prefix-num">336</div><div class="prefix-name">Pratas Island</div></div>
+                    <div class="prefix-item"><div class="prefix-num">337</div><div class="prefix-name">Austral Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">338</div><div class="prefix-name">Marquesas Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">339</div><div class="prefix-name">Temotu</div></div>
+                    <div class="prefix-item"><div class="prefix-num">340</div><div class="prefix-name">Palestine</div></div>
+                    <div class="prefix-item"><div class="prefix-num">341</div><div class="prefix-name">East Timor</div></div>
+                    <div class="prefix-item"><div class="prefix-num">342</div><div class="prefix-name">Chesterfield Islands</div></div>
+                    <div class="prefix-item"><div class="prefix-num">343</div><div class="prefix-name">Ducie Island</div></div>
+                    <div class="prefix-item"><div class="prefix-num">344</div><div class="prefix-name">Republic of Montenegro</div></div>
+                    <div class="prefix-item"><div class="prefix-num">345</div><div class="prefix-name">Swain s Island</div></div>
+                    <div class="prefix-item"><div class="prefix-num">346</div><div class="prefix-name">St. Barthelemy Island</div></div>
+                    <div class="prefix-item"><div class="prefix-num">347</div><div class="prefix-name">Curaçao (Ex 7 div)</div></div>
+                    <div class="prefix-item"><div class="prefix-num">348</div><div class="prefix-name">Sint Maarten (Ex 166 div)</div></div>
+                    <div class="prefix-item"><div class="prefix-num">349</div><div class="prefix-name">Saba and St Eustatius</div></div>
+                    <div class="prefix-item"><div class="prefix-num">350</div><div class="prefix-name">Bonaire</div></div>
+                    <div class="prefix-item"><div class="prefix-num">351</div><div class="prefix-name">Republic of South Sudan</div></div>
+                    <div class="prefix-item"><div class="prefix-num">352</div><div class="prefix-name">Kosovo</div></div>
+                </div>
             </div>
         </main>
 
@@ -95,11 +438,14 @@
             const localOpts = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'Europe/Warsaw' };
             const utcOpts = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'UTC' };
             
-            setInterval(() => {
+            function tick() {
                 const now = new Date();
                 document.getElementById('clock').textContent = now.toLocaleTimeString('en-GB', localOpts);
                 document.getElementById('utc_clock').textContent = now.toLocaleTimeString('en-GB', utcOpts);
-            }, 1000);
+            }
+            
+            tick();
+            setInterval(tick, 1000);
         }
     </script>
 </body>
