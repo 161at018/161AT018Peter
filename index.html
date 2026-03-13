@@ -14,23 +14,27 @@
             padding: 0; 
         }
 
-        /* POPRAWIONY NAGŁÓWEK - DOPASOWANY DO SZEROKOŚCI TREŚCI */
+        /* NAGŁÓWEK - PROPORCJONALNY I DOPASOWANY */
         .header { 
-            max-width: 1400px; /* Szerokość zgodna z niebieskimi strzałkami */
-            height: 200px; 
-            background: url("images/header.jpg") no-repeat center center; 
-            background-size: cover; 
-            border-bottom: 2px solid #ff9900; 
-            margin: 0 auto; /* Wyśrodkowanie nagłówka */
-            display: block; 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            display: block;
+            line-height: 0; /* Usuwa białą przerwę pod obrazkiem */
+        }
+
+        .header img {
+            width: 100%; /* Rozciąga do szerokości kolumn (1400px) */
+            height: auto; /* ZACHOWUJE ORYGINALNE PROPORCJE OBRAZU */
+            border-bottom: 2px solid #ff9900;
+            display: block;
         }
 
         /* GŁÓWNY KONTENER - WRAPPER */
         .wrapper { 
             display: flex; 
             flex-wrap: wrap; 
-            max-width: 1400px; /* Ta sama szerokość co header */
-            margin: 0 auto; /* Wyśrodkowanie całej strony */
+            max-width: 1400px; 
+            margin: 0 auto; 
             gap: 20px; 
             padding: 20px; 
             box-sizing: border-box;
@@ -50,7 +54,7 @@
         .menu a { display: block; color: #bbb; text-decoration: none; padding: 12px 10px; border-bottom: 1px solid #2a2a2a; transition: 0.3s; cursor: pointer; }
         .menu a:hover { color: #fff; background: #2a2a2a; border-left: 4px solid #ff9900; }
         
-        /* DROPDOWN MENU */
+        /* DROPDOWN MENU DLA GALERII */
         .dropdown { position: relative; display: block; }
         .dropdown-content {
             display: none;
@@ -65,11 +69,10 @@
             background: #1a1a1a;
         }
         .dropdown:hover .dropdown-content { display: block; }
-        .dropdown:hover > a { color: #fff; background: #2a2a2a; border-left: 4px solid #ff9900; }
 
         h1 { color: #ff9900; border-bottom: 2px solid #ff9900; padding-bottom: 10px; margin-top: 0; }
         
-        /* ZDJĘCIA */
+        /* GŁÓWNE ZDJĘCIE STACJI */
         .main-photo { 
             display: block; 
             margin: 25px auto; 
@@ -92,13 +95,15 @@
         /* RESPONSYWNOŚĆ */
         @media (max-width: 850px) { 
             .wrapper { flex-direction: column; } 
-            .header { height: 120px; width: 100%; } 
+            .header { width: 100%; } 
         }
     </style>
 </head>
 <body onload="updateTime()">
 
-    <div class="header"></div>
+    <header class="header">
+        <img src="images/header.jpg" alt="161AT018 Peter Header">
+    </header>
 
     <div class="wrapper">
         <aside class="panel">
@@ -152,7 +157,7 @@
             <div class="solar-container">
                 <div class="clock-label" style="margin-bottom: 10px;">Solar Data</div>
                 <div class="solar-border">
-                    <a href="https://www.hamqsl.com/solar.html" title="Solar Data">
+                    <a href="https://www.hamqsl.com/solar.html" target="_blank" title="Solar Data">
                         <img src="https://www.hamqsl.com/solarn0nbh.php" alt="Solar Data" style="max-width: 100%; height: auto; display: block;">
                     </a>
                 </div>
