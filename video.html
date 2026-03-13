@@ -5,11 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>161AT018 Peter - Video & Stream</title>
     <style>
+        /* OGÓLNE USTAWIENIA */
         body { background-color: #121212; color: #e0e0e0; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; }
-        .header { width: 100%; height: 200px; background: url("images/header.jpg") no-repeat center center; background-size: 100% 100%; border-bottom: 2px solid #ff9900; margin: 0; display: block; }
+
+        /* NAGŁÓWEK - SPÓJNY Z PREFIX.HTML */
+        .header { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            display: block;
+            line-height: 0; 
+        }
+        .header img {
+            width: 100%; 
+            height: auto; 
+            border-bottom: 2px solid #ff9900;
+            display: block;
+        }
         
-        /* Wrapper spójny z resztą stron */
-        .wrapper { display: flex; max-width: 1400px; margin: 20px auto; gap: 20px; padding: 0 20px; }
+        /* WRAPPER */
+        .wrapper { display: flex; max-width: 1400px; margin: 20px auto; gap: 20px; padding: 0 20px; box-sizing: border-box; }
         
         .panel { background-color: #1e1e1e; border: 1px solid #333; padding: 25px; flex: 0 0 250px; box-sizing: border-box; }
         .content { background-color: #1e1e1e; border: 1px solid #333; padding: 25px; flex: 1; box-sizing: border-box; min-width: 0; }
@@ -25,11 +39,12 @@
         h1 { color: #ff9900; border-bottom: 2px solid #ff9900; padding-bottom: 10px; margin-top: 0; }
 
         /* Styl dla Wideo */
-        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border: 2px solid #333; margin-bottom: 20px; }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border: 2px solid #333; margin-bottom: 20px; background: #000; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
         
         .stream-info { background: #252525; border: 1px solid #333; padding: 15px; color: #bbb; line-height: 1.6; }
         .stream-info b { color: #ff9900; }
+        .stream-info h3 { color: #fff; margin-top: 0; }
 
         /* Zegary i Solar */
         .clock-container { text-align: center; }
@@ -40,15 +55,18 @@
         .solar-container { text-align: center; margin-top: 10px; }
         .solar-border { border: 1px solid #ff9900; padding: 2px; display: inline-block; background: #fff; line-height: 0; border-radius: 2px; }
 
+        /* RESPONSYWNOŚĆ */
         @media (max-width: 1150px) { 
             .wrapper { flex-direction: column; } 
-            .panel { flex: 1 1 auto; width: 100%; }
+            .panel { width: 100%; flex: none; }
         }
     </style>
 </head>
 <body onload="updateTime()">
 
-    <div class="header"></div>
+    <header class="header">
+        <img src="images/header.jpg" alt="161AT018 Peter Header">
+    </header>
 
     <div class="wrapper">
         <aside class="panel">
@@ -79,14 +97,15 @@
             <h1>Video & Live Stream</h1>
             
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/live_stream?channel=TWÓJ_ID_KANAŁU" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/live_stream?channel=TWÓJ_ID_KANAŁU" frameborder="0" allowfullscreen>
+                </iframe>
             </div>
 
             <div class="stream-info">
                 <h3>System Information</h3>
                 <p>Welcome to my live stream page. Here you can watch my radio activity live. 
                 If the stream is offline, check my <b>YouTube Channel</b> for latest records.</p>
-                <p>Status: <b>Monitoring 27.555 MHz USB</b></p>
+                <p>Status: <span style="color: #00ff00;">●</span> <b>Monitoring 27.555 MHz USB</b></p>
             </div>
         </main>
 
