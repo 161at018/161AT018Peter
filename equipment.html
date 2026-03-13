@@ -5,17 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>161AT018 Peter - My Equipment</title>
     <style>
-        body { background-color: #121212; color: #e0e0e0; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; }
-        .header { width: 100%; height: 200px; background: url("images/header.jpg") no-repeat center center; background-size: 100% 100%; border-bottom: 2px solid #ff9900; margin: 0; display: block; }
-        .wrapper { display: flex; flex-wrap: wrap; max-width: 1400px; margin: 20px auto; gap: 20px; padding: 0 20px; }
-        .panel, .content { background-color: #1e1e1e; border: 1px solid #333; padding: 25px; box-sizing: border-box; }
+        /* OGÓLNE USTAWIENIA */
+        body { 
+            background-color: #121212; 
+            color: #e0e0e0; 
+            font-family: 'Segoe UI', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+        }
+
+        /* NAGŁÓWEK - DOPASOWANY I PROPORCJONALNY */
+        .header { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            display: block;
+            line-height: 0; 
+        }
+
+        .header img {
+            width: 100%; 
+            height: auto; 
+            border-bottom: 2px solid #ff9900;
+            display: block;
+        }
+
+        /* GŁÓWNY KONTENER - WRAPPER */
+        .wrapper { 
+            display: flex; 
+            flex-wrap: wrap; 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            gap: 20px; 
+            padding: 20px; 
+            box-sizing: border-box;
+        }
+
+        .panel, .content { 
+            background-color: #1e1e1e; 
+            border: 1px solid #333; 
+            padding: 25px; 
+            box-sizing: border-box; 
+        }
+
         .panel { flex: 0 1 250px; }
         .content { flex: 1 1 800px; min-width: 350px; }
         
-        /* Menu Nawigacyjne z Dropdown */
+        /* MENU NAWIGACYJNE */
         .menu a { display: block; color: #bbb; text-decoration: none; padding: 12px 10px; border-bottom: 1px solid #2a2a2a; transition: 0.3s; cursor: pointer; }
         .menu a:hover { color: #fff; background: #2a2a2a; border-left: 4px solid #ff9900; }
         
+        /* DROPDOWN MENU */
         .dropdown { position: relative; display: block; }
         .dropdown-content {
             display: none;
@@ -30,12 +69,11 @@
             background: #1a1a1a;
         }
         .dropdown:hover .dropdown-content { display: block; }
-        .dropdown:hover > a { color: #fff; background: #2a2a2a; border-left: 4px solid #ff9900; }
 
         h1 { color: #ff9900; border-bottom: 2px solid #ff9900; padding-bottom: 10px; margin-top: 0; }
         h2 { color: #ff9900; font-size: 1.3em; margin-top: 25px; border-left: 3px solid #ff9900; padding-left: 10px; }
 
-        /* Equipment List Styles */
+        /* LISTA SPRZĘTU */
         .eq-list { list-style: none; padding: 0; }
         .eq-list li { background: #252525; margin-bottom: 10px; padding: 15px; border-radius: 4px; display: flex; align-items: center; }
         .eq-list b { color: #ff9900; min-width: 120px; display: inline-block; }
@@ -43,12 +81,13 @@
         .eq-photo { 
             max-width: 100%; 
             height: auto; 
-            border: 1px solid #333; 
+            border: 1px solid #ff9900; 
             margin-top: 15px; 
             border-radius: 4px; 
+            box-shadow: 0 0 15px rgba(255, 153, 0, 0.1);
         }
 
-        /* Zegary i Solar - IDENTYCZNE JAK W INDEX */
+        /* ZEGARY I SOLAR */
         .clock-container { text-align: center; }
         .clock-label { color: #ff9900; font-weight: bold; font-size: 14px; text-transform: uppercase; margin-bottom: 5px; }
         .time-local { font-size: 1.8em; font-weight: bold; color: #ff9900; font-family: "Courier New", monospace; }
@@ -57,12 +96,18 @@
         .solar-container { text-align: center; margin-top: 10px; }
         .solar-border { border: 1px solid #ff9900; padding: 2px; display: inline-block; background: #fff; line-height: 0; border-radius: 2px; }
 
-        @media (max-width: 850px) { .wrapper { flex-direction: column; } .header { height: 120px; } }
+        /* RESPONSYWNOŚĆ */
+        @media (max-width: 850px) { 
+            .wrapper { flex-direction: column; } 
+            .header { width: 100%; }
+        }
     </style>
 </head>
 <body onload="updateTime()">
 
-    <div class="header"></div>
+    <header class="header">
+        <img src="images/header.jpg" alt="161AT018 Peter Header">
+    </header>
 
     <div class="wrapper">
         <aside class="panel">
@@ -97,20 +142,20 @@
             
             <h2>Transceivers</h2>
             <ul class="eq-list">
-                <li><b>Radio 1:</b> Your Main Radio Model (e.g., Yaesu FT-991A)</li>
-                <li><b>Radio 2:</b> Your Secondary Radio Model</li>
+                <li><b>Radio 1:</b> Icom IC-7300</li>
+                <li><b>Radio 2:</b> CRT SS 9900</li>
             </ul>
 
             <h2>Antennas</h2>
             <ul class="eq-list">
-                <li><b>Main Antenna:</b> Your Antenna Model (e.g., Skypper, Gain Master)</li>
-                <li><b>Mobile:</b> Your Mobile Antenna</li>
+                <li><b>Main Antenna:</b> Gain Master Hi-End</li>
+                <li><b>Mobile:</b> Sirio Turbo 5000</li>
             </ul>
 
             <h2>Accessories</h2>
             <ul class="eq-list">
-                <li><b>Microphone:</b> Your Desk Microphone</li>
-                <li><b>Power Supply:</b> Your PSU Model</li>
+                <li><b>Microphone:</b> Icom SM-30</li>
+                <li><b>Power Supply:</b> Alinco DM-330MW</li>
             </ul>
 
             <img src="images/shack.jpg" alt="My Radio Shack" class="eq-photo">
@@ -128,7 +173,7 @@
             <div class="solar-container">
                 <div class="clock-label" style="margin-bottom: 10px;">Solar Data</div>
                 <div class="solar-border">
-                    <a href="https://www.hamqsl.com/solar.html" title="Solar Data">
+                    <a href="https://www.hamqsl.com/solar.html" target="_blank" title="Solar Data">
                         <img src="https://www.hamqsl.com/solarn0nbh.php" alt="Solar Data" style="max-width: 100%; height: auto; display: block;">
                     </a>
                 </div>
