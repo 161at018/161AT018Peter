@@ -5,14 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>161AT018 Peter - Useful Links</title>
     <style>
+        /* OGÓLNE USTAWIENIA */
         body { background-color: #121212; color: #e0e0e0; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; }
-        .header { width: 100%; height: 200px; background: url("images/header.jpg") no-repeat center center; background-size: 100% 100%; border-bottom: 2px solid #ff9900; margin: 0; display: block; }
         
-        .wrapper { display: flex; max-width: 1400px; margin: 20px auto; gap: 20px; padding: 0 20px; }
+        /* NAGŁÓWEK - SPÓJNY Z RESZTĄ STRON */
+        .header { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            display: block;
+            line-height: 0; 
+        }
+        .header img {
+            width: 100%; 
+            height: auto; 
+            border-bottom: 2px solid #ff9900;
+            display: block;
+        }
+        
+        /* WRAPPER */
+        .wrapper { display: flex; max-width: 1400px; margin: 20px auto; gap: 20px; padding: 0 20px; box-sizing: border-box; }
         
         .panel { background-color: #1e1e1e; border: 1px solid #333; padding: 25px; flex: 0 0 250px; box-sizing: border-box; }
         .content { background-color: #1e1e1e; border: 1px solid #333; padding: 25px; flex: 1; box-sizing: border-box; min-width: 0; }
         
+        /* MENU NAWIGACYJNE */
         .menu a { display: block; color: #bbb; text-decoration: none; padding: 12px 10px; border-bottom: 1px solid #2a2a2a; transition: 0.3s; cursor: pointer; }
         .menu a:hover { color: #fff; background: #2a2a2a; border-left: 4px solid #ff9900; }
         .dropdown { position: relative; display: block; }
@@ -21,16 +37,17 @@
         .dropdown:hover .dropdown-content { display: block; }
 
         h1 { color: #ff9900; border-bottom: 2px solid #ff9900; padding-bottom: 10px; margin-top: 0; }
-        h2 { color: #ff9900; font-size: 1.2em; margin-top: 20px; border-left: 4px solid #ff9900; padding-left: 10px; background: #252525; padding-top: 5px; padding-bottom: 5px; }
+        h2 { color: #ff9900; font-size: 1.2em; margin-top: 25px; border-left: 4px solid #ff9900; padding: 8px 10px; background: #252525; }
 
-        /* Styl tabeli linków */
+        /* STYL TABELI LINKÓW */
         .link-table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
-        .link-table td { padding: 12px; border-bottom: 1px solid #2a2a2a; font-size: 15px; }
+        .link-table tr:hover { background: #252525; }
+        .link-table td { padding: 15px 12px; border-bottom: 1px solid #2a2a2a; font-size: 15px; }
         .link-table a { color: #ff9900; text-decoration: none; font-weight: bold; transition: 0.2s; }
         .link-table a:hover { color: #fff; text-decoration: underline; }
-        .link-desc { color: #888; font-size: 13px; }
+        .link-desc { color: #888; font-size: 13px; display: block; margin-top: 4px; }
 
-        /* Zegary i Solar */
+        /* ZEGARY I SOLAR */
         .clock-container { text-align: center; }
         .clock-label { color: #ff9900; font-weight: bold; font-size: 14px; text-transform: uppercase; margin-bottom: 5px; }
         .time-local { font-size: 1.8em; font-weight: bold; color: #ff9900; font-family: "Courier New", monospace; }
@@ -39,15 +56,18 @@
         .solar-container { text-align: center; margin-top: 10px; }
         .solar-border { border: 1px solid #ff9900; padding: 2px; display: inline-block; background: #fff; line-height: 0; border-radius: 2px; }
 
+        /* RESPONSYWNOŚĆ */
         @media (max-width: 1150px) { 
             .wrapper { flex-direction: column; } 
-            .panel { flex: 1 1 auto; width: 100%; }
+            .panel { width: 100%; flex: none; }
         }
     </style>
 </head>
 <body onload="updateTime()">
 
-    <div class="header"></div>
+    <header class="header">
+        <img src="images/header.jpg" alt="161AT018 Peter Header">
+    </header>
 
     <div class="wrapper">
         <aside class="panel">
@@ -80,44 +100,60 @@
             <h2>DX Clusters & Portals</h2>
             <table class="link-table">
                 <tr>
-                    <td><a href="https://www.alfatango.org//" target="_blank">Official ALFA TANGO web.</a></td>
-                    <td class="link-desc">Official website of G.R.I. ALFA TANGO.</td>
+                    <td>
+                        <a href="https://www.alfatango.org/" target="_blank">Official ALFA TANGO Web</a>
+                        <span class="link-desc">Official website of G.R.I. ALFA TANGO Headquarters.</span>
+                    </td>
                 </tr>
                 <tr>
-                    <td><a href="https://www.clusterdx.org/" target="_blank">ClusterDX</a></td>
-                    <td class="link-desc">Very popular 11m ClusterDX.</td>
+                    <td>
+                        <a href="https://www.clusterdx.org/" target="_blank">ClusterDX</a>
+                        <span class="link-desc">The most popular 11m DX Cluster for real-time spots.</span>
+                    </td>
                 </tr>
                 <tr>
-                    <td><a href="http://www.11dx.net/" target="_blank">11DX.net</a></td>
-                    <td class="link-desc">Real-time DX spots for 11 meter band.</td>
+                    <td>
+                        <a href="http://www.11dx.net/" target="_blank">11DX.net</a>
+                        <span class="link-desc">Real-time DX spots dedicated to the 11 meter band.</span>
+                    </td>
                 </tr>
                 <tr>
-                    <td><a href="https://www.sugar-delta.it/" target="_blank">Sugar Delta</a></td>
-                    <td class="link-desc">Official website of the Sugar Delta Group.</td>
+                    <td>
+                        <a href="https://www.sugar-delta.it/" target="_blank">Sugar Delta</a>
+                        <span class="link-desc">Official website of the Sugar Delta International Group.</span>
+                    </td>
                 </tr>
             </table>
 
             <h2>Solar & Propagation</h2>
             <table class="link-table">
                 <tr>
-                    <td><a href="https://www.hamqsl.com/solar.html" target="_blank">HamQSL Solar</a></td>
-                    <td class="link-desc">Detailed solar reports and propagation tools.</td>
+                    <td>
+                        <a href="https://www.hamqsl.com/solar.html" target="_blank">HamQSL Solar</a>
+                        <span class="link-desc">Detailed solar reports, sunspot numbers, and propagation tools.</span>
+                    </td>
                 </tr>
                 <tr>
-                    <td><a href="https://www.dxmaps.com/spots/map.php?Lan=E&Frequ=28&ML=M&Map=W" target="_blank">DX Maps (10m/11m)</a></td>
-                    <td class="link-desc">Visual propagation map for high bands.</td>
+                    <td>
+                        <a href="https://www.dxmaps.com/spots/map.php?Lan=E&Frequ=28&ML=M&Map=W" target="_blank">DX Maps (10m/11m)</a>
+                        <span class="link-desc">Real-time visual propagation maps for high bands.</span>
+                    </td>
                 </tr>
             </table>
 
             <h2>Other Tools</h2>
             <table class="link-table">
                 <tr>
-                    <td><a href="https://www.qrz.com/" target="_blank">QRZ.com</a></td>
-                    <td class="link-desc">World's largest ham radio database.</td>
+                    <td>
+                        <a href="https://www.qrz.com/" target="_blank">QRZ.com</a>
+                        <span class="link-desc">The world's largest ham radio database and community.</span>
+                    </td>
                 </tr>
                 <tr>
-                    <td><a href="https://www.windy.com" target="_blank">Windy.com</a></td>
-                    <td class="link-desc">Live weather and wind conditions for antenna safety.</td>
+                    <td>
+                        <a href="https://www.windy.com" target="_blank">Windy.com</a>
+                        <span class="link-desc">Live weather and wind conditions – crucial for antenna safety.</span>
+                    </td>
                 </tr>
             </table>
         </main>
