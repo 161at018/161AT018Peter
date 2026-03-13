@@ -5,30 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>161AT018 Peter - 11m Prefix List</title>
     <style>
-        body { background-color: #121212; color: #e0e0e0; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; }
-        .header { width: 100%; height: 200px; background: url("images/header.jpg") no-repeat center center; background-size: 100% 100%; border-bottom: 2px solid #ff9900; margin: 0; display: block; }
+        /* OGÓLNE USTAWIENIA */
+        body { 
+            background-color: #121212; 
+            color: #e0e0e0; 
+            font-family: 'Segoe UI', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+        }
+
+        /* NAGŁÓWEK - DOPASOWANY DO KOLUMN */
+        .header { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            display: block;
+            line-height: 0; 
+        }
+
+        .header img {
+            width: 100%; 
+            height: auto; 
+            border-bottom: 2px solid #ff9900;
+            display: block;
+        }
+
+        /* WRAPPER */
+        .wrapper { 
+            display: flex; 
+            flex-wrap: wrap; 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            gap: 20px; 
+            padding: 20px; 
+            box-sizing: border-box;
+        }
+
+        .panel, .content { 
+            background-color: #1e1e1e; 
+            border: 1px solid #333; 
+            padding: 25px; 
+            box-sizing: border-box; 
+        }
+
+        .panel { flex: 0 1 250px; }
+        .content { flex: 1 1 800px; min-width: 350px; }
         
-        .wrapper { display: flex; max-width: 1400px; margin: 20px auto; gap: 20px; padding: 0 20px; }
-        
-        .panel { background-color: #1e1e1e; border: 1px solid #333; padding: 25px; flex: 0 0 250px; box-sizing: border-box; }
-        .content { background-color: #1e1e1e; border: 1px solid #333; padding: 25px; flex: 1; box-sizing: border-box; min-width: 0; }
-        
+        /* MENU NAWIGACYJNE */
         .menu a { display: block; color: #bbb; text-decoration: none; padding: 12px 10px; border-bottom: 1px solid #2a2a2a; transition: 0.3s; cursor: pointer; }
         .menu a:hover { color: #fff; background: #2a2a2a; border-left: 4px solid #ff9900; }
+        
         .dropdown { position: relative; display: block; }
-        .dropdown-content { display: none; background-color: #252525; min-width: 100%; border-left: 2px solid #ff9900; }
-        .dropdown-content a { padding: 10px 20px; font-size: 14px; border-bottom: 1px solid #333; background: #1a1a1a; }
+        .dropdown-content {
+            display: none;
+            background-color: #252525;
+            min-width: 100%;
+            border-left: 2px solid #ff9900;
+        }
+        .dropdown-content a {
+            padding: 10px 20px;
+            font-size: 14px;
+            border-bottom: 1px solid #333;
+            background: #1a1a1a;
+        }
         .dropdown:hover .dropdown-content { display: block; }
 
         h1 { color: #ff9900; border-bottom: 2px solid #ff9900; padding-bottom: 10px; margin-top: 0; }
-
-        /* Styl tabeli - powiększona czcionka */
+        
+        /* TABELA PREFIKSÓW */
         .prefix-layout { display: flex; gap: 30px; }
         .prefix-column { flex: 1; }
-        table { width: 100%; border-collapse: collapse; font-size: 14px; color: #ccc; } /* Zwiększono z 12px na 14px */
-        td { padding: 5px 8px; border-bottom: 1px solid #2a2a2a; } /* Większy odstęp między wierszami */
+        table { width: 100%; border-collapse: collapse; font-size: 13px; color: #ccc; }
+        td { padding: 4px 8px; border-bottom: 1px solid #2a2a2a; }
         .pref-num { color: #ff9900; font-weight: bold; width: 40px; text-align: right; padding-right: 12px; }
+        tr:hover { background: #252525; }
 
+        /* ZEGARY I SOLAR */
         .clock-container { text-align: center; }
         .clock-label { color: #ff9900; font-weight: bold; font-size: 14px; text-transform: uppercase; margin-bottom: 5px; }
         .time-local { font-size: 1.8em; font-weight: bold; color: #ff9900; font-family: "Courier New", monospace; }
@@ -37,16 +88,18 @@
         .solar-container { text-align: center; margin-top: 10px; }
         .solar-border { border: 1px solid #ff9900; padding: 2px; display: inline-block; background: #fff; line-height: 0; border-radius: 2px; }
 
-        @media (max-width: 1150px) { 
+        /* RESPONSYWNOŚĆ */
+        @media (max-width: 1000px) { 
             .wrapper { flex-direction: column; } 
-            .panel { flex: 1 1 auto; width: 100%; }
             .prefix-layout { flex-direction: column; }
         }
     </style>
 </head>
 <body onload="updateTime()">
 
-    <div class="header"></div>
+    <header class="header">
+        <img src="images/header.jpg" alt="161AT018 Peter Header">
+    </header>
 
     <div class="wrapper">
         <aside class="panel">
@@ -56,6 +109,7 @@
                 <a href="qth.html">My QTH</a>
                 <a href="equipment.html">My Equipment</a>
                 <a href="qsl.html">QSL info</a>
+                
                 <div class="dropdown">
                     <a href="#">QSL Gallery ▾</a>
                     <div class="dropdown-content">
@@ -66,6 +120,7 @@
                         <a href="gallery5.html">Gallery 5</a>
                     </div>
                 </div>
+
                 <a href="prefix.html" style="color:#fff; border-left: 4px solid #ff9900;">11m Prefix List</a>
                 <a href="video.html">Video & Stream</a>
                 <a href="links.html">Links</a>
@@ -79,7 +134,7 @@
                 <div class="prefix-column">
                     <table>
                         <tr><td class="pref-num">1</td><td>Italy</td></tr>
-                        <tr><td class="pref-num">2</td><td>United States of America</td></tr>
+                        <tr><td class="pref-num">2</td><td>USA</td></tr>
                         <tr><td class="pref-num">3</td><td>Brazil</td></tr>
                         <tr><td class="pref-num">4</td><td>Argentina</td></tr>
                         <tr><td class="pref-num">5</td><td>Venezuela</td></tr>
@@ -94,7 +149,7 @@
                         <tr><td class="pref-num">14</td><td>France</td></tr>
                         <tr><td class="pref-num">15</td><td>Switzerland</td></tr>
                         <tr><td class="pref-num">16</td><td>Belgium</td></tr>
-                        <tr><td class="pref-num">17</td><td>Hawai</td></tr>
+                        <tr><td class="pref-num">17</td><td>Hawaii</td></tr>
                         <tr><td class="pref-num">18</td><td>Greece</td></tr>
                         <tr><td class="pref-num">19</td><td>Netherlands</td></tr>
                         <tr><td class="pref-num">20</td><td>Norway</td></tr>
@@ -183,14 +238,14 @@
                         <tr><td class="pref-num">103</td><td>Haiti</td></tr>
                         <tr><td class="pref-num">104</td><td>Corsica Island</td></tr>
                         <tr><td class="pref-num">105</td><td>Botswana</td></tr>
-                        <tr><td class="pref-num">106</td><td>Ceuta & Melila</td></tr>
+                        <tr><td class="pref-num">106</td><td>Ceuta & Melilla</td></tr>
                         <tr><td class="pref-num">107</td><td>Monaco</td></tr>
                         <tr><td class="pref-num">108</td><td>Scotland</td></tr>
                         <tr><td class="pref-num">109</td><td>Hungary</td></tr>
                         <tr><td class="pref-num">110</td><td>Cyprus</td></tr>
                         <tr><td class="pref-num">111</td><td>Jordan</td></tr>
                         <tr><td class="pref-num">112</td><td>Lebanon</td></tr>
-                        <tr><td class="pref-num">113</td><td>Wesrt Malaysia</td></tr>
+                        <tr><td class="pref-num">113</td><td>West Malaysia</td></tr>
                         <tr><td class="pref-num">114</td><td>Pakistan</td></tr>
                         <tr><td class="pref-num">115</td><td>Qatar</td></tr>
                         <tr><td class="pref-num">116</td><td>Turkey</td></tr>
@@ -201,7 +256,7 @@
                         <tr><td class="pref-num">121</td><td>Bahamas</td></tr>
                         <tr><td class="pref-num">122</td><td>Barbados</td></tr>
                         <tr><td class="pref-num">123</td><td>Bermuda</td></tr>
-                        <tr><td class="pref-num">124</td><td>Amsterdam & St.Paul</td></tr>
+                        <tr><td class="pref-num">124</td><td>Amsterdam & St. Paul</td></tr>
                         <tr><td class="pref-num">125</td><td>Cayman Islands</td></tr>
                         <tr><td class="pref-num">126</td><td>Nicaragua</td></tr>
                         <tr><td class="pref-num">127</td><td>Virgin Islands</td></tr>
@@ -212,7 +267,7 @@
                         <tr><td class="pref-num">132</td><td>Marshall Islands</td></tr>
                         <tr><td class="pref-num">133</td><td>Marianas Islands</td></tr>
                         <tr><td class="pref-num">134</td><td>Republic of Belau</td></tr>
-                        <tr><td class="pref-num">135</td><td>Salomon Islands</td></tr>
+                        <tr><td class="pref-num">135</td><td>Solomon Islands</td></tr>
                         <tr><td class="pref-num">136</td><td>Martinique Island</td></tr>
                         <tr><td class="pref-num">137</td><td>Isle of Man</td></tr>
                         <tr><td class="pref-num">138</td><td>Vatican City</td></tr>
@@ -229,7 +284,7 @@
                         <tr><td class="pref-num">149</td><td>Laccadive Islands</td></tr>
                         <tr><td class="pref-num">150</td><td>Bahrain</td></tr>
                         <tr><td class="pref-num">151</td><td>Iraq</td></tr>
-                        <tr><td class="pref-num">152</td><td>Maledives Islands</td></tr>
+                        <tr><td class="pref-num">152</td><td>Maldives Islands</td></tr>
                         <tr><td class="pref-num">153</td><td>Thailand</td></tr>
                         <tr><td class="pref-num">154</td><td>Iran</td></tr>
                         <tr><td class="pref-num">155</td><td>Taiwan</td></tr>
@@ -285,7 +340,7 @@
                         <tr><td class="pref-num">200</td><td>South Shetland Islands</td></tr>
                         <tr><td class="pref-num">201</td><td>French Polynesia</td></tr>
                         <tr><td class="pref-num">202</td><td>Bhutan</td></tr>
-                        <tr><td class="pref-num">203</td><td>Republic of China</td></tr>
+                        <tr><td class="pref-num">203</td><td>China</td></tr>
                         <tr><td class="pref-num">204</td><td>Mozambique</td></tr>
                         <tr><td class="pref-num">205</td><td>Cape Verde Republic</td></tr>
                         <tr><td class="pref-num">206</td><td>Ethiopia</td></tr>
@@ -313,7 +368,7 @@
                         <tr><td class="pref-num">228</td><td>Chagos Island</td></tr>
                         <tr><td class="pref-num">229</td><td>Heard Island</td></tr>
                         <tr><td class="pref-num">230</td><td>Micronesia</td></tr>
-                        <tr><td class="pref-num">231</td><td>St. Peter & St. Paul Rocks</td></tr>
+                        <tr><td class="pref-num">231</td><td>St. Peter & Paul Rocks</td></tr>
                         <tr><td class="pref-num">232</td><td>Aruba</td></tr>
                         <tr><td class="pref-num">233</td><td>Romania</td></tr>
                         <tr><td class="pref-num">234</td><td>Afghanistan</td></tr>
@@ -355,7 +410,7 @@
                         <tr><td class="pref-num">270</td><td>Minami Torishima Island</td></tr>
                         <tr><td class="pref-num">271</td><td>Republic of Nauru</td></tr>
                         <tr><td class="pref-num">272</td><td>Niue Island</td></tr>
-                        <tr><td class="pref-num">273</td><td>Jarwis & Palmyra Islands</td></tr>
+                        <tr><td class="pref-num">273</td><td>Jarvis & Palmyra Islands</td></tr>
                         <tr><td class="pref-num">274</td><td>Pitcairn Island</td></tr>
                         <tr><td class="pref-num">275</td><td>Tokelau Islands</td></tr>
                         <tr><td class="pref-num">276</td><td>Tuvalu Islands</td></tr>
@@ -372,7 +427,7 @@
                         <tr><td class="pref-num">287</td><td>Malpelo Island</td></tr>
                         <tr><td class="pref-num">288</td><td>San Felix Island</td></tr>
                         <tr><td class="pref-num">289</td><td>South Georgia Islands</td></tr>
-                        <tr><td class="pref-num">290</td><td>Trinidade & Martim Vaz</td></tr>
+                        <tr><td class="pref-num">290</td><td>Trindade & Martim Vaz</td></tr>
                         <tr><td class="pref-num">291</td><td>Dhekelia & Akrotiri</td></tr>
                         <tr><td class="pref-num">292</td><td>Abu Ail Island (DEL)</td></tr>
                         <tr><td class="pref-num">293</td><td>Guinea Bissau</td></tr>
@@ -402,7 +457,7 @@
                         <tr><td class="pref-num">317</td><td>Belarus</td></tr>
                         <tr><td class="pref-num">318</td><td>SMOM</td></tr>
                         <tr><td class="pref-num">319</td><td>United Nations - NY</td></tr>
-                        <tr><td class="pref-num">320</td><td>Banaba Island</td></tr>
+                        <tr><td class="pref-num">320</td><td>Banaba Island (DEL)</td></tr>
                         <tr><td class="pref-num">321</td><td>Conway Reef</td></tr>
                         <tr><td class="pref-num">322</td><td>Walvis Bay (DEL)</td></tr>
                         <tr><td class="pref-num">323</td><td>Yemen</td></tr>
@@ -412,29 +467,29 @@
                         <tr><td class="pref-num">327</td><td>Slovenia</td></tr>
                         <tr><td class="pref-num">328</td><td>Croatia</td></tr>
                         <tr><td class="pref-num">329</td><td>Czech Republic</td></tr>
-                        <tr><td class="pref-num">330</td><td>Slovakia</td></tr>
-                        <tr><td class="pref-num">331</td><td>Bosnia & Hercegovina</td></tr>
+                        <tr><td class="pref-num">330</td><td>Slovak Republic</td></tr>
+                        <tr><td class="pref-num">331</td><td>Bosnia Herzegovina</td></tr>
                         <tr><td class="pref-num">332</td><td>Macedonia</td></tr>
                         <tr><td class="pref-num">333</td><td>Eritrea</td></tr>
                         <tr><td class="pref-num">334</td><td>North Korea</td></tr>
                         <tr><td class="pref-num">335</td><td>Scarborough Reef</td></tr>
                         <tr><td class="pref-num">336</td><td>Pratas Island</td></tr>
                         <tr><td class="pref-num">337</td><td>Austral Islands</td></tr>
-                        <tr><td class="pref-num">338</td><td>Marquesas Islands</td></tr>
-                        <tr><td class="pref-num">339</td><td>Temotu Islands</td></tr>
+                        <tr><td class="pref-num">338</td><td>Ducie Island</td></tr>
+                        <tr><td class="pref-num">339</td><td>Temotu Province</td></tr>
                         <tr><td class="pref-num">340</td><td>Palestine</td></tr>
-                        <tr><td class="pref-num">341</td><td>East Timor</td></tr>
-                        <tr><td class="pref-num">342</td><td>Chesterfield Islands</td></tr>
-                        <tr><td class="pref-num">343</td><td>Ducie Island</td></tr>
+                        <tr><td class="pref-num">341</td><td>Chesterfield Islands</td></tr>
+                        <tr><td class="pref-num">342</td><td>Saba & St. Eustatius (DEL)</td></tr>
+                        <tr><td class="pref-num">343</td><td>St. Barthelemy (DEL)</td></tr>
                         <tr><td class="pref-num">344</td><td>Montenegro</td></tr>
-                        <tr><td class="pref-num">345</td><td>Swains Island</td></tr>
+                        <tr><td class="pref-num">345</td><td>Banaba Island</td></tr>
                         <tr><td class="pref-num">346</td><td>St. Barthelemy Island</td></tr>
                         <tr><td class="pref-num">347</td><td>Curacao</td></tr>
                         <tr><td class="pref-num">348</td><td>St. Maarten</td></tr>
-                        <tr><td class="pref-num">349</td><td>Saba & Eustatius</td></tr>
-                        <tr><td class="pref-num">350</td><td>Bonaire Island</td></tr>
+                        <tr><td class="pref-num">349</td><td>Saba & St. Eustatius</td></tr>
+                        <tr><td class="pref-num">350</td><td>Bonaire</td></tr>
                         <tr><td class="pref-num">351</td><td>South Sudan</td></tr>
-                        <tr><td class="pref-num">352</td><td>Kosovo</td></tr>
+                        <tr><td class="pref-num">352</td><td>Kavala</td></tr>
                     </table>
                 </div>
             </div>
