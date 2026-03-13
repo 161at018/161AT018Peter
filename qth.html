@@ -5,18 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>161AT018 Peter - My QTH</title>
     <style>
-        body { background-color: #121212; color: #e0e0e0; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; }
-        .header { width: 100%; height: 200px; background: url("images/header.jpg") no-repeat center center; background-size: 100% 100%; border-bottom: 2px solid #ff9900; margin: 0; display: block; }
-        .wrapper { display: flex; flex-wrap: wrap; max-width: 1400px; margin: 20px auto; gap: 20px; padding: 0 20px; }
-        .panel, .content { background-color: #1e1e1e; border: 1px solid #333; padding: 25px; box-sizing: border-box; }
+        /* OGÓLNE USTAWIENIA */
+        body { 
+            background-color: #121212; 
+            color: #e0e0e0; 
+            font-family: 'Segoe UI', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+        }
+
+        /* NAGŁÓWEK - PROPORCJONALNY I DOPASOWANY DO KOLUMN */
+        .header { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            display: block;
+            line-height: 0; 
+        }
+
+        .header img {
+            width: 100%; 
+            height: auto; /* Zachowuje proporcje bez obcinania */
+            border-bottom: 2px solid #ff9900;
+            display: block;
+        }
+
+        /* GŁÓWNY KONTENER - WRAPPER */
+        .wrapper { 
+            display: flex; 
+            flex-wrap: wrap; 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            gap: 20px; 
+            padding: 20px; 
+            box-sizing: border-box;
+        }
+
+        .panel, .content { 
+            background-color: #1e1e1e; 
+            border: 1px solid #333; 
+            padding: 25px; 
+            box-sizing: border-box; 
+        }
+
         .panel { flex: 0 1 250px; }
         .content { flex: 1 1 800px; min-width: 350px; }
         
-        /* Menu Nawigacyjne */
+        /* MENU NAWIGACYJNE */
         .menu a { display: block; color: #bbb; text-decoration: none; padding: 12px 10px; border-bottom: 1px solid #2a2a2a; transition: 0.3s; cursor: pointer; }
         .menu a:hover { color: #fff; background: #2a2a2a; border-left: 4px solid #ff9900; }
         
-        /* Dropdown Menu dla Galerii */
+        /* DROPDOWN MENU */
         .dropdown { position: relative; display: block; }
         .dropdown-content {
             display: none;
@@ -31,12 +69,11 @@
             background: #1a1a1a;
         }
         .dropdown:hover .dropdown-content { display: block; }
-        .dropdown:hover > a { color: #fff; background: #2a2a2a; border-left: 4px solid #ff9900; }
 
         h1 { color: #ff9900; border-bottom: 2px solid #ff9900; padding-bottom: 10px; margin-top: 0; }
         h2 { color: #ff9900; font-size: 1.2em; margin-top: 25px; }
 
-        /* QTH Info Cards */
+        /* QTH INFO CARDS */
         .qth-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px; }
         .qth-card { background: #252525; padding: 15px; border-left: 3px solid #ff9900; }
         .qth-card b { color: #ff9900; display: block; font-size: 0.9em; text-transform: uppercase; }
@@ -45,7 +82,7 @@
         .map-wrapper { border: 1px solid #ff9900; margin-top: 20px; background: #000; line-height: 0; }
         .map-wrapper iframe { width: 100%; filter: grayscale(80%) invert(90%) hue-rotate(180deg); }
 
-        /* Zegary i Solar - IDENTYCZNE JAK W INDEX */
+        /* ZEGARY I SOLAR */
         .clock-container { text-align: center; }
         .clock-label { color: #ff9900; font-weight: bold; font-size: 14px; text-transform: uppercase; margin-bottom: 5px; }
         .time-local { font-size: 1.8em; font-weight: bold; color: #ff9900; font-family: "Courier New", monospace; }
@@ -54,12 +91,18 @@
         .solar-container { text-align: center; margin-top: 10px; }
         .solar-border { border: 1px solid #ff9900; padding: 2px; display: inline-block; background: #fff; line-height: 0; border-radius: 2px; }
 
-        @media (max-width: 850px) { .wrapper { flex-direction: column; } .header { height: 120px; } }
+        /* RESPONSYWNOŚĆ */
+        @media (max-width: 850px) { 
+            .wrapper { flex-direction: column; } 
+            .header { width: 100%; }
+        }
     </style>
 </head>
 <body onload="updateTime()">
 
-    <div class="header"></div>
+    <header class="header">
+        <img src="images/header.jpg" alt="161AT018 Peter Header">
+    </header>
 
     <div class="wrapper">
         <aside class="panel">
@@ -102,7 +145,7 @@
             
             <h2>Location Map</h2>
             <div class="map-wrapper">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d40498.05316453982!2d16.6133276!3d50.29742665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470e041352e8913b%3A0xc64e18378d380721!2s57-500%20Bystrzyca%20K%C5%82odzka!5e0!3m2!1spl!2spl!4v1700000000000" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10143.567890123!2d16.6432!3d50.2974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470e0f3f3f3f3f3f%3A0x4f4f4f4f4f4f4f4f!2sBystrzyca%20K%C5%82odzka!5e0!3m2!1spl!2spl!4v1234567890" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </main>
 
@@ -118,7 +161,7 @@
             <div class="solar-container">
                 <div class="clock-label" style="margin-bottom: 10px;">Solar Data</div>
                 <div class="solar-border">
-                    <a href="https://www.hamqsl.com/solar.html" title="Solar Data">
+                    <a href="https://www.hamqsl.com/solar.html" target="_blank" title="Solar Data">
                         <img src="https://www.hamqsl.com/solarn0nbh.php" alt="Solar Data" style="max-width: 100%; height: auto; display: block;">
                     </a>
                 </div>
