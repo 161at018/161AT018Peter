@@ -5,17 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>161AT018 Peter - QSL Info</title>
     <style>
-        body { background-color: #121212; color: #e0e0e0; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; }
-        .header { width: 100%; height: 200px; background: url("images/header.jpg") no-repeat center center; background-size: 100% 100%; border-bottom: 2px solid #ff9900; margin: 0; display: block; }
-        .wrapper { display: flex; flex-wrap: wrap; max-width: 1400px; margin: 20px auto; gap: 20px; padding: 0 20px; }
-        .panel, .content { background-color: #1e1e1e; border: 1px solid #333; padding: 25px; box-sizing: border-box; }
+        /* OGÓLNE USTAWIENIA */
+        body { 
+            background-color: #121212; 
+            color: #e0e0e0; 
+            font-family: 'Segoe UI', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+        }
+
+        /* NAGŁÓWEK - PROPORCJONALNY I DOPASOWANY DO KOLUMN */
+        .header { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            display: block;
+            line-height: 0; 
+        }
+
+        .header img {
+            width: 100%; 
+            height: auto; 
+            border-bottom: 2px solid #ff9900;
+            display: block;
+        }
+
+        /* GŁÓWNY KONTENER - WRAPPER */
+        .wrapper { 
+            display: flex; 
+            flex-wrap: wrap; 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            gap: 20px; 
+            padding: 20px; 
+            box-sizing: border-box;
+        }
+
+        .panel, .content { 
+            background-color: #1e1e1e; 
+            border: 1px solid #333; 
+            padding: 25px; 
+            box-sizing: border-box; 
+        }
+
         .panel { flex: 0 1 250px; }
         .content { flex: 1 1 800px; min-width: 350px; }
         
-        /* Menu Nawigacyjne z Dropdown */
+        /* MENU NAWIGACYJNE */
         .menu a { display: block; color: #bbb; text-decoration: none; padding: 12px 10px; border-bottom: 1px solid #2a2a2a; transition: 0.3s; cursor: pointer; }
         .menu a:hover { color: #fff; background: #2a2a2a; border-left: 4px solid #ff9900; }
         
+        /* DROPDOWN MENU */
         .dropdown { position: relative; display: block; }
         .dropdown-content {
             display: none;
@@ -30,12 +69,10 @@
             background: #1a1a1a;
         }
         .dropdown:hover .dropdown-content { display: block; }
-        .dropdown:hover > a { color: #fff; background: #2a2a2a; border-left: 4px solid #ff9900; }
 
         h1 { color: #ff9900; border-bottom: 2px solid #ff9900; padding-bottom: 10px; margin-top: 0; }
-        h2 { color: #ff9900; font-size: 1.3em; margin-top: 25px; border-left: 3px solid #ff9900; padding-left: 10px; }
-
-        /* QSL Box Styles */
+        
+        /* QSL STATUS BOX */
         .qsl-status { 
             background: #252525; 
             padding: 30px; 
@@ -43,12 +80,13 @@
             border: 1px solid #ff9900; 
             margin-top: 20px; 
             text-align: center;
+            box-shadow: 0 0 15px rgba(255, 153, 0, 0.1);
         }
-        .qsl-status h3 { color: #ff9900; margin-top: 0; text-transform: uppercase; }
-        .email-link { color: #ff9900; text-decoration: none; font-weight: bold; }
+        .qsl-status h3 { color: #ff9900; margin-top: 0; text-transform: uppercase; letter-spacing: 1px; }
+        .email-link { color: #ff9900; text-decoration: none; font-weight: bold; font-size: 1.1em; }
         .email-link:hover { text-decoration: underline; }
 
-        /* Zegary i Solar */
+        /* ZEGARY I SOLAR */
         .clock-container { text-align: center; }
         .clock-label { color: #ff9900; font-weight: bold; font-size: 14px; text-transform: uppercase; margin-bottom: 5px; }
         .time-local { font-size: 1.8em; font-weight: bold; color: #ff9900; font-family: "Courier New", monospace; }
@@ -57,12 +95,18 @@
         .solar-container { text-align: center; margin-top: 10px; }
         .solar-border { border: 1px solid #ff9900; padding: 2px; display: inline-block; background: #fff; line-height: 0; border-radius: 2px; }
 
-        @media (max-width: 850px) { .wrapper { flex-direction: column; } .header { height: 120px; } }
+        /* RESPONSYWNOŚĆ */
+        @media (max-width: 850px) { 
+            .wrapper { flex-direction: column; } 
+            .header { width: 100%; } 
+        }
     </style>
 </head>
 <body onload="updateTime()">
 
-    <div class="header"></div>
+    <header class="header">
+        <img src="images/header.jpg" alt="161AT018 Peter Header">
+    </header>
 
     <div class="wrapper">
         <aside class="panel">
@@ -98,15 +142,15 @@
                 <h3>100% QSL Guaranteed</h3>
                 <p>I confirm all received QSL cards 100%.</p>
                 <p>It is much appreciated if you include a <b>Self-Addressed Envelope (SAE)</b> with your card to ensure a smooth return.</p>
-                <p style="margin-top: 20px;">
-                    For any questions or postal address details, please contact me via email: <br>
+                <p style="margin-top: 25px; padding: 15px; background: #1a1a1a; border-radius: 4px;">
+                    For any questions or postal address details, please contact me via email: <br><br>
                     <a href="mailto:161at018@gmail.com" class="email-link">161at018@gmail.com</a>
                 </p>
             </div>
 
             <div style="text-align: center; margin-top: 40px;">
                 <img src="images/at_logo.png" alt="Alfa Tango" style="max-width: 150px; opacity: 0.7;">
-                <p style="font-size: 0.9em; color: #666; margin-top: 10px;">Alfa Tango International Group</p>
+                <p style="font-size: 0.9em; color: #888; margin-top: 10px; font-style: italic;">Alfa Tango International Group</p>
             </div>
         </main>
 
@@ -122,7 +166,7 @@
             <div class="solar-container">
                 <div class="clock-label" style="margin-bottom: 10px;">Solar Data</div>
                 <div class="solar-border">
-                    <a href="https://www.hamqsl.com/solar.html">
+                    <a href="https://www.hamqsl.com/solar.html" target="_blank">
                         <img src="https://www.hamqsl.com/solarn0nbh.php" alt="Solar Data" style="max-width: 100%; height: auto; display: block;">
                     </a>
                 </div>
